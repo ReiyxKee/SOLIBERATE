@@ -6,7 +6,7 @@ public class AR_Cam_Bearing_Position : MonoBehaviour
 {
     public GameObject Bearing;
     public GameObject ARCam;
-    public PlaceOnPlane plp;
+    public Placement plp;
 
     // Start is called before the first frame update
     void Start()

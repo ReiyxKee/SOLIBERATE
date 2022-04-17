@@ -746,7 +746,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 378229145}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlaceOnPlane, Assembly-CSharp
         m_MethodName: Reset_Pos
         m_Mode: 1
@@ -1020,14 +1020,12 @@ GameObject:
   m_Component:
   - component: {fileID: 378229144}
   - component: {fileID: 378229143}
-  - component: {fileID: 378229142}
-  - component: {fileID: 378229141}
   - component: {fileID: 378229140}
-  - component: {fileID: 378229139}
-  - component: {fileID: 378229138}
-  - component: {fileID: 378229145}
   - component: {fileID: 378229146}
   - component: {fileID: 378229147}
+  - component: {fileID: 378229150}
+  - component: {fileID: 378229149}
+  - component: {fileID: 378229148}
   m_Layer: 0
   m_Name: AR Session Origin
   m_TagString: Untagged
@@ -1035,32 +1033,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &378229138
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 378229137}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ab0e80cee9cc1d44928bfe488dd1e2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_PointCloudPrefab: {fileID: 0}
---- !u!114 &378229139
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 378229137}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 728ad7fae8e460a4ba41265c7308d757, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_AnchorPrefab: {fileID: 0}
 --- !u!114 &378229140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1074,33 +1046,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_RaycastPrefab: {fileID: 1111950282503017886, guid: 6b8b6757df2eb834b92f29c853c7c08a, type: 3}
---- !u!114 &378229141
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 378229137}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afcab4e7938ae724a8a59ecac3580761, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_DestroyOnRemoval: 1
---- !u!114 &378229142
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 378229137}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1760703bbd54c04488a8d10600262ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_PlanePrefab: {fileID: 0}
-  m_DetectionMode: 1
 --- !u!114 &378229143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1131,7 +1076,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &378229145
+--- !u!114 &378229146
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1140,30 +1085,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 378229137}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0c8d427aaf192541baa0eff7a48537b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_PlacedPrefab: {fileID: 4649611467330553173, guid: 8a55277fdc7302b478c2f6f5a332e503, type: 3}
-  visualObject: {fileID: 1834772077}
-  Test: 0
-  Virtual_Cam: {fileID: 1668917618}
-  spawnedObject: {fileID: 0}
-  ArSession: {fileID: 593456134}
---- !u!114 &378229146
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 378229137}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7c123c89263631e4ba1bd957d50cc93c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Placement: {fileID: 378229145}
+  Placement: {fileID: 0}
   ResetPos: {fileID: 189212578}
-  PlaneManager: {fileID: 378229142}
+  PlaneManager: {fileID: 0}
   Detected: {fileID: 502870783}
 --- !u!114 &378229147
 MonoBehaviour:
@@ -1182,11 +1109,52 @@ MonoBehaviour:
   ArSession: {fileID: 593456134}
   Virtual_Cam: {fileID: 1668917618}
   Calibrator: {fileID: 1214967765}
+  Forward_Distance: 1.15
   Floor_Distance: 0
   Cal_1_Button: {fileID: 913861284}
   Cal_2_Button: {fileID: 1494636772}
   Spawn_Button: {fileID: 305296689}
   Instruction: {fileID: 992548516}
+--- !u!114 &378229148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378229137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 788587e994f1943f3856c1c332db429b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AnchorPrefab: {fileID: 8912890260757553875, guid: 3d11ca5fb81b6b34591e088c6231b9c0, type: 3}
+--- !u!114 &378229149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378229137}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1760703bbd54c04488a8d10600262ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PlanePrefab: {fileID: 0}
+  m_DetectionMode: -1
+--- !u!114 &378229150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378229137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 728ad7fae8e460a4ba41265c7308d757, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AnchorPrefab: {fileID: 8912890260757553875, guid: 3d11ca5fb81b6b34591e088c6231b9c0, type: 3}
 --- !u!1 &428237914
 GameObject:
   m_ObjectHideFlags: 0
@@ -1903,7 +1871,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AttemptUpdate: 1
-  m_MatchFrameRate: 1
+  m_MatchFrameRate: 0
   m_TrackingMode: 2
 --- !u!4 &593456135
 Transform:
@@ -3902,7 +3870,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Bearing: {fileID: 1475866971}
   ARCam: {fileID: 1668917618}
-  plp: {fileID: 378229145}
+  plp: {fileID: 378229147}
 --- !u!4 &1475866973
 Transform:
   m_ObjectHideFlags: 0
@@ -4044,7 +4012,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 1668917618}
-  plp: {fileID: 378229145}
+  plp: {fileID: 0}
   Obj: {fileID: 0}
   Bearing: {fileID: 1475866971}
   SwitchStage: {fileID: 0}
@@ -4666,7 +4634,7 @@ MonoBehaviour:
   m_FocusMode: -1
   m_LightEstimationMode: -1
   m_AutoFocus: 1
-  m_LightEstimation: -1
+  m_LightEstimation: 0
   m_FacingDirection: 1
 --- !u!114 &1668917622
 MonoBehaviour:
@@ -5027,11 +4995,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98c57c60d5f37d34cb0d009317bd15af, type: 3}
---- !u!1 &1834772077 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8297056788253150765, guid: 98c57c60d5f37d34cb0d009317bd15af, type: 3}
-  m_PrefabInstance: {fileID: 1834772076}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1881141085
 GameObject:
   m_ObjectHideFlags: 0
@@ -5116,7 +5079,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 378229145}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlaceOnPlane, Assembly-CSharp
         m_MethodName: Reset_Detection
         m_Mode: 1
@@ -5128,7 +5091,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 378229145}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlaceOnPlane, Assembly-CSharp
         m_MethodName: Reset_Pos
         m_Mode: 1

@@ -25,6 +25,7 @@ public class Placement : MonoBehaviour
     public GameObject Calibrator;
 
 
+    public float Forward_Distance;
     public float Floor_Distance;
     private float Cal_Pos_1;
     private float Cal_Pos_2;
@@ -79,10 +80,16 @@ public class Placement : MonoBehaviour
 
     public void Spawn_Solar()
     {
-        Vector3 Position = new Vector3(Virtual_Cam.transform.position.x, Virtual_Cam.transform.position.y - Floor_Distance, Virtual_Cam.transform.position.z) + Virtual_Cam.transform.forward;
+        Vector3 Position = new Vector3(Virtual_Cam.transform.position.x, Virtual_Cam.transform.position.y - Floor_Distance, Virtual_Cam.transform.position.z) + Virtual_Cam.transform.forward * Forward_Distance;
         if (spawnedObject == null)
         {
             spawnedObject = Instantiate(m_Game_Prefab, Position, new Quaternion(0, 0, 0, 0));
+            spawnedObject.transform.parent = GameObject.Find("Trackables").transform;
+        }
+        else
+        {
+            spawnedObject.transform.position = Position;
+            spawnedObject.transform.parent = GameObject.Find("Trackables").transform;
         }
     }
 }
