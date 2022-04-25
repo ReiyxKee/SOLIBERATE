@@ -18,7 +18,7 @@ public class Planet_Rotation : MonoBehaviour
     public float Rotate_Around_Speed;
     public float rotate_Around_Speed;
     public GameObject Rotate_Around_Parent;
-
+    public bool Clockwise;
     // Start is called before the first frame update
     void Start()
     {
@@ -59,7 +59,7 @@ public class Planet_Rotation : MonoBehaviour
         while (true)
         {
             float angleSpeed = Time.fixedDeltaTime + rotate_Around_Speed;
-            this.transform.RotateAround(point, Vector3.up, angleSpeed);
+            this.transform.RotateAround(point, Clockwise ? Vector3.up : -Vector3.up, angleSpeed);
             angle += angleSpeed;
             yield return null;
         }
