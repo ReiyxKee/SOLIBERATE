@@ -44,25 +44,10 @@ public class Planet_Rotation : MonoBehaviour
             this.transform.Rotate(Self_Rotate_Axis_X ? self_Rotate_Speed : 0, Self_Rotate_Axis_Y ? self_Rotate_Speed : 0, Self_Rotate_Axis_Z ? self_Rotate_Speed : 0);
         }
 
-        if(Rotate_Around && !Rolling)
+        if(Rotate_Around )
         {
-            StartCoroutine(Roll());
+            this.transform.Rotate(Self_Rotate_Axis_X ? (Clockwise? 1:-1) * rotate_Around_Speed : 0, Self_Rotate_Axis_Y ? (Clockwise ? 1 : -1) * rotate_Around_Speed : 0, Self_Rotate_Axis_Z ? (Clockwise ? 1 : -1) * rotate_Around_Speed : 0);
         }
     }
 
-    public IEnumerator Roll()
-    {
-        Rolling = true;
-        float angle = 0;
-        Vector3 point = Rotate_Around_Parent.transform.position;
-
-        while (true)
-        {
-            float angleSpeed = Time.fixedDeltaTime + rotate_Around_Speed;
-            this.transform.RotateAround(point, Clockwise ? Vector3.up : -Vector3.up, angleSpeed);
-            angle += angleSpeed;
-            yield return null;
-        }
-
-    }
 }
