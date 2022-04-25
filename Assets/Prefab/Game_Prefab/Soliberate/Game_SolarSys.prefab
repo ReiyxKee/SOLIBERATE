@@ -1,5 +1,44 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!135 &2491710268943432973
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1512845215363743}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 8.4
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!135 &8567489685770510329
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 309912727966758410}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 13.55
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!135 &5254961509527421358
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4019348114789644476}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 17.7
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4649611467330553173
 GameObject:
   m_ObjectHideFlags: 0
@@ -9,10 +48,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7327010998083166358}
-  - component: {fileID: 4111082169052409103}
   m_Layer: 0
   m_Name: Game_SolarSys
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41,23 +79,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4111082169052409103
-MonoBehaviour:
+--- !u!135 &8581059391034917615
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4649611467330553173}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f85d479259f5bb84d99edcef67f25a67, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  StageList:
-  - {fileID: 0}
-  - {fileID: 0}
-  CurrentStage: {fileID: 0}
-  Stage: 0
+  m_GameObject: {fileID: 4734219341020338436}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 9.07
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!135 &6246726309363868971
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4946801536978870155}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 30
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8534315903431304636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71,6 +118,58 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_DestroyOnRemoval: 0
+--- !u!135 &4109365136883954489
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5980260695773992307}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 17.74
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!135 &4581469646013357108
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8170960208360885155}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 6.74
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!135 &830732578186133202
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8218546557208131090}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 12.6
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!135 &362744087819273316
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8939668577654975323}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 6.16
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &236723106128516837
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -88,7 +187,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4826259017374879713, guid: 2c0c6ac0423efcc499e44c9f0eb60c4e, type: 3}
       propertyPath: m_Name
-      value: EarthPrefab
+      value: Earth
+      objectReference: {fileID: 0}
+    - target: {fileID: 4826259017374879713, guid: 2c0c6ac0423efcc499e44c9f0eb60c4e, type: 3}
+      propertyPath: m_TagString
+      value: Planet
       objectReference: {fileID: 0}
     - target: {fileID: 5310168019670373723, guid: 2c0c6ac0423efcc499e44c9f0eb60c4e, type: 3}
       propertyPath: m_RootOrder
@@ -134,8 +237,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5311589755329950491, guid: 2c0c6ac0423efcc499e44c9f0eb60c4e, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753168387081353183, guid: 2c0c6ac0423efcc499e44c9f0eb60c4e, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c0c6ac0423efcc499e44c9f0eb60c4e, type: 3}
+--- !u!1 &4734219341020338436 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4826259017374879713, guid: 2c0c6ac0423efcc499e44c9f0eb60c4e, type: 3}
+  m_PrefabInstance: {fileID: 236723106128516837}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5402212634172670910 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5310168019670373723, guid: 2c0c6ac0423efcc499e44c9f0eb60c4e, type: 3}
@@ -158,7 +274,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4826259017374879713, guid: 0156fcdb81997414890cd2065265af4c, type: 3}
       propertyPath: m_Name
-      value: SunPrefab
+      value: Sun
+      objectReference: {fileID: 0}
+    - target: {fileID: 4826259017374879713, guid: 0156fcdb81997414890cd2065265af4c, type: 3}
+      propertyPath: m_TagString
+      value: Planet
       objectReference: {fileID: 0}
     - target: {fileID: 5310168019670373723, guid: 0156fcdb81997414890cd2065265af4c, type: 3}
       propertyPath: m_RootOrder
@@ -233,7 +353,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4826259017374879713, guid: a4b7b977b31bfbe40a23aa85684611a2, type: 3}
       propertyPath: m_Name
-      value: SaturnPrefab
+      value: Saturn
+      objectReference: {fileID: 0}
+    - target: {fileID: 4826259017374879713, guid: a4b7b977b31bfbe40a23aa85684611a2, type: 3}
+      propertyPath: m_TagString
+      value: Planet
       objectReference: {fileID: 0}
     - target: {fileID: 5310168019670373723, guid: a4b7b977b31bfbe40a23aa85684611a2, type: 3}
       propertyPath: m_RootOrder
@@ -286,6 +410,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5310168019670373723, guid: a4b7b977b31bfbe40a23aa85684611a2, type: 3}
   m_PrefabInstance: {fileID: 1154177604156201618}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5980260695773992307 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4826259017374879713, guid: a4b7b977b31bfbe40a23aa85684611a2, type: 3}
+  m_PrefabInstance: {fileID: 1154177604156201618}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3527573659352938995
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -303,7 +432,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4826259017374879713, guid: 93936569e1f7497499597f74c2a139a9, type: 3}
       propertyPath: m_Name
-      value: NeptunePrefab
+      value: Neptune
+      objectReference: {fileID: 0}
+    - target: {fileID: 4826259017374879713, guid: 93936569e1f7497499597f74c2a139a9, type: 3}
+      propertyPath: m_TagString
+      value: Planet
       objectReference: {fileID: 0}
     - target: {fileID: 5310168019670373723, guid: 93936569e1f7497499597f74c2a139a9, type: 3}
       propertyPath: m_RootOrder
@@ -351,6 +484,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93936569e1f7497499597f74c2a139a9, type: 3}
+--- !u!1 &8218546557208131090 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4826259017374879713, guid: 93936569e1f7497499597f74c2a139a9, type: 3}
+  m_PrefabInstance: {fileID: 3527573659352938995}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8738659071513996456 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5310168019670373723, guid: 93936569e1f7497499597f74c2a139a9, type: 3}
@@ -373,7 +511,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4826259017374879713, guid: 4316ba38fe94c3348bf87a60fcc82664, type: 3}
       propertyPath: m_Name
-      value: MarsPrefab
+      value: Mars
+      objectReference: {fileID: 0}
+    - target: {fileID: 4826259017374879713, guid: 4316ba38fe94c3348bf87a60fcc82664, type: 3}
+      propertyPath: m_TagString
+      value: Planet
       objectReference: {fileID: 0}
     - target: {fileID: 5310168019670373723, guid: 4316ba38fe94c3348bf87a60fcc82664, type: 3}
       propertyPath: m_RootOrder
@@ -433,6 +575,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: a70e5e5092b4e654eb87a9a48b542217, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4316ba38fe94c3348bf87a60fcc82664, type: 3}
+--- !u!1 &8170960208360885155 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4826259017374879713, guid: 4316ba38fe94c3348bf87a60fcc82664, type: 3}
+  m_PrefabInstance: {fileID: 3719766609281418306}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8804191647161356569 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5310168019670373723, guid: 4316ba38fe94c3348bf87a60fcc82664, type: 3}
@@ -455,7 +602,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4826259017374879713, guid: d66d975b508376b42995e1d2abcd97a0, type: 3}
       propertyPath: m_Name
-      value: MercuryPrefab
+      value: Mercury
+      objectReference: {fileID: 0}
+    - target: {fileID: 4826259017374879713, guid: d66d975b508376b42995e1d2abcd97a0, type: 3}
+      propertyPath: m_TagString
+      value: Planet
       objectReference: {fileID: 0}
     - target: {fileID: 5310168019670373723, guid: d66d975b508376b42995e1d2abcd97a0, type: 3}
       propertyPath: m_RootOrder
@@ -508,6 +659,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5310168019670373723, guid: d66d975b508376b42995e1d2abcd97a0, type: 3}
   m_PrefabInstance: {fileID: 4533510971615831226}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8939668577654975323 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4826259017374879713, guid: d66d975b508376b42995e1d2abcd97a0, type: 3}
+  m_PrefabInstance: {fileID: 4533510971615831226}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4827593740074794366
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -525,7 +681,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4826259017374879713, guid: 7f71be03560cacd4a870da8214fcd229, type: 3}
       propertyPath: m_Name
-      value: VenusPrefab
+      value: Venus
+      objectReference: {fileID: 0}
+    - target: {fileID: 4826259017374879713, guid: 7f71be03560cacd4a870da8214fcd229, type: 3}
+      propertyPath: m_TagString
+      value: Planet
       objectReference: {fileID: 0}
     - target: {fileID: 5310168019670373723, guid: 7f71be03560cacd4a870da8214fcd229, type: 3}
       propertyPath: m_RootOrder
@@ -578,6 +738,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5310168019670373723, guid: 7f71be03560cacd4a870da8214fcd229, type: 3}
   m_PrefabInstance: {fileID: 4827593740074794366}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1512845215363743 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4826259017374879713, guid: 7f71be03560cacd4a870da8214fcd229, type: 3}
+  m_PrefabInstance: {fileID: 4827593740074794366}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5095637137709300203
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -595,7 +760,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4826259017374879713, guid: 3e41b2a79a0b6054e94b977cc191f487, type: 3}
       propertyPath: m_Name
-      value: UranusPrefab
+      value: Uranus
+      objectReference: {fileID: 0}
+    - target: {fileID: 4826259017374879713, guid: 3e41b2a79a0b6054e94b977cc191f487, type: 3}
+      propertyPath: m_TagString
+      value: Planet
       objectReference: {fileID: 0}
     - target: {fileID: 5310168019670373723, guid: 3e41b2a79a0b6054e94b977cc191f487, type: 3}
       propertyPath: m_RootOrder
@@ -643,6 +812,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e41b2a79a0b6054e94b977cc191f487, type: 3}
+--- !u!1 &309912727966758410 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4826259017374879713, guid: 3e41b2a79a0b6054e94b977cc191f487, type: 3}
+  m_PrefabInstance: {fileID: 5095637137709300203}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1082789531094412464 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5310168019670373723, guid: 3e41b2a79a0b6054e94b977cc191f487, type: 3}
@@ -665,7 +839,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4826259017374879713, guid: 77a08ec1a7032e74e8eca08b6f9d553f, type: 3}
       propertyPath: m_Name
-      value: JupiterPrefab
+      value: Jupiter
+      objectReference: {fileID: 0}
+    - target: {fileID: 4826259017374879713, guid: 77a08ec1a7032e74e8eca08b6f9d553f, type: 3}
+      propertyPath: m_TagString
+      value: Planet
       objectReference: {fileID: 0}
     - target: {fileID: 5310168019670373723, guid: 77a08ec1a7032e74e8eca08b6f9d553f, type: 3}
       propertyPath: m_RootOrder
@@ -713,6 +891,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77a08ec1a7032e74e8eca08b6f9d553f, type: 3}
+--- !u!1 &4019348114789644476 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4826259017374879713, guid: 77a08ec1a7032e74e8eca08b6f9d553f, type: 3}
+  m_PrefabInstance: {fileID: 8448127080558491485}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4362940737858068998 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5310168019670373723, guid: 77a08ec1a7032e74e8eca08b6f9d553f, type: 3}

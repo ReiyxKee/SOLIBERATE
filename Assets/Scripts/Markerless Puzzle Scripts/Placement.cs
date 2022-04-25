@@ -18,83 +18,102 @@ public class Placement : MonoBehaviour
         set { m_Game_Prefab = value; }
     }
 
+    public GameObject PlayableTest;
     public GameObject spawnedObject; //{ get; private set; }
     public ARSession ArSession;
     public GameObject Virtual_Cam;
 
     public GameObject Calibrator;
 
-
     public float Forward_Distance;
     public float Floor_Distance;
-    private float Cal_Pos_1;
-    private float Cal_Pos_2;
-
-    public GameObject Reset_Button;
     public GameObject Cal_Button;
     public GameObject Spawn_Button;
 
     public TextMeshProUGUI Instruction;
-
+    public bool Calibration_Complete;
     public void Start()
     {
-        Instruction.text = "Calibration\nPlease Hold Your Phone Upright at your Comfortable Height";
-        //Cal_1_Button.SetActive(true);
+        Instruction.text = "Please Hold Your Phone Upright at your Comfortable Height";
+        Calibration_Complete = false;
         Cal_Button.SetActive(true);
-        Reset_Button.SetActive(false);
         Spawn_Button.SetActive(false);
     }
     public void Update()
     {
     }
 
-    //public void Calibration_1()
-    //{
-    //    //Player Get near the floor, Get Pos1
-    //    Cal_Pos_1 = getHeight();
-    //    Cal_1_Button.SetActive(false);
-    //    Cal_2_Button.SetActive(true);
-    //    Spawn_Button.SetActive(false);
-    //    Instruction.text = "Thank You, Now Stand Back Up and Hold Your Phone Camera Facing Forward.";
-
-    //}
-
     public void Calibration_2()
     {
-        //Player stand up, get pos2
-        //Cal_Pos_2 = getHeight();
-
-        //height = pos 1 - pos 2
-        //Floor_Distance = Cal_Pos_2 - Cal_Pos_1;
-        //reset session
         ArSession.Reset();
-        //spawn button
-        //Cal_1_Button.SetActive(false);
         Cal_Button.SetActive(false);
-        Reset_Button.SetActive(false);
         Spawn_Button.SetActive(true);
-        Instruction.text = "Ensure in a well lit environment for best AR Experience";
+        Instruction.text = "Stay in a well lit environment for best AR Experience";
     }
 
-    //public float getHeight()
-    //{
-    //    return Calibrator.transform.position.y;
-    //}
 
     public void Spawn_Solar()
     {
+        Calibration_Complete = true;
         Cal_Button.SetActive(false);
-        Reset_Button.SetActive(true);
         Spawn_Button.SetActive(false);
         Instruction.text = "";
         Vector3 Position = new Vector3(Virtual_Cam.transform.position.x, Virtual_Cam.transform.position.y - Floor_Distance, Virtual_Cam.transform.position.z) + Virtual_Cam.transform.forward * Forward_Distance;
         if (spawnedObject == null)
         {
             spawnedObject = Instantiate(m_Game_Prefab, Position, new Quaternion(0, 0, 0, 0));
+            spawnedObject.name = "Game_SolarSys";
             spawnedObject.transform.parent = GameObject.Find("Trackables").transform;
         }
         else
         {
+            Destroy(spawnedObject.gameObject);
+            spawnedObject = Instantiate(m_Game_Prefab, Position, new Quaternion(0, 0, 0, 0));
+            spawnedObject.transform.position = Position;
+            spawnedObject.transform.parent = GameObject.Find("Trackables").transform;
+        }
+    }
+    
+    public void Spawn_StageTest()
+    {
+        Cal_Button.SetActive(false);
+        Spawn_Button.SetActive(false);
+        Instruction.text = "";
+        Vector3 Position = new Vector3(Virtual_Cam.transform.position.x, Virtual_Cam.transform.position.y, Virtual_Cam.transform.position.z) + Virtual_Cam.transform.forward*0.5f;
+        if (spawnedObject == null)
+        {
+            spawnedObject = Instantiate(PlayableTest, Position, new Quaternion(0, 0, 0, 0));
+            spawnedObject.name = "PlanetGame";
+            spawnedObject.transform.parent = GameObject.Find("Trackables").transform;
+        }
+        else
+        {
+            Destroy(spawnedObject.gameObject);
+
+            spawnedObject = Instantiate(PlayableTest, Position, new Quaternion(0, 0, 0, 0));
+            spawnedObject.name = "PlanetGame";
+            spawnedObject.transform.position = Position;
+            spawnedObject.transform.parent = GameObject.Find("Trackables").transform;
+        }
+    }
+    public void Spawn_Planet(GameObject Planet)
+    {
+        Cal_Button.SetActive(false);
+        Spawn_Button.SetActive(false);
+        Instruction.text = "";
+        Vector3 Position = new Vector3(Virtual_Cam.transform.position.x, Virtual_Cam.transform.position.y, Virtual_Cam.transform.position.z) + Virtual_Cam.transform.forward*0.5f;
+        if (spawnedObject == null)
+        {
+            spawnedObject = Instantiate(Planet, Position, new Quaternion(0, 0, 0, 0));
+            spawnedObject.name = "PlanetGame";
+            spawnedObject.transform.parent = GameObject.Find("Trackables").transform;
+        }
+        else
+        {
+            Destroy(spawnedObject.gameObject);
+
+            spawnedObject = Instantiate(Planet, Position, new Quaternion(0, 0, 0, 0));
+            spawnedObject.name = "PlanetGame";
             spawnedObject.transform.position = Position;
             spawnedObject.transform.parent = GameObject.Find("Trackables").transform;
         }
@@ -103,13 +122,13 @@ public class Placement : MonoBehaviour
     public void Reset_ARSession()
     {
         ArSession.Reset();
-        
+
+        Calibration_Complete = false;
         Destroy(spawnedObject.gameObject);
         spawnedObject = null;
         Cal_Button.SetActive(true);
-        Reset_Button.SetActive(false);
         Spawn_Button.SetActive(false);
-        Instruction.text = "Calibration\nPlease Hold Your Phone Upright at your Comfortable Height";
+        Instruction.text = "Please Hold Your Phone Upright at your Comfortable Height";
     }
 
 }

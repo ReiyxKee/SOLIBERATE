@@ -56,7 +56,7 @@ public class TurningPoint : MonoBehaviour
 
                         if (screenTouch.phase == TouchPhase.Moved)
                         {
-                            Debug.Log(TouchInput.swipe.Direction);
+                            //Debug.Log(TouchInput.swipe.Direction);
 
                             swipeData = TouchInput.swipe;
 
@@ -160,7 +160,7 @@ public class TurningPoint : MonoBehaviour
 
                         if (screenTouch.phase == TouchPhase.Moved)
                         {
-                            Debug.Log(TouchInput.swipe.Direction);
+                            //Debug.Log(TouchInput.swipe.Direction);
 
                             swipeData = TouchInput.swipe;
 
@@ -264,7 +264,7 @@ public class TurningPoint : MonoBehaviour
 
                         if (screenTouch.phase == TouchPhase.Moved)
                         {
-                            Debug.Log(TouchInput.swipe.Direction);
+                            //Debug.Log(TouchInput.swipe.Direction);
 
                             swipeData = TouchInput.swipe;
 

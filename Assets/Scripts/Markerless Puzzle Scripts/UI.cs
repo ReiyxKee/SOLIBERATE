@@ -66,7 +66,7 @@ public class UI : MonoBehaviour
 
         UIOreintation = Vector2.SignedAngle(new Vector2(BearingPos.transform.position.x, BearingPos.transform.position.z) - new Vector2(ObjectPos.transform.position.x, ObjectPos.transform.position.z), new Vector2(ObjectPos.transform.position.x, ObjectPos.transform.position.z) + new Vector2(0,1));
 
-        Debug.Log("Object: " + ObjectPos.transform.position + " Bearing: " + BearingPos.transform.position + " Oreint: " + UIOreintation);
+        //Debug.Log("Object: " + ObjectPos.transform.position + " Bearing: " + BearingPos.transform.position + " Oreint: " + UIOreintation);
         ControlParent.transform.rotation = Quaternion.Euler(0, 0, UIOreintation);
     }
 
