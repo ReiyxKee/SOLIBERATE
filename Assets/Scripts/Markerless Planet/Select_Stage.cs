@@ -15,6 +15,7 @@ public class Select_Stage : MonoBehaviour
     public bool OnTap;
     public GameObject GameParent;
     public GameObject[] Planets;
+    public GameObject[] PlanetsPrefabs;
     public GameObject CurrentPlanet;
     public int CurrentUI;
     public int CurrentPlanet_Code;
@@ -52,9 +53,11 @@ public class Select_Stage : MonoBehaviour
             
             if (GameObject.Find("Game_SolarSys"))
             {
-                GameParent = GameObject.Find("Game_SolarSys").gameObject;
-                Planets = new GameObject[GameParent.transform.childCount];
+                GameParent = GameObject.Find("Game_SolarSys/Sun/Childrens").gameObject;
+                Planets = new GameObject[GameParent.transform.childCount+1];
                 int i = 0;
+                Planets[0] = GameObject.Find("Game_SolarSys/Sun").gameObject;
+                i++;
                 foreach (Transform planet in GameParent.transform)
                 {
                     Planets[i] = planet.gameObject;
@@ -63,9 +66,11 @@ public class Select_Stage : MonoBehaviour
             }
             else if (GameObject.Find("Game_SolarSys(Clone)"))
             {
-                GameParent = GameObject.Find("Game_SolarSys(Clone)").gameObject;
-                Planets = new GameObject[GameParent.transform.childCount];
+                GameParent = GameObject.Find("Game_SolarSys(Clone)/Sun/Childrens").gameObject;
+                Planets = new GameObject[GameParent.transform.childCount + 1];
                 int i = 0;
+                Planets[0] = GameObject.Find("Game_SolarSys(Clone)/Sun").gameObject;
+                i++;
                 foreach (Transform planet in GameParent.transform)
                 {
                     Planets[i] = planet.gameObject;
@@ -220,7 +225,7 @@ public class Select_Stage : MonoBehaviour
     {
         GameParent = null;
         Instruction.text = "";
-        placement.Spawn_Planet(Planets[CurrentPlanet_Code]);
+        placement.Spawn_Planet(PlanetsPrefabs[CurrentPlanet_Code]);
         UI_StageSelection.SetActive(false);
         UI_Info.SetActive(false);
         UI_Calibration.SetActive(false);
@@ -255,6 +260,8 @@ public class Select_Stage : MonoBehaviour
         UI_Info.SetActive(false);
         UI_Calibration.SetActive(true);
         UI_InStage.SetActive(false);
+        InStage = false;
+        GameParent = null;
     }
 
     public void Show_StageUI()

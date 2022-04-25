@@ -7083,6 +7083,7 @@ GameObject:
   - component: {fileID: 1480579369}
   - component: {fileID: 1480579368}
   - component: {fileID: 1480579370}
+  - component: {fileID: 1480579371}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -7229,6 +7230,16 @@ MonoBehaviour:
   OnTap: 0
   GameParent: {fileID: 0}
   Planets: []
+  PlanetsPrefabs:
+  - {fileID: 4826259017374879713, guid: 0156fcdb81997414890cd2065265af4c, type: 3}
+  - {fileID: 4826259017374879713, guid: d66d975b508376b42995e1d2abcd97a0, type: 3}
+  - {fileID: 4826259017374879713, guid: 7f71be03560cacd4a870da8214fcd229, type: 3}
+  - {fileID: 4826259017374879713, guid: 2c0c6ac0423efcc499e44c9f0eb60c4e, type: 3}
+  - {fileID: 4826259017374879713, guid: 4316ba38fe94c3348bf87a60fcc82664, type: 3}
+  - {fileID: 4826259017374879713, guid: 77a08ec1a7032e74e8eca08b6f9d553f, type: 3}
+  - {fileID: 4826259017374879713, guid: a4b7b977b31bfbe40a23aa85684611a2, type: 3}
+  - {fileID: 4826259017374879713, guid: 3e41b2a79a0b6054e94b977cc191f487, type: 3}
+  - {fileID: 4826259017374879713, guid: 93936569e1f7497499597f74c2a139a9, type: 3}
   CurrentPlanet: {fileID: 0}
   CurrentUI: 0
   CurrentPlanet_Code: 0
@@ -7241,6 +7252,19 @@ MonoBehaviour:
   PlanetName:
   - {fileID: 517575943}
   - {fileID: 45906489}
+--- !u!114 &1480579371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1480579363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ee3f0f26e3b15a47916f56a21984fe4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Cleared: 000000000000000000
 --- !u!1 &1494636772
 GameObject:
   m_ObjectHideFlags: 0

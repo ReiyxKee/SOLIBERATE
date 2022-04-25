@@ -137,7 +137,9 @@ MonoBehaviour:
   Tape_Segments: 30
   Tape_Material:
   - {fileID: 2100000, guid: 43204cd253fbbdd4490759924291588c, type: 2}
+  Cleared: 0
   Generated: 1
+  ThisStage: 0
 --- !u!64 &2999474393940150461
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -292,6 +294,7 @@ GameObject:
   - component: {fileID: 5254638853422391751}
   - component: {fileID: 7437489045433159448}
   - component: {fileID: 6016536603470933744}
+  - component: {fileID: 4146009351248765427}
   m_Layer: 0
   m_Name: Planet Model
   m_TagString: Untagged
@@ -378,6 +381,28 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4146009351248765427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3505864691619332626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a96d9e74bddff314e9864113198a5197, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TimeScale: 1
+  Self_Rotate: 1
+  Self_Rotate_Speed: 0.01083
+  Self_Rotate_Axis_X: 0
+  Self_Rotate_Axis_Y: 1
+  Self_Rotate_Axis_Z: 0
+  Rotate_Around: 0
+  Rotate_Around_Speed: 0
+  rotate_Around_Speed: 0
+  Rotate_Around_Parent: {fileID: 0}
 --- !u!1 &3533863213896517191
 GameObject:
   m_ObjectHideFlags: 0

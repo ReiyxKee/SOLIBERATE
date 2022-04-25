@@ -14,16 +14,19 @@ public class GlobeTape_Mesh_Gen : MonoBehaviour
     public int Tape_Segments;
     public Material[] Tape_Material;
 
+    public bool Cleared;
     public bool Generated;
 
+    public int ThisStage;
     private void Start()
     {
         Generated = false;
+        Cleared = GameObject.Find("Canvas").GetComponent<SaveLoad>().Cleared[ThisStage];
     }
 
     private void Update()
     {
-        if (!Generated)
+        if (!Generated && !Cleared)
         {
             radius = Sphere.GetComponent<SphereCollider>().radius;
             this.GetComponent<MeshRenderer>().materials = Tape_Material;
