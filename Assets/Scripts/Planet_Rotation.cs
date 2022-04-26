@@ -31,7 +31,7 @@ public class Planet_Rotation : MonoBehaviour
 
         if (TimeScale > 2)
         {
-            TimeScale -= Time.deltaTime * 100;
+            TimeScale -= Time.fixedDeltaTime * 40;
         }
         else if(TimeScale < 2)
         { TimeScale = 2; }
