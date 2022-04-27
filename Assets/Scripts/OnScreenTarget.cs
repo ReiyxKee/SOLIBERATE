@@ -23,7 +23,7 @@ public class OnScreenTarget : MonoBehaviour
         else
         {
             TargetMarker.SetActive(true);
-            TargetMarker.GetComponent<RectTransform>().position = cam.WorldToScreenPoint(SelectedTarget.transform.position);
+            TargetMarker.GetComponent<RectTransform>().position = cam.WorldToScreenPoint(SelectedTarget.transform.GetChild(0).gameObject.transform.position);
         }
     }
 }

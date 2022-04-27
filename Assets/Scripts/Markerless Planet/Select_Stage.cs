@@ -198,7 +198,7 @@ public class Select_Stage : MonoBehaviour
         {
             CurrentPlanet_Code = 0;
         }
-        else if(CurrentPlanet == Planets[Planets.Length-1])
+        else if(CurrentPlanet_Code == Planets.Length-1)
         {
             CurrentPlanet_Code = 0;
         }
@@ -215,7 +215,7 @@ public class Select_Stage : MonoBehaviour
         {
             CurrentPlanet_Code = 0;
         }
-        else if (CurrentPlanet == Planets[0])
+        else if (CurrentPlanet_Code == 0)
         {
             CurrentPlanet_Code = Planets.Length-1;
         }
