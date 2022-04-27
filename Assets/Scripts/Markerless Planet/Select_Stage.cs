@@ -26,7 +26,17 @@ public class Select_Stage : MonoBehaviour
     public GameObject UI_Info;
     public GameObject UI_System;
     public GameObject UI_Calibration;
-    public GameObject UI_InStage;
+    //public GameObject UI_InStage;
+    public GameObject UI_PreviewStage;
+
+    public GameObject Button_Pause;
+    public GameObject Button_Setting;
+
+    public bool Pause_Menu;
+    public GameObject UI_PauseMenu;
+
+    public bool Setting_Menu;
+    public GameObject UI_SettingMenu;
 
     public TextMeshProUGUI Instruction;
     public TextMeshProUGUI[] PlanetName;
@@ -38,16 +48,30 @@ public class Select_Stage : MonoBehaviour
         UI_StageSelection.SetActive(false);
         UI_Info.SetActive(false);
         UI_Calibration.SetActive(true);
-        UI_InStage.SetActive(false);
+        UI_PreviewStage.SetActive(false);
+        Button_Pause.SetActive(false);
+        Button_Setting.SetActive(true);
+        Setting_Menu = false;
+        Pause_Menu = false;
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        UI_PauseMenu.SetActive(Pause_Menu);
+        UI_SettingMenu.SetActive(Setting_Menu);
+
         if (!InStage)
         {
             TouchSelection();
+            Button_Setting.SetActive(true);
+            Button_Pause.SetActive(false);
+        }
+        else
+        {
+            Button_Setting.SetActive(false);
+            Button_Pause.SetActive(true);
         }
 
         if (GameParent == null)
@@ -91,10 +115,13 @@ public class Select_Stage : MonoBehaviour
             }
             else
             {
-                targeter.SelectedTarget = null;
-                PlanetName[0].text = "";
-                PlanetName[1].text = "";
-                Hide_UI();
+                if (!InStage)
+                {
+                    targeter.SelectedTarget = null;
+                    PlanetName[0].text = "";
+                    PlanetName[1].text = "";
+                    Hide_UI();
+                }
             }
         }
 
@@ -234,7 +261,7 @@ public class Select_Stage : MonoBehaviour
         UI_StageSelection.SetActive(false);
         UI_Info.SetActive(false);
         UI_Calibration.SetActive(false);
-        UI_InStage.SetActive(true);
+        UI_PreviewStage.SetActive(true);
         InStage = true;
     }
 
@@ -251,7 +278,7 @@ public class Select_Stage : MonoBehaviour
         UI_StageSelection.SetActive(false);
         UI_Info.SetActive(true);
         UI_Calibration.SetActive(false);
-        UI_InStage.SetActive(false);
+        UI_PreviewStage.SetActive(false);
     }
 
     public void Expand_Info()
@@ -264,7 +291,7 @@ public class Select_Stage : MonoBehaviour
         UI_StageSelection.SetActive(false);
         UI_Info.SetActive(false);
         UI_Calibration.SetActive(true);
-        UI_InStage.SetActive(false);
+        UI_PreviewStage.SetActive(false);
         InStage = false;
         GameParent = null;
     }
@@ -275,7 +302,7 @@ public class Select_Stage : MonoBehaviour
         UI_StageSelection.SetActive(true);
         UI_Info.SetActive(false);
         UI_Calibration.SetActive(false);
-        UI_InStage.SetActive(false);
+        UI_PreviewStage.SetActive(false);
     }
 
     public void Hide_UI()
@@ -291,6 +318,23 @@ public class Select_Stage : MonoBehaviour
         UI_StageSelection.SetActive(false);
         UI_Info.SetActive(false);
         UI_Calibration.SetActive(false);
-        UI_InStage.SetActive(false);
+        UI_PreviewStage.SetActive(false);
+    }
+
+
+    public void SettingMenu()
+    {
+        Setting_Menu = !Setting_Menu;        
+    }
+    public void PauseMenu()
+    {
+        Pause_Menu = !Pause_Menu;        
+    }
+
+    public void StartLevel()
+    {
+        GameObject.Find("PlayerAxis").gameObject.GetComponent<Movement>().MovementRef.SetActive(true);
+        GameObject.Find("PlanetGame").gameObject.GetComponent<Animator>().SetBool("Arrive", true);
+
     }
 }

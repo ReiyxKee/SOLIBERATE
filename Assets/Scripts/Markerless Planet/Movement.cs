@@ -8,11 +8,12 @@ public float rotateSpeed = 0.1f;
 public SwipeDetector swipeDetector;
 
     public UI ui_Ref;
-
+    public GameObject MovementRef;
     // Start is called before the first frame update
     void Start()
     {
-
+        MovementRef = GameObject.Find("Turning_Points").gameObject;
+        MovementRef.SetActive(false);
     }
 
     // Update is called once per frame

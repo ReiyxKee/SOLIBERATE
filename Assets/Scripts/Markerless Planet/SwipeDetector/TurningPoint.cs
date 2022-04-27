@@ -7,6 +7,7 @@ public class TurningPoint : MonoBehaviour
 {
     public GameObject Center;
     public GameObject Player;
+    public GameObject PlayerModel;
     public bool Rolling;
     public float rotationSpeed;
 
@@ -19,7 +20,7 @@ public class TurningPoint : MonoBehaviour
     public bool Right_On;
     public Vector3 Right;
 
-
+    public bool LHR;
     public bool Exist;
 
     public SwipeDetector TouchInput;
@@ -42,6 +43,11 @@ public class TurningPoint : MonoBehaviour
         if (ui_Ref == null)
         {
             ui_Ref = GameObject.Find("/Canvas").gameObject.GetComponent<UI>();
+        }
+
+        if (PlayerModel == null)
+        {
+            PlayerModel = GameObject.Find("PlayerModel");
         }
 
         if (Exist)
@@ -167,7 +173,7 @@ public class TurningPoint : MonoBehaviour
                             if (45 > ui_Ref.UIOreintation && ui_Ref.UIOreintation > -45)
                             {
                                 if (swipeData.Direction == SwipeDirection.Up && !Rolling && !TouchInput.Swiping && Up_On)
-                                {
+                                {                                    
                                     StartCoroutine(Roll(Up));
                                 }
 
@@ -270,23 +276,34 @@ public class TurningPoint : MonoBehaviour
 
                             if (swipeData.Direction == SwipeDirection.Up && !Rolling && !TouchInput.Swiping && Up_On)
                             {
+                                PlayerModel.transform.rotation = Quaternion.LookRotation(this.transform.up);
+                                PlayerModel.transform.GetChild(0).transform.localEulerAngles = new Vector3(0, -90, -90);
                                 StartCoroutine(Roll(Up));
                             }
 
                             if (swipeData.Direction == SwipeDirection.Down && !Rolling && !TouchInput.Swiping && Down_On)
                             {
+                                PlayerModel.transform.rotation = Quaternion.LookRotation(-this.transform.up);
+                                PlayerModel.transform.GetChild(0).transform.localEulerAngles = new Vector3(0, -90, -90);
                                 StartCoroutine(Roll(Down));
                             }
 
                             if (swipeData.Direction == SwipeDirection.Left && !Rolling && !TouchInput.Swiping && Left_On)
                             {
+                                PlayerModel.transform.rotation = Quaternion.LookRotation(-this.transform.right);
+                                PlayerModel.transform.GetChild(0).transform.localEulerAngles = new Vector3(0, -90, -90);
                                 StartCoroutine(Roll(Left));
                             }
 
                             if (swipeData.Direction == SwipeDirection.Right && !Rolling && !TouchInput.Swiping && Right_On)
                             {
+
+                                PlayerModel.transform.rotation = Quaternion.LookRotation(this.transform.right);
+                                PlayerModel.transform.GetChild(0).transform.localEulerAngles = new Vector3(180,-90,-90);
                                 StartCoroutine(Roll(Right));
                             }
+
+                            Debug.Log(PlayerModel.transform.eulerAngles);
                         }
                     }
 
@@ -300,6 +317,7 @@ public class TurningPoint : MonoBehaviour
         Rolling = true;
         float angle = 0;
         Vector3 point = Center.transform.position;
+        
 
         swipeData.Direction = SwipeDirection.None;
 
@@ -321,7 +339,16 @@ public class TurningPoint : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            if (PosDependant_Up)
+            {
+                PlayerModel.transform.eulerAngles = new Vector3(PlayerModel.transform.eulerAngles.x, PlayerModel.transform.eulerAngles.y, -90);
+            }
+            else if (PosDependant_Down)
+            {
+                PlayerModel.transform.eulerAngles = new Vector3(PlayerModel.transform.eulerAngles.x, PlayerModel.transform.eulerAngles.y, 90);
+            }
             swipeData.Direction = SwipeDirection.None;
+            
             Exist = true;
         }
     }
