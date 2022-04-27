@@ -10,6 +10,8 @@ public class Select_Stage : MonoBehaviour
 {
     public Placement placement;
 
+    public OnScreenTarget targeter;
+
     public Camera ARCam;
     public bool InStage;
     public bool OnTap;
@@ -83,16 +85,19 @@ public class Select_Stage : MonoBehaviour
         {
             if (CurrentPlanet != null)
             {
+                targeter.SelectedTarget = CurrentPlanet;
                 PlanetName[0].text = CurrentPlanet.name;
                 PlanetName[1].text = CurrentPlanet.name;
             }
             else
             {
+                targeter.SelectedTarget = null;
                 PlanetName[0].text = "";
                 PlanetName[1].text = "";
                 Hide_UI();
             }
         }
+
     }
     
 
