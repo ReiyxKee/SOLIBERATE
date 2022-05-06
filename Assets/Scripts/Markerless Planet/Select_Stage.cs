@@ -40,7 +40,12 @@ public class Select_Stage : MonoBehaviour
 
     public TextMeshProUGUI Instruction;
     public TextMeshProUGUI[] PlanetName;
+    public TextMeshProUGUI Enter;
+    public TextMeshProUGUI Enter_2;
 
+    public Animator InfoExpand;
+    public bool InfoExpanded;
+    public TextMeshProUGUI Expand;
 
     // Start is called before the first frame update
     void Start()
@@ -59,6 +64,28 @@ public class Select_Stage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (InfoExpanded)
+        {
+            Expand.text = "COLLAPSE";
+        }
+        else
+        {
+            Expand.text = "EXPAND";
+        }
+
+
+        if (CurrentPlanet_Code == 0)
+        {
+            Enter.text = "ENTER STAR";
+            Enter_2.text = "ENTER STAR";
+        }
+        else
+        {
+            Enter.text = "ENTER PLANET";
+            Enter_2.text = "ENTER PLANET";
+        }
+
         UI_PauseMenu.SetActive(Pause_Menu);
         UI_SettingMenu.SetActive(Setting_Menu);
 
@@ -283,7 +310,14 @@ public class Select_Stage : MonoBehaviour
 
     public void Expand_Info()
     {
+        InfoExpanded = !InfoExpanded;
+        InfoExpand.SetBool("Expand", InfoExpanded);
+    }
 
+    public void ForceShrink()
+    {
+        InfoExpanded = false;
+        InfoExpand.SetBool("Expand", InfoExpanded);
     }
 
     public void Reset_AR()
