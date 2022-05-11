@@ -48,6 +48,15 @@ public class Select_Stage : MonoBehaviour
     public bool InfoExpanded;
     public TextMeshProUGUI Expand;
 
+    public bool Tutorial_On;
+    public Tutorial_Script tutorial;
+    public GameObject t_AboutStage;
+    public GameObject t_EnterStage;
+    public GameObject t_Unlockable;
+    public float t_un;
+    public GameObject t_Start;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -60,12 +69,19 @@ public class Select_Stage : MonoBehaviour
         Setting_Menu = false;
         Pause_Menu = false;
         UI_DescPrev.SetActive(true);
+        if (PlayerPrefs.HasKey("Tutorial"))
+        {
+            Tutorial_On = PlayerPrefs.GetInt("Tutorial") == 1 ? true : false;
+        }
+        else
+        {
+            Tutorial_On = true;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-
         if (InfoExpanded)
         {
             Expand.text = "COLLAPSE";
@@ -135,6 +151,94 @@ public class Select_Stage : MonoBehaviour
 
         if (placement.Calibration_Complete)
         {
+            if (Tutorial_On)
+            {
+                //Select Earth
+                if (tutorial.Guide_TapWorld_Done == false)
+                {
+                    tutorial.Target = Planets[3].transform.GetChild(0).gameObject;
+                    tutorial.Guide_TapWorld = true;
+                }
+
+                if (!tutorial.Guide_TapWorld_Done && tutorial.Guide_TapWorld && CurrentPlanet_Code == 3)
+                {
+                    tutorial.Guide_TapWorld_Done = true;
+                    tutorial.Guide_TapWorld = true;
+                    tutorial.Target = null;                   
+                }
+
+
+                //About
+                if (tutorial.Guide_TapWorld_Done && !tutorial.Guide_TapAboutWorld)
+                {
+                    tutorial.Target = t_AboutStage;
+                    tutorial.Guide_TapAboutWorld = true;
+                }
+
+                if (!tutorial.Guide_TapAboutWorld_Done &&tutorial.Guide_TapAboutWorld && !t_AboutStage.gameObject.activeInHierarchy)
+                {
+                    tutorial.Guide_TapAboutWorld_Done = true;
+                    tutorial.Guide_TapAboutWorld = true;
+                    tutorial.Target = null;
+                }
+
+                //Enter
+                if (tutorial.Guide_TapAboutWorld_Done && !tutorial.Guide_TapEnterWorld)
+                {
+                    tutorial.Target = t_EnterStage;
+                    tutorial.Guide_TapEnterWorld = true;
+                }
+
+                if (!tutorial.Guide_TapEnterWorld_Done && tutorial.Guide_TapEnterWorld && !t_EnterStage.gameObject.activeInHierarchy)
+                {
+                    tutorial.Guide_TapEnterWorld_Done = true;
+                    tutorial.Guide_TapEnterWorld = true;
+                    tutorial.Target = null;
+                }
+
+                //Explain Unlockable
+                if (tutorial.Guide_TapEnterWorld_Done && !tutorial.Guide_Unlockable)
+                {
+                    tutorial.BoxTarget = t_Unlockable;
+                    tutorial.Guide_Unlockable = true;
+                    OnTap = false;
+                }
+
+                if (tutorial.Guide_Unlockable && !tutorial.Guide_Unlockable_Done)
+                {
+                    if (Input.touchCount == 1 && !OnTap)
+                    {
+                        OnTap = true;
+                    }
+                    else if(Input.touchCount == 0)
+                    {
+                        OnTap = false;
+                    }
+
+                    t_un += Time.deltaTime;
+                }
+
+                if (!tutorial.Guide_Unlockable_Done && tutorial.Guide_Unlockable && t_un > 1.0f && OnTap)
+                {
+                    tutorial.Guide_Unlockable_Done = true;
+                    tutorial.Guide_Unlockable = true;
+                    tutorial.BoxTarget = null;
+                }
+
+                if (tutorial.Guide_Unlockable_Done && !tutorial.Guide_StartGame)
+                {
+                    tutorial.Target = t_Start;
+                    tutorial.Guide_StartGame = true;
+                }
+
+                if (!tutorial.Guide_StartGame_Done && tutorial.Guide_StartGame && !t_Start.gameObject.activeInHierarchy)
+                {
+                    tutorial.Guide_StartGame_Done = true;
+                    tutorial.Guide_StartGame = true;
+                    tutorial.Target = null;
+                }
+            }
+
             if (CurrentPlanet != null)
             {
                 targeter.SelectedTarget = CurrentPlanet;
