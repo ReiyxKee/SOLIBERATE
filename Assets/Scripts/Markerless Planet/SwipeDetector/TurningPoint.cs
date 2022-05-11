@@ -303,7 +303,7 @@ public class TurningPoint : MonoBehaviour
                                 StartCoroutine(Roll(Right));
                             }
 
-                            Debug.Log(PlayerModel.transform.eulerAngles);
+                            //Debug.Log(PlayerModel.transform.eulerAngles);
                         }
                     }
 

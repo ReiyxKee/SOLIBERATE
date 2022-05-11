@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Animate_2DSprite : MonoBehaviour
 {
     public bool Loop;
-    int frame;
+    public int frame = 0;
     float SecReset;
     public Image Renderer;
     public Sprite[] Frames;
@@ -33,7 +33,14 @@ public class Animate_2DSprite : MonoBehaviour
         if (frame < Frames.Length && SecReset >= Delay)
         {
             SecReset = 0;
-            frame += 1;
+            if (frame + 1 >= Frames.Length)
+            {
+                frame = 0;
+            }
+            else
+            {
+                frame += 1;
+            }
         }
 
         Renderer.sprite = Frames[frame];

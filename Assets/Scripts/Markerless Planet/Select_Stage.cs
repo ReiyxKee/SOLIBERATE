@@ -26,8 +26,9 @@ public class Select_Stage : MonoBehaviour
     public GameObject UI_Info;
     public GameObject UI_System;
     public GameObject UI_Calibration;
-    //public GameObject UI_InStage;
+    public GameObject UI_InStage;
     public GameObject UI_PreviewStage;
+    public GameObject UI_DescPrev;
 
     public GameObject Button_Pause;
     public GameObject Button_Setting;
@@ -58,7 +59,7 @@ public class Select_Stage : MonoBehaviour
         Button_Setting.SetActive(true);
         Setting_Menu = false;
         Pause_Menu = false;
-
+        UI_DescPrev.SetActive(true);
     }
 
     // Update is called once per frame
@@ -282,6 +283,7 @@ public class Select_Stage : MonoBehaviour
     }
     public void EnterStage()
     {
+        UI_DescPrev.SetActive(true);
         GameParent = null;
         Instruction.text = "";
         placement.Spawn_Planet(PlanetsPrefabs[CurrentPlanet_Code]);
@@ -322,10 +324,12 @@ public class Select_Stage : MonoBehaviour
 
     public void Reset_AR()
     {
+        UI_DescPrev.SetActive(true);
         UI_StageSelection.SetActive(false);
         UI_Info.SetActive(false);
         UI_Calibration.SetActive(true);
         UI_PreviewStage.SetActive(false);
+        UI_InStage.SetActive(false);
         InStage = false;
         GameParent = null;
     }
@@ -341,6 +345,7 @@ public class Select_Stage : MonoBehaviour
 
     public void Hide_UI()
     {
+        UI_DescPrev.SetActive(true);
         if (!InStage)
         {
             Instruction.text = "Tap on a Planet to view";
@@ -353,6 +358,7 @@ public class Select_Stage : MonoBehaviour
         UI_Info.SetActive(false);
         UI_Calibration.SetActive(false);
         UI_PreviewStage.SetActive(false);
+        UI_InStage.SetActive(false);
     }
 
 
@@ -368,7 +374,10 @@ public class Select_Stage : MonoBehaviour
     public void StartLevel()
     {
         GameObject.Find("PlayerAxis").gameObject.GetComponent<Movement>().MovementRef.SetActive(true);
-        GameObject.Find("PlanetGame").gameObject.GetComponent<Animator>().SetBool("Arrive", true);
-
+        UI_InStage.SetActive(true);
+        UI_PreviewStage.SetActive(false);
+        //GameObject.Find("PlanetGame").gameObject.GetComponent<Animator>().SetBool("Arrive", true);
     }
+
+
 }
