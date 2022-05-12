@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.XR.ARFoundation;
 using TMPro;
 
@@ -56,7 +57,7 @@ public class Select_Stage : MonoBehaviour
     public float t_un;
     public GameObject t_Start;
 
-
+    public Button ResetAR;
     // Start is called before the first frame update
     void Start()
     {
@@ -71,10 +72,13 @@ public class Select_Stage : MonoBehaviour
         UI_DescPrev.SetActive(true);
         if (PlayerPrefs.HasKey("Tutorial"))
         {
+            Debug.Log("First Tutorial Found");
             Tutorial_On = PlayerPrefs.GetInt("Tutorial") == 1 ? true : false;
         }
         else
         {
+            Debug.Log("First Tutorial Not Found");
+            PlayerPrefs.SetInt("Tutorial", 1);
             Tutorial_On = true;
         }
     }
@@ -119,8 +123,7 @@ public class Select_Stage : MonoBehaviour
         }
 
         if (GameParent == null)
-        {
-            
+        {            
             if (GameObject.Find("Game_SolarSys"))
             {
                 GameParent = GameObject.Find("Game_SolarSys/Sun/Childrens").gameObject;
@@ -153,90 +156,7 @@ public class Select_Stage : MonoBehaviour
         {
             if (Tutorial_On)
             {
-                //Select Earth
-                if (tutorial.Guide_TapWorld_Done == false)
-                {
-                    tutorial.Target = Planets[3].transform.GetChild(0).gameObject;
-                    tutorial.Guide_TapWorld = true;
-                }
-
-                if (!tutorial.Guide_TapWorld_Done && tutorial.Guide_TapWorld && CurrentPlanet_Code == 3)
-                {
-                    tutorial.Guide_TapWorld_Done = true;
-                    tutorial.Guide_TapWorld = true;
-                    tutorial.Target = null;                   
-                }
-
-
-                //About
-                if (tutorial.Guide_TapWorld_Done && !tutorial.Guide_TapAboutWorld)
-                {
-                    tutorial.Target = t_AboutStage;
-                    tutorial.Guide_TapAboutWorld = true;
-                }
-
-                if (!tutorial.Guide_TapAboutWorld_Done &&tutorial.Guide_TapAboutWorld && !t_AboutStage.gameObject.activeInHierarchy)
-                {
-                    tutorial.Guide_TapAboutWorld_Done = true;
-                    tutorial.Guide_TapAboutWorld = true;
-                    tutorial.Target = null;
-                }
-
-                //Enter
-                if (tutorial.Guide_TapAboutWorld_Done && !tutorial.Guide_TapEnterWorld)
-                {
-                    tutorial.Target = t_EnterStage;
-                    tutorial.Guide_TapEnterWorld = true;
-                }
-
-                if (!tutorial.Guide_TapEnterWorld_Done && tutorial.Guide_TapEnterWorld && !t_EnterStage.gameObject.activeInHierarchy)
-                {
-                    tutorial.Guide_TapEnterWorld_Done = true;
-                    tutorial.Guide_TapEnterWorld = true;
-                    tutorial.Target = null;
-                }
-
-                //Explain Unlockable
-                if (tutorial.Guide_TapEnterWorld_Done && !tutorial.Guide_Unlockable)
-                {
-                    tutorial.BoxTarget = t_Unlockable;
-                    tutorial.Guide_Unlockable = true;
-                    OnTap = false;
-                }
-
-                if (tutorial.Guide_Unlockable && !tutorial.Guide_Unlockable_Done)
-                {
-                    if (Input.touchCount == 1 && !OnTap)
-                    {
-                        OnTap = true;
-                    }
-                    else if(Input.touchCount == 0)
-                    {
-                        OnTap = false;
-                    }
-
-                    t_un += Time.deltaTime;
-                }
-
-                if (!tutorial.Guide_Unlockable_Done && tutorial.Guide_Unlockable && t_un > 1.0f && OnTap)
-                {
-                    tutorial.Guide_Unlockable_Done = true;
-                    tutorial.Guide_Unlockable = true;
-                    tutorial.BoxTarget = null;
-                }
-
-                if (tutorial.Guide_Unlockable_Done && !tutorial.Guide_StartGame)
-                {
-                    tutorial.Target = t_Start;
-                    tutorial.Guide_StartGame = true;
-                }
-
-                if (!tutorial.Guide_StartGame_Done && tutorial.Guide_StartGame && !t_Start.gameObject.activeInHierarchy)
-                {
-                    tutorial.Guide_StartGame_Done = true;
-                    tutorial.Guide_StartGame = true;
-                    tutorial.Target = null;
-                }
+                Tutorial_Manage();
             }
 
             if (CurrentPlanet != null)
@@ -483,5 +403,323 @@ public class Select_Stage : MonoBehaviour
         //GameObject.Find("PlanetGame").gameObject.GetComponent<Animator>().SetBool("Arrive", true);
     }
 
+    public void ToggleARReset()
+    {
+        ResetAR.enabled = !ResetAR.enabled;
+    }
 
+    public void Tutorial_Manage()
+    {
+        //Select Earth
+        if (tutorial.Guide_TapWorld_Done == false)
+        {
+            tutorial.Target = Planets[3].transform.GetChild(0).gameObject;
+            tutorial.Guide_TapWorld = true;
+        }
+
+        if (!tutorial.Guide_TapWorld_Done && tutorial.Guide_TapWorld && CurrentPlanet_Code == 3)
+        {
+            tutorial.Guide_TapWorld_Done = true;
+            tutorial.Guide_TapWorld = true;
+            tutorial.Target = null;
+        }
+
+
+        //About
+        if (tutorial.Guide_TapWorld_Done && !tutorial.Guide_TapAboutWorld)
+        {
+            tutorial.Target = t_AboutStage;
+            tutorial.Guide_TapAboutWorld = true;
+        }
+
+        if (!tutorial.Guide_TapAboutWorld_Done && tutorial.Guide_TapAboutWorld && !t_AboutStage.gameObject.activeInHierarchy)
+        {
+            tutorial.Guide_TapAboutWorld_Done = true;
+            tutorial.Guide_TapAboutWorld = true;
+            tutorial.Target = null;
+        }
+
+        //Enter
+        if (tutorial.Guide_TapAboutWorld_Done && !tutorial.Guide_TapEnterWorld)
+        {
+            tutorial.Target = t_EnterStage;
+            tutorial.Guide_TapEnterWorld = true;
+        }
+
+        if (!tutorial.Guide_TapEnterWorld_Done && tutorial.Guide_TapEnterWorld && !t_EnterStage.gameObject.activeInHierarchy)
+        {
+            tutorial.Guide_TapEnterWorld_Done = true;
+            tutorial.Guide_TapEnterWorld = true;
+            tutorial.Target = null;
+        }
+
+        //Explain Unlockable
+        if (tutorial.Guide_TapEnterWorld_Done && !tutorial.Guide_Unlockable)
+        {
+            tutorial.BoxTarget = t_Unlockable;
+            tutorial.Guide_Unlockable = true;
+            OnTap = false;
+        }
+
+        if (tutorial.Guide_Unlockable && !tutorial.Guide_Unlockable_Done)
+        {
+            if (Input.touchCount == 1 && !OnTap)
+            {
+                OnTap = true;
+            }
+            else if (Input.touchCount == 0)
+            {
+                OnTap = false;
+            }
+
+            t_un += Time.deltaTime;
+        }
+
+        if (!tutorial.Guide_Unlockable_Done && tutorial.Guide_Unlockable && t_un > 1.0f && OnTap)
+        {
+            tutorial.Guide_Unlockable_Done = true;
+            tutorial.Guide_Unlockable = true;
+            tutorial.BoxTarget = null;
+        }
+
+        if (tutorial.Guide_Unlockable_Done && !tutorial.Guide_StartGame)
+        {
+            tutorial.Target = t_Start;
+            tutorial.Guide_StartGame = true;
+        }
+
+        if (!tutorial.Guide_StartGame_Done && tutorial.Guide_StartGame && !t_Start.gameObject.activeInHierarchy)
+        {
+            tutorial.Guide_StartGame_Done = true;
+            tutorial.Guide_StartGame = true;
+            tutorial.Target = null;
+        }
+
+        //Guide start 
+        if (tutorial.Guide_StartGame_Done && !tutorial.Tutorial_Start)
+        {
+            OnTap = false;
+            t_un = 0;
+            tutorial.Tutorial_Start = true;
+            tutorial.CircleTarget = GameObject.Find("PlayerAxis/Player");
+        }
+
+        if (tutorial.Tutorial_Start)
+        {
+            if (Input.touchCount == 1 && !OnTap)
+            {
+                OnTap = true;
+            }
+            else if (Input.touchCount == 0)
+            {
+                OnTap = false;
+            }
+
+            t_un += Time.deltaTime;
+        }
+
+        //Guide fuel
+        if (!tutorial.Tutorial_Start_Done && tutorial.Tutorial_Start && t_un > 2.0f && OnTap)
+        {
+            tutorial.CircleTarget = null;
+            tutorial.Target = null;
+            OnTap = false;
+            t_un = 0;
+            tutorial.Tutorial_Start_Done = true;
+            tutorial.Tutorial_Fuel = true;
+        }
+
+
+        if (tutorial.Tutorial_Fuel)
+        {
+            if (Input.touchCount == 1 && !OnTap)
+            {
+                OnTap = true;
+            }
+            else if (Input.touchCount == 0)
+            {
+                OnTap = false;
+            }
+
+            t_un += Time.deltaTime;
+        }
+
+        //Guide Move 1
+        if (!tutorial.Tutorial_Fuel_Done && tutorial.Tutorial_Fuel && t_un > 2.0f && OnTap)
+        {
+            OnTap = false;
+            t_un = 0;
+            tutorial.Tutorial_Fuel_Done = true;
+            tutorial.Tutorial_Move_1 = true;
+        }
+
+
+        if (tutorial.Tutorial_Move_1)
+        {
+            if (Input.touchCount == 1 && !OnTap)
+            {
+                OnTap = true;
+            }
+            else if (Input.touchCount == 0)
+            {
+                OnTap = false;
+            }
+
+            t_un += Time.deltaTime;
+        }
+
+        //Guide Move 2
+        if (!tutorial.Tutorial_Move_1_Done && tutorial.Tutorial_Move_1 && t_un > 2.0f && OnTap)
+        {
+            OnTap = false;
+            t_un = 0;
+            tutorial.Tutorial_Move_1_Done = true;
+            tutorial.Tutorial_Move_2 = true;
+        }
+
+
+        if (tutorial.Tutorial_Move_2)
+        {
+            if (Input.touchCount == 1 && !OnTap)
+            {
+                OnTap = true;
+            }
+            else if (Input.touchCount == 0)
+            {
+                OnTap = false;
+            }
+
+            t_un += Time.deltaTime;
+        }
+
+        //Guide Move 3
+        if (!tutorial.Tutorial_Move_2_Done && tutorial.Tutorial_Move_2 && t_un > 2.0f && OnTap)
+        {
+            OnTap = false;
+            t_un = 0;
+            tutorial.Tutorial_Move_2_Done = true;
+            tutorial.Tutorial_Move_3 = true;
+        }
+
+
+        if (tutorial.Tutorial_Move_3)
+        {
+            if (Input.touchCount == 1 && !OnTap)
+            {
+                OnTap = true;
+            }
+            else if (Input.touchCount == 0)
+            {
+                OnTap = false;
+            }
+
+            t_un += Time.deltaTime;
+        }
+
+        //Guide Move 4
+        if (!tutorial.Tutorial_Move_3_Done && tutorial.Tutorial_Move_3 && t_un > 2.0f && OnTap)
+        {
+            OnTap = false;
+            t_un = 0;
+            tutorial.Tutorial_Move_3_Done = true;
+            tutorial.Tutorial_Move_4 = true;
+        }
+
+
+        if (tutorial.Tutorial_Move_4)
+        {
+            if (Input.touchCount == 1 && !OnTap)
+            {
+                OnTap = true;
+            }
+            else if (Input.touchCount == 0)
+            {
+                OnTap = false;
+            }
+
+            t_un += Time.deltaTime;
+        }
+
+        //Guide Move 5
+        if (!tutorial.Tutorial_Move_4_Done && tutorial.Tutorial_Move_4 && t_un > 2.0f && OnTap)
+        {
+            OnTap = false;
+            t_un = 0;
+            tutorial.Tutorial_Move_4_Done = true;
+            tutorial.Tutorial_Move_5 = true;
+        }
+
+
+        if (tutorial.Tutorial_Move_5)
+        {
+            if (Input.touchCount == 1 && !OnTap)
+            {
+                OnTap = true;
+            }
+            else if (Input.touchCount == 0)
+            {
+                OnTap = false;
+            }
+
+            t_un += Time.deltaTime;
+        }
+
+        //Guide Move 6
+        if (!tutorial.Tutorial_Move_5_Done && tutorial.Tutorial_Move_5 && t_un > 2.0f && OnTap)
+        {
+            OnTap = false;
+            t_un = 0;
+            tutorial.Tutorial_Move_5_Done = true;
+            tutorial.Tutorial_Move_6 = true;
+        }
+
+
+        if (tutorial.Tutorial_Move_6)
+        {
+            if (Input.touchCount == 1 && !OnTap)
+            {
+                OnTap = true;
+            }
+            else if (Input.touchCount == 0)
+            {
+                OnTap = false;
+            }
+
+            t_un += Time.deltaTime;
+        }
+
+        //Guide Move 7
+        if (!tutorial.Tutorial_Move_6_Done && tutorial.Tutorial_Move_6 && t_un > 2.0f && OnTap)
+        {
+            OnTap = false;
+            t_un = 0;
+            tutorial.Tutorial_Move_6_Done = true;
+            tutorial.Tutorial_Move_7 = true;
+        }
+
+
+        if (tutorial.Tutorial_Move_7)
+        {
+            if (Input.touchCount == 1 && !OnTap)
+            {
+                OnTap = true;
+            }
+            else if (Input.touchCount == 0)
+            {
+                OnTap = false;
+            }
+
+            t_un += Time.deltaTime;
+        }
+
+
+        if (!tutorial.Tutorial_Move_7_Done && tutorial.Tutorial_Move_7 && t_un > 2.0f && OnTap)
+        {
+            OnTap = false;
+            t_un = 0;
+            tutorial.Tutorial_Move_7_Done = true;
+            PlayerPrefs.SetInt("Tutorial", 0);
+        }
+
+    }
 }
