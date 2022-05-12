@@ -405,7 +405,7 @@ public class Select_Stage : MonoBehaviour
 
     public void ToggleARReset()
     {
-        ResetAR.enabled = !ResetAR.enabled;
+        ResetAR.interactable = !ResetAR.interactable;
     }
 
     public void Tutorial_Manage()

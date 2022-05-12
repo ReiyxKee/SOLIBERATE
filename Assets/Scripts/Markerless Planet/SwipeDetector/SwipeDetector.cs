@@ -1,6 +1,11 @@
-﻿
-using System;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.EventSystems;
+using UnityEngine.XR.ARFoundation;
+
 
 public class SwipeDetector : MonoBehaviour
 {
@@ -26,24 +31,27 @@ public class SwipeDetector : MonoBehaviour
 
         foreach (Touch touch in Input.touches)
         {
-            if (touch.phase == TouchPhase.Began)
+            if (!IsPointerOverUIObject())
             {
-                fingerUpPosition = touch.position;
-                fingerDownPosition = touch.position;
-            }
+                if (touch.phase == TouchPhase.Began)
+                {
+                    fingerUpPosition = touch.position;
+                    fingerDownPosition = touch.position;
+                }
 
-            if (touch.phase == TouchPhase.Moved)
-            {
-                Swiping = true;
-                fingerDownPosition = touch.position;
-                DetectSwipe();
-            }
+                if (touch.phase == TouchPhase.Moved)
+                {
+                    Swiping = true;
+                    fingerDownPosition = touch.position;
+                    DetectSwipe();
+                }
 
-            if (touch.phase == TouchPhase.Ended)
-            {
-                fingerDownPosition = touch.position;
-                DetectSwipe();
-                swipe.Direction = SwipeDirection.None;
+                if (touch.phase == TouchPhase.Ended)
+                {
+                    fingerDownPosition = touch.position;
+                    DetectSwipe();
+                    swipe.Direction = SwipeDirection.None;
+                }
             }
         }
     }
@@ -99,6 +107,14 @@ public class SwipeDetector : MonoBehaviour
         swipe = swipeData;
         OnSwipe(swipeData);
 
+    }
+    private bool IsPointerOverUIObject()
+    {
+        PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
+        eventDataCurrentPosition.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+        List<RaycastResult> results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
+        return results.Count > 0;
     }
 }
 

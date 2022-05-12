@@ -192,6 +192,7 @@ public class Tutorial_Script : MonoBehaviour
             FuelGuide.SetActive(false);
             Instruction_2.text = "YOU CAN MOVE THE SPACECRAFT BY SWIPING THE SCREEN";
             TapAndContinue.text = "-TAP AND CONTINUE-";
+            Blocker_Tutorial_Full.SetActive(false);
         }
 
         if (!Tutorial_Move_2_Done && Tutorial_Move_2)
@@ -206,6 +207,7 @@ public class Tutorial_Script : MonoBehaviour
             //SWIPE
             Instruction_2.text = "YOU CAN LOOK AT THE INDICATOR TO KNOW WHICH DIRECTION IT WILL MOVE TO WHEN SWIPING";
             TapAndContinue.text = "-TAP AND CONTINUE-";
+            Blocker_Tutorial_Full.SetActive(true);
         }
 
         if (!Tutorial_Move_4_Done && Tutorial_Move_4)
@@ -238,6 +240,7 @@ public class Tutorial_Script : MonoBehaviour
 
         if (Tutorial_Move_7_Done)
         {
+            Blocker_Tutorial_Full.SetActive(false);
             Instruction_2.text = "";
             TapAndContinue.text = "";
         }

@@ -580,7 +580,7 @@ MonoBehaviour:
   Player: {fileID: 4394904334454741567}
   PlayerModel: {fileID: 0}
   Rolling: 0
-  rotationSpeed: 2.5
+  rotationSpeed: 1
   Up_On: 1
   Up: {x: 1, y: 0, z: 0}
   Down_On: 0
@@ -707,7 +707,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ae459d31ec9b6c4fa8474d186066e0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 25
+  rotateSpeed: 20
   swipeDetector: {fileID: 3752501267471925677}
   ui_Ref: {fileID: 0}
   MovementRef: {fileID: 0}
@@ -805,7 +805,7 @@ MonoBehaviour:
   Player: {fileID: 4394904334454741567}
   PlayerModel: {fileID: 0}
   Rolling: 0
-  rotationSpeed: 2.5
+  rotationSpeed: 1
   Up_On: 0
   Up: {x: 1, y: 0, z: 0}
   Down_On: 0
@@ -1103,7 +1103,7 @@ MonoBehaviour:
   Player: {fileID: 4394904334454741567}
   PlayerModel: {fileID: 0}
   Rolling: 0
-  rotationSpeed: 2.5
+  rotationSpeed: 1
   Up_On: 0
   Up: {x: 1, y: 0, z: 0}
   Down_On: 1
@@ -1197,7 +1197,7 @@ MonoBehaviour:
   Player: {fileID: 4394904334454741567}
   PlayerModel: {fileID: 0}
   Rolling: 0
-  rotationSpeed: 2.5
+  rotationSpeed: 1
   Up_On: 0
   Up: {x: 0, y: 0, z: -1}
   Down_On: 0
@@ -1414,7 +1414,7 @@ MonoBehaviour:
   Player: {fileID: 4394904334454741567}
   PlayerModel: {fileID: 0}
   Rolling: 0
-  rotationSpeed: 2.5
+  rotationSpeed: 1
   Up_On: 1
   Up: {x: 0, y: 0, z: 1}
   Down_On: 0
@@ -1508,7 +1508,7 @@ MonoBehaviour:
   Player: {fileID: 4394904334454741567}
   PlayerModel: {fileID: 0}
   Rolling: 0
-  rotationSpeed: 2.5
+  rotationSpeed: 1
   Up_On: 0
   Up: {x: -1, y: 0, z: 0}
   Down_On: 0
