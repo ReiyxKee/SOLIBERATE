@@ -60,9 +60,11 @@ public class Tutorial_Script : MonoBehaviour
     public bool Tutorial_Move_1_Done;
 
     public bool Tutorial_Move_2;
+    public GameObject SwipeUp_Guide;
     public bool Tutorial_Move_2_Done;
 
     public bool Tutorial_Move_3;
+    public GameObject Guide_Tutorial_3;
     public bool Tutorial_Move_3_Done;
 
     public bool Tutorial_Move_4;
@@ -128,7 +130,7 @@ public class Tutorial_Script : MonoBehaviour
             //About Planet
             Blocker_TapWorld.SetActive(false);
             Blocker_TapAboutWorld.SetActive(true);
-            Instruction.text = "TAP HERE TO LOOK AT THE DETIALS ABOUT THE PLANET";
+            Instruction.text = "HERE WE CAN LOOK AT THE DETIALS ABOUT THE PLANET";
             anim.Frames = Tap;
             Guide.GetComponent<RectTransform>().position = Target.GetComponent<RectTransform>().position;
         }
@@ -138,7 +140,7 @@ public class Tutorial_Script : MonoBehaviour
             //View Planet
             Blocker_TapAboutWorld.SetActive(false);
             Blocker_TapEnterWorld.SetActive(true);
-            Instruction.text = "TAP HERE TO HAVE A BETTER VIEW OF THE PLANET";
+            Instruction.text = "LET'S ENTER THE PLANET TO HAVE A BETTER LOOK";
             anim.Frames = Tap;
             Guide.GetComponent<RectTransform>().position = Target.GetComponent<RectTransform>().position;
         }
@@ -148,7 +150,7 @@ public class Tutorial_Script : MonoBehaviour
             //Unlockable Planet
             Blocker_TapEnterWorld.SetActive(false);
             Blocker_Guide_Unlockable.SetActive(true);
-            Instruction.text = "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTHESE ARE SOME UNLOCKABLE TRIVIAL ABOUT THE PLANET.\n\nYOU CAN UNLOCK THEM WHILE TRAVELING ON THE PLANET";
+            Instruction.text = "HERE WE CAN SEE THE PLANET\n\nTRY AND WALK AROUND IT\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAND BELOW ARE SOME TRIVIAL ABOUT THE PLANET.\n\nYOU CAN UNLOCK THEM WHILE TRAVELING ON THE PLANET";
             TapAndContinue.text = "-TAP AND CONTINUE-";
             BoxGuide.GetComponent<RectTransform>().position = BoxTarget.GetComponent<RectTransform>().position;
 
@@ -160,7 +162,7 @@ public class Tutorial_Script : MonoBehaviour
             Blocker_Guide_Unlockable.SetActive(false);
             Blocker_Guide_StartGame.SetActive(true);
 
-            Instruction.text = "LET'S START THE MISSION";
+            Instruction.text = "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLET'S START THE MISSION\nON EARTH";
             TapAndContinue.text = "";
             anim.Frames = Tap;
             Guide.GetComponent<RectTransform>().position = Target.GetComponent<RectTransform>().position;
@@ -169,7 +171,7 @@ public class Tutorial_Script : MonoBehaviour
         if (Tutorial_Start && !Tutorial_Start_Done)
         {
             Instruction.text = "";
-            Instruction_2.text = "IN THIS MISSION WE WILL TRAVEL THE EARTH WITH THE SPACECRAFT";
+            Instruction_2.text = "IN THIS MISSION WE WILL TRAVEL THE EARTH WITH THE SPACESHUTTER";
             Blocker_Guide_StartGame.SetActive(false);
             Blocker_Tutorial_Full.SetActive(true);
 
@@ -181,7 +183,7 @@ public class Tutorial_Script : MonoBehaviour
         {
             //FUEL
             Blocker_Tutorial_Full.SetActive(true);
-            Instruction_2.text = "THE SPACECRAFT HAVE LIMITED FUEL\n\nSO PLAN YOUR TRAVEL BEFORE MOVING";
+            Instruction_2.text = "THE SPACESHUTTER HAVE LIMITED FUEL\n\nSO PLAN YOUR TRIP BEFORE MOVING";
             FuelGuide.SetActive(true);
             TapAndContinue.text = "-TAP AND CONTINUE-";
         }
@@ -190,21 +192,26 @@ public class Tutorial_Script : MonoBehaviour
         {
             //SWIPE
             FuelGuide.SetActive(false);
-            Instruction_2.text = "YOU CAN MOVE THE SPACECRAFT BY SWIPING THE SCREEN";
-            TapAndContinue.text = "-TAP AND CONTINUE-";
+            Instruction_2.text = "YOU CAN MOVE THE SPACESHUTTER BY SWIPING THE SCREEN\n\nTRY TO SWIPE UP THE SCREEN";
+            SwipeUp_Guide.SetActive(true);
+            TapAndContinue.text = "-SWIPE UP-";
             Blocker_Tutorial_Full.SetActive(false);
         }
 
         if (!Tutorial_Move_2_Done && Tutorial_Move_2)
         {
             //SWIPE
-            Instruction_2.text = "THE SPACECRAFT WILL MOVE BASE ON THE DIRECTION YOU FACING IT";
+            Instruction_2.text = "THE SPACESHUTTER WILL MOVE BASE ON THE DIRECTION YOU FACING IT";
+            SwipeUp_Guide.SetActive(false);
+            Guide_Tutorial_3.SetActive(true);
             TapAndContinue.text = "-TAP AND CONTINUE-";
         }
 
         if (!Tutorial_Move_3_Done && Tutorial_Move_3)
         {
             //SWIPE
+            Guide_Tutorial_3.SetActive(false);
+            CircleGuide.GetComponent<RectTransform>().position = cam.WorldToScreenPoint(CircleTarget.gameObject.transform.position);
             Instruction_2.text = "YOU CAN LOOK AT THE INDICATOR TO KNOW WHICH DIRECTION IT WILL MOVE TO WHEN SWIPING";
             TapAndContinue.text = "-TAP AND CONTINUE-";
             Blocker_Tutorial_Full.SetActive(true);
@@ -213,13 +220,16 @@ public class Tutorial_Script : MonoBehaviour
         if (!Tutorial_Move_4_Done && Tutorial_Move_4)
         {
             //SWIPE
-            Instruction_2.text = "PASSING THE SPACE STATION WILL SWITCH THEM BETWEEN RED AND GREEN";
+            Guide_Tutorial_3.SetActive(false); 
+            CircleGuide.GetComponent<RectTransform>().position = cam.WorldToScreenPoint(CircleTarget.gameObject.transform.position);
+            Instruction_2.text = "PASSING THE SPACE STATION WILL SWITCH THEM BETWEEN RED AND GREEN STATE";
             TapAndContinue.text = "-TAP AND CONTINUE-";
         }
 
         if (!Tutorial_Move_5_Done && Tutorial_Move_5)
         {
             //SWIPE
+            CircleGuide.GetComponent<RectTransform>().position = cam.WorldToScreenPoint(CircleTarget.gameObject.transform.position);
             Instruction_2.text = "TURNING ALL SPACE STATION GREEN WILL ACTIVATE THE DYSON SCANNER";
             TapAndContinue.text = "-TAP AND CONTINUE-";
         }
@@ -234,7 +244,7 @@ public class Tutorial_Script : MonoBehaviour
         if (!Tutorial_Move_7_Done && Tutorial_Move_7)
         {
             //SWIPE
-            Instruction_2.text = "GOOD LUCK AND GODSPEED";
+            Instruction_2.text = "NOW, ASTRONAUT\n\nGOOD LUCK AND GODSPEED";
             TapAndContinue.text = "-TAP AND CONTINUE-";
         }
 

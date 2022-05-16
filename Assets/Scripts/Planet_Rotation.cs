@@ -28,13 +28,10 @@ public class Planet_Rotation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+    }
 
-        if (TimeScale > 2)
-        {
-            TimeScale -= Time.fixedDeltaTime * 40;
-        }
-        else if(TimeScale < 2)
-        { TimeScale = 2; }
+    public void FixedUpdate()
+    {
 
         self_Rotate_Speed = Self_Rotate_Speed * TimeScale;
         rotate_Around_Speed = Rotate_Around_Speed * TimeScale;
@@ -44,10 +41,18 @@ public class Planet_Rotation : MonoBehaviour
             this.transform.Rotate(Self_Rotate_Axis_X ? self_Rotate_Speed : 0, Self_Rotate_Axis_Y ? self_Rotate_Speed : 0, Self_Rotate_Axis_Z ? self_Rotate_Speed : 0);
         }
 
-        if(Rotate_Around )
+        if (Rotate_Around)
         {
-            this.transform.Rotate(Self_Rotate_Axis_X ? (Clockwise? 1:-1) * rotate_Around_Speed : 0, Self_Rotate_Axis_Y ? (Clockwise ? 1 : -1) * rotate_Around_Speed : 0, Self_Rotate_Axis_Z ? (Clockwise ? 1 : -1) * rotate_Around_Speed : 0);
+            this.transform.Rotate(Self_Rotate_Axis_X ? (Clockwise ? 1 : -1) * rotate_Around_Speed : 0, Self_Rotate_Axis_Y ? (Clockwise ? 1 : -1) * rotate_Around_Speed : 0, Self_Rotate_Axis_Z ? (Clockwise ? 1 : -1) * rotate_Around_Speed : 0);
         }
+
+        if (TimeScale > 2)
+        {
+            TimeScale -= Time.fixedDeltaTime * 200;
+        }
+        else if (TimeScale < 2)
+        { TimeScale = 2; }
+
     }
 
 }

@@ -13,6 +13,8 @@ public class Select_Stage : MonoBehaviour
 
     public OnScreenTarget targeter;
 
+    public bool Guide_On;
+
     public Camera ARCam;
     public bool InStage;
     public bool OnTap;
@@ -55,9 +57,12 @@ public class Select_Stage : MonoBehaviour
     public GameObject t_EnterStage;
     public GameObject t_Unlockable;
     public float t_un;
+    public float t_c;
     public GameObject t_Start;
 
     public Button ResetAR;
+
+    public int target_x;
     // Start is called before the first frame update
     void Start()
     {
@@ -595,6 +600,7 @@ public class Select_Stage : MonoBehaviour
         //Guide Move 3
         if (!tutorial.Tutorial_Move_2_Done && tutorial.Tutorial_Move_2 && t_un > 2.0f && OnTap)
         {
+            tutorial.CircleTarget = GameObject.Find("DirectionMarker");
             OnTap = false;
             t_un = 0;
             tutorial.Tutorial_Move_2_Done = true;
@@ -619,6 +625,7 @@ public class Select_Stage : MonoBehaviour
         //Guide Move 4
         if (!tutorial.Tutorial_Move_3_Done && tutorial.Tutorial_Move_3 && t_un > 2.0f && OnTap)
         {
+            tutorial.CircleTarget = GameObject.Find("Station (2)");
             OnTap = false;
             t_un = 0;
             tutorial.Tutorial_Move_3_Done = true;
@@ -643,8 +650,10 @@ public class Select_Stage : MonoBehaviour
         //Guide Move 5
         if (!tutorial.Tutorial_Move_4_Done && tutorial.Tutorial_Move_4 && t_un > 2.0f && OnTap)
         {
+            tutorial.CircleTarget = null;
             OnTap = false;
             t_un = 0;
+            t_c = 0;
             tutorial.Tutorial_Move_4_Done = true;
             tutorial.Tutorial_Move_5 = true;
         }
@@ -652,6 +661,23 @@ public class Select_Stage : MonoBehaviour
 
         if (tutorial.Tutorial_Move_5)
         {
+            if (!tutorial.Tutorial_Move_5_Done)
+            {
+                if (t_c >= 0.5f)
+                {
+                    if (target_x < 2)
+                    {
+                        target_x++;
+                    }
+                    else
+                    {
+                        target_x = 0;
+                    }
+                    tutorial.CircleTarget = GameObject.Find("Station (" + target_x.ToString() + ")");
+                    t_c = 0;
+                }
+            }
+
             if (Input.touchCount == 1 && !OnTap)
             {
                 OnTap = true;
@@ -661,12 +687,14 @@ public class Select_Stage : MonoBehaviour
                 OnTap = false;
             }
 
+            t_c += Time.deltaTime;
             t_un += Time.deltaTime;
         }
 
         //Guide Move 6
         if (!tutorial.Tutorial_Move_5_Done && tutorial.Tutorial_Move_5 && t_un > 2.0f && OnTap)
         {
+            tutorial.CircleTarget = null;
             OnTap = false;
             t_un = 0;
             tutorial.Tutorial_Move_5_Done = true;
