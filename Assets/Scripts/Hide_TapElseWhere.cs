@@ -10,8 +10,7 @@ public class Hide_TapElseWhere : MonoBehaviour
     public bool Tapped;
     // Start is called before the first frame update
     void Start()
-    {
-        
+    { 
     }
 
     // Update is called once per frame

@@ -32,6 +32,10 @@ public class TurningPoint : MonoBehaviour
     public bool PosDependant_Down;
 
     public SwipeData swipeData = new SwipeData{ Direction = SwipeDirection.None};
+
+    public bool ifTutorial;
+    public bool SpamLock;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +45,7 @@ public class TurningPoint : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (ui_Ref == null)
         {
             ui_Ref = GameObject.Find("/Canvas").gameObject.GetComponent<UI>();
@@ -51,263 +56,279 @@ public class TurningPoint : MonoBehaviour
             PlayerModel = GameObject.Find("PlayerModel");
         }
 
+        if (SpamLock && Input.touchCount == 0)
+        {
+            SpamLock = false;
+        }
+
         if (Exist)
         {
-            if (!TouchInput.Swiped)
+            if (!SpamLock)
             {
-                if (PosDependant_Up)
+                if (!TouchInput.Swiped)
                 {
-                    if (Input.touchCount == 1)
+                    if (PosDependant_Up)
                     {
-                        Touch screenTouch = Input.GetTouch(0);
-
-                        if (screenTouch.phase == TouchPhase.Moved)
+                        if (Input.touchCount == 1)
                         {
-                            //Debug.Log(TouchInput.swipe.Direction);
+                            Touch screenTouch = Input.GetTouch(0);
 
-                            swipeData = TouchInput.swipe;
-
-                            if (45 > ui_Ref.UIOreintation && ui_Ref.UIOreintation > -45)
+                            if (screenTouch.phase == TouchPhase.Moved)
                             {
-                                if (swipeData.Direction == SwipeDirection.Up && !Rolling && !TouchInput.Swiping && Down_On)
+
+                                swipeData = TouchInput.swipe;
+
+                                if (45 > ui_Ref.UIOreintation && ui_Ref.UIOreintation > -45)
                                 {
-                                    StartCoroutine(Roll(Down));
+                                    if (swipeData.Direction == SwipeDirection.Up && !Rolling && !TouchInput.Swiping && Down_On)
+                                    {
+                                        StartCoroutine(Roll(Down));
+                                    }
+
+                                    if (swipeData.Direction == SwipeDirection.Down && !Rolling && !TouchInput.Swiping && Up_On)
+                                    {
+                                        StartCoroutine(Roll(Up));
+                                    }
+
+                                    if (swipeData.Direction == SwipeDirection.Left && !Rolling && !TouchInput.Swiping && Left_On)
+                                    {
+                                        StartCoroutine(Roll(Left));
+                                    }
+
+                                    if (swipeData.Direction == SwipeDirection.Right && !Rolling && !TouchInput.Swiping && Right_On)
+                                    {
+                                        StartCoroutine(Roll(Right));
+                                    }
+                                }
+                                else if (180 >= ui_Ref.UIOreintation && ui_Ref.UIOreintation > 135 || -135 > ui_Ref.UIOreintation && ui_Ref.UIOreintation >= -180)
+                                {
+                                    if (swipeData.Direction == SwipeDirection.Up && !Rolling && !TouchInput.Swiping && Up_On)
+                                    {
+                                        StartCoroutine(Roll(Up));
+                                    }
+
+                                    if (swipeData.Direction == SwipeDirection.Down && !Rolling && !TouchInput.Swiping && Down_On)
+                                    {
+                                        StartCoroutine(Roll(Down));
+                                    }
+
+                                    if (swipeData.Direction == SwipeDirection.Left && !Rolling && !TouchInput.Swiping && Right_On)
+                                    {
+                                        StartCoroutine(Roll(Right));
+                                    }
+
+                                    if (swipeData.Direction == SwipeDirection.Right && !Rolling && !TouchInput.Swiping && Left_On)
+                                    {
+                                        StartCoroutine(Roll(Left));
+                                    }
+                                }
+                                else if (135 >= ui_Ref.UIOreintation && ui_Ref.UIOreintation >= 45)
+                                {
+                                    if (swipeData.Direction == SwipeDirection.Up && !Rolling && !TouchInput.Swiping && Right_On)
+                                    {
+                                        StartCoroutine(Roll(Right));
+                                    }
+
+                                    if (swipeData.Direction == SwipeDirection.Down && !Rolling && !TouchInput.Swiping && Left_On)
+                                    {
+                                        StartCoroutine(Roll(Left));
+                                    }
+
+                                    if (swipeData.Direction == SwipeDirection.Left && !Rolling && !TouchInput.Swiping && Down_On)
+                                    {
+                                        StartCoroutine(Roll(Down));
+                                    }
+
+                                    if (swipeData.Direction == SwipeDirection.Right && !Rolling && !TouchInput.Swiping && Up_On)
+                                    {
+                                        StartCoroutine(Roll(Up));
+                                    }
+                                }
+                                else if (-45 >= ui_Ref.UIOreintation && ui_Ref.UIOreintation >= -135)
+                                {
+                                    if (swipeData.Direction == SwipeDirection.Up && !Rolling && !TouchInput.Swiping && Left_On)
+                                    {
+                                        StartCoroutine(Roll(Left));
+                                    }
+
+                                    if (swipeData.Direction == SwipeDirection.Down && !Rolling && !TouchInput.Swiping && Right_On)
+                                    {
+                                        StartCoroutine(Roll(Right));
+                                    }
+
+                                    if (swipeData.Direction == SwipeDirection.Left && !Rolling && !TouchInput.Swiping && Up_On)
+                                    {
+                                        StartCoroutine(Roll(Up));
+                                    }
+
+                                    if (swipeData.Direction == SwipeDirection.Right && !Rolling && !TouchInput.Swiping && Down_On)
+                                    {
+                                        StartCoroutine(Roll(Down));
+                                    }
                                 }
 
-                                if (swipeData.Direction == SwipeDirection.Down && !Rolling && !TouchInput.Swiping && Up_On)
-                                {
-                                    StartCoroutine(Roll(Up));
-                                }
+                            }
+                        }
+                    }
+                    else if (PosDependant_Down)
+                    {
+                        if (Input.touchCount == 1)
+                        {
+                            Touch screenTouch = Input.GetTouch(0);
 
-                                if (swipeData.Direction == SwipeDirection.Left && !Rolling && !TouchInput.Swiping && Left_On)
-                                {
-                                    StartCoroutine(Roll(Left));
-                                }
+                            if (screenTouch.phase == TouchPhase.Moved)
+                            {
+                                //Debug.Log(TouchInput.swipe.Direction);
 
-                                if (swipeData.Direction == SwipeDirection.Right && !Rolling && !TouchInput.Swiping && Right_On)
+                                swipeData = TouchInput.swipe;
+
+                                if (45 > ui_Ref.UIOreintation && ui_Ref.UIOreintation > -45)
                                 {
-                                    StartCoroutine(Roll(Right));
+                                    if (swipeData.Direction == SwipeDirection.Up && !Rolling && !TouchInput.Swiping && Up_On)
+                                    {
+                                        StartCoroutine(Roll(Up));
+                                    }
+
+                                    if (swipeData.Direction == SwipeDirection.Down && !Rolling && !TouchInput.Swiping && Down_On)
+                                    {
+                                        StartCoroutine(Roll(Down));
+                                    }
+
+                                    if (swipeData.Direction == SwipeDirection.Left && !Rolling && !TouchInput.Swiping && Left_On)
+                                    {
+                                        StartCoroutine(Roll(Left));
+                                    }
+
+                                    if (swipeData.Direction == SwipeDirection.Right && !Rolling && !TouchInput.Swiping && Right_On)
+                                    {
+                                        StartCoroutine(Roll(Right));
+                                    }
+                                }
+                                else if (180 >= ui_Ref.UIOreintation && ui_Ref.UIOreintation > 135 || -135 > ui_Ref.UIOreintation && ui_Ref.UIOreintation >= -180)
+                                {
+                                    if (swipeData.Direction == SwipeDirection.Up && !Rolling && !TouchInput.Swiping && Down_On)
+                                    {
+                                        StartCoroutine(Roll(Down));
+                                    }
+
+                                    if (swipeData.Direction == SwipeDirection.Down && !Rolling && !TouchInput.Swiping && Up_On)
+                                    {
+                                        StartCoroutine(Roll(Up));
+                                    }
+
+                                    if (swipeData.Direction == SwipeDirection.Left && !Rolling && !TouchInput.Swiping && Right_On)
+                                    {
+                                        StartCoroutine(Roll(Right));
+                                    }
+
+                                    if (swipeData.Direction == SwipeDirection.Right && !Rolling && !TouchInput.Swiping && Left_On)
+                                    {
+                                        StartCoroutine(Roll(Left));
+                                    }
+                                }
+                                else if (135 >= ui_Ref.UIOreintation && ui_Ref.UIOreintation >= 45)
+                                {
+                                    if (swipeData.Direction == SwipeDirection.Up && !Rolling && !TouchInput.Swiping && Right_On)
+                                    {
+                                        StartCoroutine(Roll(Right));
+                                    }
+
+                                    if (swipeData.Direction == SwipeDirection.Down && !Rolling && !TouchInput.Swiping && Left_On)
+                                    {
+                                        StartCoroutine(Roll(Left));
+                                    }
+
+                                    if (swipeData.Direction == SwipeDirection.Left && !Rolling && !TouchInput.Swiping && Up_On)
+                                    {
+                                        StartCoroutine(Roll(Up));
+                                    }
+
+                                    if (swipeData.Direction == SwipeDirection.Right && !Rolling && !TouchInput.Swiping && Down_On)
+                                    {
+                                        StartCoroutine(Roll(Down));
+                                    }
+                                }
+                                else if (-45 >= ui_Ref.UIOreintation && ui_Ref.UIOreintation >= -135)
+                                {
+                                    if (swipeData.Direction == SwipeDirection.Up && !Rolling && !TouchInput.Swiping && Left_On)
+                                    {
+                                        StartCoroutine(Roll(Left));
+                                    }
+
+                                    if (swipeData.Direction == SwipeDirection.Down && !Rolling && !TouchInput.Swiping && Right_On)
+                                    {
+                                        StartCoroutine(Roll(Right));
+                                    }
+
+                                    if (swipeData.Direction == SwipeDirection.Left && !Rolling && !TouchInput.Swiping && Down_On)
+                                    {
+                                        StartCoroutine(Roll(Down));
+                                    }
+
+                                    if (swipeData.Direction == SwipeDirection.Right && !Rolling && !TouchInput.Swiping && Up_On)
+                                    {
+                                        StartCoroutine(Roll(Up));
+                                    }
                                 }
                             }
-                            else if (180 >= ui_Ref.UIOreintation && ui_Ref.UIOreintation > 135 || -135 > ui_Ref.UIOreintation && ui_Ref.UIOreintation >= -180)
+                        }
+
+                    }
+                    else
+                    {
+                        if (Input.touchCount == 1)
+                        {
+                            Touch screenTouch = Input.GetTouch(0);
+
+                            if (screenTouch.phase == TouchPhase.Moved)
                             {
+                                //Debug.Log(TouchInput.swipe.Direction);
+
+                                swipeData = TouchInput.swipe;
+
+                                if (ifTutorial)
+                                {
+                                    if (swipeData.Direction != SwipeDirection.Up)
+                                    {
+                                        swipeData.Direction = SwipeDirection.None;
+                                    }
+                                }
+
+
                                 if (swipeData.Direction == SwipeDirection.Up && !Rolling && !TouchInput.Swiping && Up_On)
                                 {
+                                    PlayerModel.transform.rotation = Quaternion.LookRotation(this.transform.up);
+                                    PlayerModel.transform.GetChild(0).transform.localEulerAngles = new Vector3(0, -90, -90);
                                     StartCoroutine(Roll(Up));
                                 }
 
                                 if (swipeData.Direction == SwipeDirection.Down && !Rolling && !TouchInput.Swiping && Down_On)
                                 {
-                                    StartCoroutine(Roll(Down));
-                                }
-
-                                if (swipeData.Direction == SwipeDirection.Left && !Rolling && !TouchInput.Swiping && Right_On)
-                                {
-                                    StartCoroutine(Roll(Right));
-                                }
-
-                                if (swipeData.Direction == SwipeDirection.Right && !Rolling && !TouchInput.Swiping && Left_On)
-                                {
-                                    StartCoroutine(Roll(Left));
-                                }
-                            }
-                            else if (135 >= ui_Ref.UIOreintation && ui_Ref.UIOreintation >= 45)
-                            {
-                                if (swipeData.Direction == SwipeDirection.Up && !Rolling && !TouchInput.Swiping && Right_On)
-                                {
-                                    StartCoroutine(Roll(Right));
-                                }
-
-                                if (swipeData.Direction == SwipeDirection.Down && !Rolling && !TouchInput.Swiping && Left_On)
-                                {
-                                    StartCoroutine(Roll(Left));
-                                }
-
-                                if (swipeData.Direction == SwipeDirection.Left && !Rolling && !TouchInput.Swiping && Down_On)
-                                {
-                                    StartCoroutine(Roll(Down));
-                                }
-
-                                if (swipeData.Direction == SwipeDirection.Right && !Rolling && !TouchInput.Swiping && Up_On)
-                                {
-                                    StartCoroutine(Roll(Up));
-                                }
-                            }
-                            else if (-45 >= ui_Ref.UIOreintation && ui_Ref.UIOreintation >= -135)
-                            {
-                                if (swipeData.Direction == SwipeDirection.Up && !Rolling && !TouchInput.Swiping && Left_On)
-                                {
-                                    StartCoroutine(Roll(Left));
-                                }
-
-                                if (swipeData.Direction == SwipeDirection.Down && !Rolling && !TouchInput.Swiping && Right_On)
-                                {
-                                    StartCoroutine(Roll(Right));
-                                }
-
-                                if (swipeData.Direction == SwipeDirection.Left && !Rolling && !TouchInput.Swiping && Up_On)
-                                {
-                                    StartCoroutine(Roll(Up));
-                                }
-
-                                if (swipeData.Direction == SwipeDirection.Right && !Rolling && !TouchInput.Swiping && Down_On)
-                                {
-                                    StartCoroutine(Roll(Down));
-                                }
-                            }
-                        }
-                    }
-
-                }
-                else if (PosDependant_Down)
-                {
-                    if (Input.touchCount == 1)
-                    {
-                        Touch screenTouch = Input.GetTouch(0);
-
-                        if (screenTouch.phase == TouchPhase.Moved)
-                        {
-                            //Debug.Log(TouchInput.swipe.Direction);
-
-                            swipeData = TouchInput.swipe;
-
-                            if (45 > ui_Ref.UIOreintation && ui_Ref.UIOreintation > -45)
-                            {
-                                if (swipeData.Direction == SwipeDirection.Up && !Rolling && !TouchInput.Swiping && Up_On)
-                                {                                    
-                                    StartCoroutine(Roll(Up));
-                                }
-
-                                if (swipeData.Direction == SwipeDirection.Down && !Rolling && !TouchInput.Swiping && Down_On)
-                                {
+                                    PlayerModel.transform.rotation = Quaternion.LookRotation(-this.transform.up);
+                                    PlayerModel.transform.GetChild(0).transform.localEulerAngles = new Vector3(0, -90, -90);
                                     StartCoroutine(Roll(Down));
                                 }
 
                                 if (swipeData.Direction == SwipeDirection.Left && !Rolling && !TouchInput.Swiping && Left_On)
                                 {
+                                    PlayerModel.transform.rotation = Quaternion.LookRotation(-this.transform.right);
+                                    PlayerModel.transform.GetChild(0).transform.localEulerAngles = new Vector3(0, -90, -90);
                                     StartCoroutine(Roll(Left));
                                 }
 
                                 if (swipeData.Direction == SwipeDirection.Right && !Rolling && !TouchInput.Swiping && Right_On)
                                 {
-                                    StartCoroutine(Roll(Right));
-                                }
-                            }
-                            else if (180 >= ui_Ref.UIOreintation && ui_Ref.UIOreintation > 135 || -135 > ui_Ref.UIOreintation && ui_Ref.UIOreintation >= -180)
-                            {
-                                if (swipeData.Direction == SwipeDirection.Up && !Rolling && !TouchInput.Swiping && Down_On)
-                                {
-                                    StartCoroutine(Roll(Down));
-                                }
 
-                                if (swipeData.Direction == SwipeDirection.Down && !Rolling && !TouchInput.Swiping && Up_On)
-                                {
-                                    StartCoroutine(Roll(Up));
-                                }
-
-                                if (swipeData.Direction == SwipeDirection.Left && !Rolling && !TouchInput.Swiping && Right_On)
-                                {
+                                    PlayerModel.transform.rotation = Quaternion.LookRotation(this.transform.right);
+                                    PlayerModel.transform.GetChild(0).transform.localEulerAngles = new Vector3(180, -90, -90);
                                     StartCoroutine(Roll(Right));
                                 }
 
-                                if (swipeData.Direction == SwipeDirection.Right && !Rolling && !TouchInput.Swiping && Left_On)
-                                {
-                                    StartCoroutine(Roll(Left));
-                                }
-                            }
-                            else if (135 >= ui_Ref.UIOreintation && ui_Ref.UIOreintation >= 45)
-                            {
-                                if (swipeData.Direction == SwipeDirection.Up && !Rolling && !TouchInput.Swiping && Right_On)
-                                {
-                                    StartCoroutine(Roll(Right));
-                                }
-
-                                if (swipeData.Direction == SwipeDirection.Down && !Rolling && !TouchInput.Swiping && Left_On)
-                                {
-                                    StartCoroutine(Roll(Left));
-                                }
-
-                                if (swipeData.Direction == SwipeDirection.Left && !Rolling && !TouchInput.Swiping && Up_On)
-                                {
-                                    StartCoroutine(Roll(Up));
-                                }
-
-                                if (swipeData.Direction == SwipeDirection.Right && !Rolling && !TouchInput.Swiping && Down_On)
-                                {
-                                    StartCoroutine(Roll(Down));
-                                }
-                            }
-                            else if (-45 >= ui_Ref.UIOreintation && ui_Ref.UIOreintation >= -135)
-                            {
-                                if (swipeData.Direction == SwipeDirection.Up && !Rolling && !TouchInput.Swiping && Left_On)
-                                {
-                                    StartCoroutine(Roll(Left));
-                                }
-
-                                if (swipeData.Direction == SwipeDirection.Down && !Rolling && !TouchInput.Swiping && Right_On)
-                                {
-                                    StartCoroutine(Roll(Right));
-                                }
-
-                                if (swipeData.Direction == SwipeDirection.Left && !Rolling && !TouchInput.Swiping && Down_On)
-                                {
-                                    StartCoroutine(Roll(Down));
-                                }
-
-                                if (swipeData.Direction == SwipeDirection.Right && !Rolling && !TouchInput.Swiping && Up_On)
-                                {
-                                    StartCoroutine(Roll(Up));
-                                }
+                                //Debug.Log(PlayerModel.transform.eulerAngles);
                             }
                         }
+
                     }
-
-                }
-                else
-                {
-                    if (Input.touchCount == 1)
-                    {
-                        Touch screenTouch = Input.GetTouch(0);
-
-                        if (screenTouch.phase == TouchPhase.Moved)
-                        {
-                            //Debug.Log(TouchInput.swipe.Direction);
-
-                            swipeData = TouchInput.swipe;
-
-                            if (swipeData.Direction == SwipeDirection.Up && !Rolling && !TouchInput.Swiping && Up_On)
-                            {
-                                PlayerModel.transform.rotation = Quaternion.LookRotation(this.transform.up);
-                                PlayerModel.transform.GetChild(0).transform.localEulerAngles = new Vector3(0, -90, -90);
-                                StartCoroutine(Roll(Up));
-                            }
-
-                            if (swipeData.Direction == SwipeDirection.Down && !Rolling && !TouchInput.Swiping && Down_On)
-                            {
-                                PlayerModel.transform.rotation = Quaternion.LookRotation(-this.transform.up);
-                                PlayerModel.transform.GetChild(0).transform.localEulerAngles = new Vector3(0, -90, -90);
-                                StartCoroutine(Roll(Down));
-                            }
-
-                            if (swipeData.Direction == SwipeDirection.Left && !Rolling && !TouchInput.Swiping && Left_On)
-                            {
-                                PlayerModel.transform.rotation = Quaternion.LookRotation(-this.transform.right);
-                                PlayerModel.transform.GetChild(0).transform.localEulerAngles = new Vector3(0, -90, -90);
-                                StartCoroutine(Roll(Left));
-                            }
-
-                            if (swipeData.Direction == SwipeDirection.Right && !Rolling && !TouchInput.Swiping && Right_On)
-                            {
-
-                                PlayerModel.transform.rotation = Quaternion.LookRotation(this.transform.right);
-                                PlayerModel.transform.GetChild(0).transform.localEulerAngles = new Vector3(180,-90,-90);
-                                StartCoroutine(Roll(Right));
-                            }
-
-                            //Debug.Log(PlayerModel.transform.eulerAngles);
-                        }
-                    }
-
                 }
             }
         }
@@ -349,7 +370,7 @@ public class TurningPoint : MonoBehaviour
                 PlayerModel.transform.eulerAngles = new Vector3(PlayerModel.transform.eulerAngles.x, PlayerModel.transform.eulerAngles.y, 90);
             }
             swipeData.Direction = SwipeDirection.None;
-            
+            SpamLock = true;
             Exist = true;
         }
     }

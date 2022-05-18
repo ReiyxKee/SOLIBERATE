@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Unlockables : MonoBehaviour
 {
     public int ThisPlanet;
+    //preview ui
     public GameObject Unlockables_P;
+    //ingame ui
     public GameObject Unlockables_IG;
 
     public int Unlockable_Counts;
@@ -16,9 +19,8 @@ public class Unlockables : MonoBehaviour
 
     public Unlockable_Detial[] Unlockable_detial;
 
-
-    public GameObject Desc;
-
+    public GameObject Desc_P;
+    public GameObject Desc_IG;
 
 
     public bool SaveTest;
@@ -27,15 +29,22 @@ public class Unlockables : MonoBehaviour
     void Start()
     {
         InitSave(ThisPlanet);
+        Load(ThisPlanet);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Desc == null)
+        if (Desc_P == null && GameObject.Find("Preview_UI/Description"))
         {
-            Desc = GameObject.Find("Preview_UI/Description");
-            Desc.SetActive(false);
+            Desc_P = GameObject.Find("Preview_UI/Description");
+            Desc_P.SetActive(false);
+        }
+
+        if (Desc_IG == null && GameObject.Find("InGame_UI/Description"))
+        {
+            Desc_IG = GameObject.Find("InGame_UI/Description");
+            Desc_IG.SetActive(false);
         }
 
         if (Unlockables_P == null)
@@ -61,7 +70,9 @@ public class Unlockables : MonoBehaviour
                     Button.name = "Task (" + i.ToString() + ")";
                     Button.transform.SetParent(Unlockables_P.transform);
                     Button.GetComponentInChildren<Unlockable_Detials>().Detials = Unlockable_detial[i];
-                    Button.GetComponentInChildren<Unlockable_Detials>().Desc = Desc;
+                    Button.GetComponentInChildren<Unlockable_Detials>().Desc = Desc_P;
+                    Button.GetComponentInChildren<Unlockable_Detials>().PrevIG = true;
+
                     Unlockables_Button_P[i] = Button;
                 }
             }
@@ -90,9 +101,32 @@ public class Unlockables : MonoBehaviour
                     Button.name = "Task (" + i.ToString() + ")";
                     Button.transform.SetParent(Unlockables_IG.transform);
                     Button.GetComponentInChildren<Unlockable_Detials>().Detials = Unlockable_detial[i];
-                    Button.GetComponentInChildren<Unlockable_Detials>().Desc = Desc;
+                    Button.GetComponentInChildren<Unlockable_Detials>().Desc = Desc_IG;
+                    Button.GetComponentInChildren<Unlockable_Detials>().PrevIG = false;
+
                     Unlockables_Button_IG[i] = Button;
                 }
+            }
+        }
+
+        if (Unlockable_detial.Length >= 3)
+        {
+           if (Unlockable_detial[0].Unlocked && Unlockable_detial[1].Unlocked)
+            {
+                Unlockable_detial[2].Unlocked = true;
+            }
+        }
+
+
+        for (int i = 0; i < Unlockables_Button_IG.Length; i++)
+        {
+            if (Unlockables_Button_IG[i].GetComponentInChildren<Unlockable_Detials>().Detials.Unlocked)
+            {
+                Unlockables_Button_IG[i].GetComponentInChildren<Text>().text = Unlockables_Button_IG[i].GetComponentInChildren<Unlockable_Detials>().Detials.Title;
+            }
+            else
+            {
+                Unlockables_Button_IG[i].GetComponentInChildren<Text>().text = "EXPLORE PLANET TO UNLOCK";
             }
         }
 

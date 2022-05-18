@@ -15,6 +15,7 @@ public class SwipeDetector : MonoBehaviour
     public SwipeData swipe;
     public bool Swiping;
     public bool Swiped;
+    public bool isReading;
 
     [SerializeField]
     private float minDistanceForSwipe = 30f;
@@ -29,29 +30,41 @@ public class SwipeDetector : MonoBehaviour
             Swiped = false;
         }
 
+        if (Input.touchCount == 0 && isReading)
+        {
+            isReading = false;
+        }
+
         foreach (Touch touch in Input.touches)
         {
             if (!IsPointerOverUIObject())
             {
-                if (touch.phase == TouchPhase.Began)
+                if (!isReading)
                 {
-                    fingerUpPosition = touch.position;
-                    fingerDownPosition = touch.position;
-                }
+                    if (touch.phase == TouchPhase.Began)
+                    {
+                        fingerUpPosition = touch.position;
+                        fingerDownPosition = touch.position;
+                    }
 
-                if (touch.phase == TouchPhase.Moved)
-                {
-                    Swiping = true;
-                    fingerDownPosition = touch.position;
-                    DetectSwipe();
-                }
+                    if (touch.phase == TouchPhase.Moved)
+                    {
+                        Swiping = true;
+                        fingerDownPosition = touch.position;
+                        DetectSwipe();
+                    }
 
-                if (touch.phase == TouchPhase.Ended)
-                {
-                    fingerDownPosition = touch.position;
-                    DetectSwipe();
-                    swipe.Direction = SwipeDirection.None;
+                    if (touch.phase == TouchPhase.Ended)
+                    {
+                        fingerDownPosition = touch.position;
+                        DetectSwipe();
+                        swipe.Direction = SwipeDirection.None;
+                    }
                 }
+            }
+            else
+            {
+                isReading = true;
             }
         }
     }

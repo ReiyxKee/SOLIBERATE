@@ -214,7 +214,7 @@ public class Tutorial_Script : MonoBehaviour
             //SWIPE
             FuelGuide.SetActive(false);
             
-            Instruction.text = "YOU CAN MOVE THE SPACESHUTTER BY SWIPING THE SCREEN";
+            Instruction.text = "YOU CAN MOVE THE SPACESHUTTER BY SWIPING THE SCREEN\nTRY TO SWIPE UP";
             SwipeUp_Guide.SetActive(true);
             TapAndContinue.text = "-SWIPE UP-";
             Blocker_Tutorial_Full.SetActive(false);

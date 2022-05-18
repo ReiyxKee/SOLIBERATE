@@ -10,6 +10,12 @@ public class Unlockable_Detials : MonoBehaviour
 
     public TextMeshProUGUI Title;
     public GameObject Desc;
+
+    //Preview Desc =  true 
+    public bool PrevIG;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,8 +31,17 @@ public class Unlockable_Detials : MonoBehaviour
 
     public void ShowDesc()
     {
-        Desc.SetActive(true);
-        GameObject.Find("Preview_UI/Description/Discovery").GetComponent<TextMeshProUGUI>().text = Detials.Title;
-        GameObject.Find("Preview_UI/Description/Viewport/iNFO").GetComponent<TextMeshProUGUI>().text = Detials.Desc;
+        if (PrevIG)
+        {
+            Desc.SetActive(true);
+            GameObject.Find("Preview_UI/Description/Discovery").GetComponent<TextMeshProUGUI>().text = Detials.Title;
+            GameObject.Find("Preview_UI/Description/Viewport/iNFO").GetComponent<TextMeshProUGUI>().text = Detials.Desc;
+        }
+        else
+        {
+            Desc.SetActive(true);
+            GameObject.Find("InGame_UI/Description/Discovery").GetComponent<TextMeshProUGUI>().text = Detials.Title;
+            GameObject.Find("InGame_UI/Description/Viewport/iNFO").GetComponent<TextMeshProUGUI>().text = Detials.Desc;
+        }
     }
 }

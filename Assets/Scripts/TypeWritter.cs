@@ -10,11 +10,12 @@ public class TypeWritter : MonoBehaviour
     public float TextSpeed;
     private float textspeed;
     public AudioSource Beep;
+    public bool Complete;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        Complete = false;
     }
 
     // Update is called once per frame
@@ -30,11 +31,23 @@ public class TypeWritter : MonoBehaviour
             i++;
         }
 
+        if (i >= text.Length)
+        {
+            Complete = true;
+        }
     }
 
     public void Reset()
     {
         i = 0;
+        Complete = false;
         this.GetComponent<TextMeshProUGUI>().text = "";
     }
+    
+    public void Skip()
+    {
+        i = text.Length;
+        this.GetComponent<TextMeshProUGUI>().text = text;
+    }
+
 }
