@@ -11,8 +11,7 @@ public class Tutorial_Script : MonoBehaviour
     public GameObject CircleGuide;
     public Animate_2DSprite anim;
 
-    public TextMeshProUGUI Instruction;
-    public TextMeshProUGUI Instruction_2;
+    public TypeWritter Instruction;
     public TextMeshProUGUI TapAndContinue;
 
     public Sprite[] SwipeUp;
@@ -37,6 +36,9 @@ public class Tutorial_Script : MonoBehaviour
     public bool Guide_TapEnterWorld;
     public bool Guide_TapEnterWorld_Done;
     public GameObject Blocker_TapEnterWorld;
+
+    public bool Guide_AR;
+    public bool Guide_AR_Done;
 
     public bool Guide_Unlockable;
     public bool Guide_Unlockable_Done;
@@ -120,6 +122,7 @@ public class Tutorial_Script : MonoBehaviour
         {
             //Select Planet
             Blocker_TapWorld.SetActive(true);
+            
             Instruction.text = "WELCOME TO SOLIBERATE";
             anim.Frames = Tap;
             Guide.GetComponent<RectTransform>().position = cam.WorldToScreenPoint(Target.gameObject.transform.position);
@@ -130,7 +133,8 @@ public class Tutorial_Script : MonoBehaviour
             //About Planet
             Blocker_TapWorld.SetActive(false);
             Blocker_TapAboutWorld.SetActive(true);
-            Instruction.text = "HERE WE CAN LOOK AT THE DETIALS ABOUT THE PLANET";
+            
+            Instruction.text = "TAP HERE TO READ THE DETIALS ABOUT THE PLANET";
             anim.Frames = Tap;
             Guide.GetComponent<RectTransform>().position = Target.GetComponent<RectTransform>().position;
         }
@@ -140,17 +144,29 @@ public class Tutorial_Script : MonoBehaviour
             //View Planet
             Blocker_TapAboutWorld.SetActive(false);
             Blocker_TapEnterWorld.SetActive(true);
+            
             Instruction.text = "LET'S ENTER THE PLANET TO HAVE A BETTER LOOK";
             anim.Frames = Tap;
             Guide.GetComponent<RectTransform>().position = Target.GetComponent<RectTransform>().position;
         }
 
+
+        if (Guide_AR && !Guide_AR_Done)
+        {
+            Blocker_TapEnterWorld.SetActive(false);
+            Blocker_Tutorial_Full.SetActive(true);
+
+            Instruction.text = "TRY TO WALK AROUND THE PLANET";
+            TapAndContinue.text = "-TAP AND CONTINUE-";
+        }
+
         if (Guide_Unlockable && !Guide_Unlockable_Done)
         {
             //Unlockable Planet
-            Blocker_TapEnterWorld.SetActive(false);
+            Blocker_Tutorial_Full.SetActive(false);
             Blocker_Guide_Unlockable.SetActive(true);
-            Instruction.text = "HERE WE CAN SEE THE PLANET\n\nTRY AND WALK AROUND IT\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAND BELOW ARE SOME TRIVIAL ABOUT THE PLANET.\n\nYOU CAN UNLOCK THEM WHILE TRAVELING ON THE PLANET";
+            
+            Instruction.text = "HERE ARE SOME TRIVIAL ABOUT THE PLANET.\n\nYOU CAN UNLOCK THEM WHILE TRAVELING ON THE PLANET";
             TapAndContinue.text = "-TAP AND CONTINUE-";
             BoxGuide.GetComponent<RectTransform>().position = BoxTarget.GetComponent<RectTransform>().position;
 
@@ -162,7 +178,9 @@ public class Tutorial_Script : MonoBehaviour
             Blocker_Guide_Unlockable.SetActive(false);
             Blocker_Guide_StartGame.SetActive(true);
 
-            Instruction.text = "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLET'S START THE MISSION\nON EARTH";
+            Blocker_Tutorial_Full.SetActive(false);
+
+            Instruction.text = "LET'S START THE MISSION\nON EARTH";
             TapAndContinue.text = "";
             anim.Frames = Tap;
             Guide.GetComponent<RectTransform>().position = Target.GetComponent<RectTransform>().position;
@@ -170,8 +188,10 @@ public class Tutorial_Script : MonoBehaviour
 
         if (Tutorial_Start && !Tutorial_Start_Done)
         {
+            
             Instruction.text = "";
-            Instruction_2.text = "IN THIS MISSION WE WILL TRAVEL THE EARTH WITH THE SPACESHUTTER";
+            
+            Instruction.text = "IN THIS MISSION WE WILL TRAVEL THE EARTH WITH THE SPACESHUTTER";
             Blocker_Guide_StartGame.SetActive(false);
             Blocker_Tutorial_Full.SetActive(true);
 
@@ -183,7 +203,8 @@ public class Tutorial_Script : MonoBehaviour
         {
             //FUEL
             Blocker_Tutorial_Full.SetActive(true);
-            Instruction_2.text = "THE SPACESHUTTER HAVE LIMITED FUEL\n\nSO PLAN YOUR TRIP BEFORE MOVING";
+            
+            Instruction.text = "THE SPACESHUTTER HAVE LIMITED FUEL";
             FuelGuide.SetActive(true);
             TapAndContinue.text = "-TAP AND CONTINUE-";
         }
@@ -192,7 +213,8 @@ public class Tutorial_Script : MonoBehaviour
         {
             //SWIPE
             FuelGuide.SetActive(false);
-            Instruction_2.text = "YOU CAN MOVE THE SPACESHUTTER BY SWIPING THE SCREEN\n\nTRY TO SWIPE UP THE SCREEN";
+            
+            Instruction.text = "YOU CAN MOVE THE SPACESHUTTER BY SWIPING THE SCREEN";
             SwipeUp_Guide.SetActive(true);
             TapAndContinue.text = "-SWIPE UP-";
             Blocker_Tutorial_Full.SetActive(false);
@@ -201,7 +223,8 @@ public class Tutorial_Script : MonoBehaviour
         if (!Tutorial_Move_2_Done && Tutorial_Move_2)
         {
             //SWIPE
-            Instruction_2.text = "THE SPACESHUTTER WILL MOVE BASE ON THE DIRECTION YOU FACING IT";
+            
+            Instruction.text = "THE SPACESHUTTER WILL MOVE BASE ON THE DIRECTION YOU FACING IT";
             SwipeUp_Guide.SetActive(false);
             Guide_Tutorial_3.SetActive(true);
             TapAndContinue.text = "-TAP AND CONTINUE-";
@@ -212,7 +235,8 @@ public class Tutorial_Script : MonoBehaviour
             //SWIPE
             Guide_Tutorial_3.SetActive(false);
             CircleGuide.GetComponent<RectTransform>().position = cam.WorldToScreenPoint(CircleTarget.gameObject.transform.position);
-            Instruction_2.text = "YOU CAN LOOK AT THE INDICATOR TO KNOW WHICH DIRECTION IT WILL MOVE TO WHEN SWIPING";
+            
+            Instruction.text = "YOU CAN LOOK AT THE INDICATOR TO KNOW WHICH DIRECTION IT WILL MOVE";
             TapAndContinue.text = "-TAP AND CONTINUE-";
             Blocker_Tutorial_Full.SetActive(true);
         }
@@ -222,7 +246,8 @@ public class Tutorial_Script : MonoBehaviour
             //SWIPE
             Guide_Tutorial_3.SetActive(false); 
             CircleGuide.GetComponent<RectTransform>().position = cam.WorldToScreenPoint(CircleTarget.gameObject.transform.position);
-            Instruction_2.text = "PASSING THE SPACE STATION WILL SWITCH THEM BETWEEN RED AND GREEN STATE";
+            
+            Instruction.text = "PASSING THE SPACE STATION WILL SWITCH THEM BETWEEN RED AND GREEN STATE";
             TapAndContinue.text = "-TAP AND CONTINUE-";
         }
 
@@ -230,28 +255,32 @@ public class Tutorial_Script : MonoBehaviour
         {
             //SWIPE
             CircleGuide.GetComponent<RectTransform>().position = cam.WorldToScreenPoint(CircleTarget.gameObject.transform.position);
-            Instruction_2.text = "TURNING ALL SPACE STATION GREEN WILL ACTIVATE THE DYSON SCANNER";
+            
+            Instruction.text = "TURNING ALL SPACE STATION GREEN WILL ACTIVATE THE DYSON SCANNER";
             TapAndContinue.text = "-TAP AND CONTINUE-";
         }
 
         if (!Tutorial_Move_6_Done && Tutorial_Move_6)
         {
             //SWIPE
-            Instruction_2.text = "THIS WILL HELP US TO UNDERSTAND MORE ABOUT THE PLANET WE TRAVELLED";
+            
+            Instruction.text = "THIS WILL HELP US TO UNDERSTAND MORE ABOUT THE PLANET";
             TapAndContinue.text = "-TAP AND CONTINUE-";
         }
 
         if (!Tutorial_Move_7_Done && Tutorial_Move_7)
         {
             //SWIPE
-            Instruction_2.text = "NOW, ASTRONAUT\n\nGOOD LUCK AND GODSPEED";
+            
+            Instruction.text = "NOW, ASTRONAUT\n\nGOOD LUCK AND GODSPEED";
             TapAndContinue.text = "-TAP AND CONTINUE-";
         }
 
         if (Tutorial_Move_7_Done)
         {
             Blocker_Tutorial_Full.SetActive(false);
-            Instruction_2.text = "";
+            
+            Instruction.text = "";
             TapAndContinue.text = "";
         }
     }

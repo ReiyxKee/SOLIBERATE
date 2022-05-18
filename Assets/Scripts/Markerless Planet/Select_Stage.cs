@@ -416,8 +416,10 @@ public class Select_Stage : MonoBehaviour
     public void Tutorial_Manage()
     {
         //Select Earth
-        if (tutorial.Guide_TapWorld_Done == false)
+        if (tutorial.Guide_TapWorld_Done == false && tutorial.Guide_TapWorld == false)
         {
+            tutorial.Instruction.Reset();
+            
             tutorial.Target = Planets[3].transform.GetChild(0).gameObject;
             tutorial.Guide_TapWorld = true;
         }
@@ -433,6 +435,8 @@ public class Select_Stage : MonoBehaviour
         //About
         if (tutorial.Guide_TapWorld_Done && !tutorial.Guide_TapAboutWorld)
         {
+            tutorial.Instruction.Reset();
+            
             tutorial.Target = t_AboutStage;
             tutorial.Guide_TapAboutWorld = true;
         }
@@ -447,6 +451,8 @@ public class Select_Stage : MonoBehaviour
         //Enter
         if (tutorial.Guide_TapAboutWorld_Done && !tutorial.Guide_TapEnterWorld)
         {
+            tutorial.Instruction.Reset();
+            
             tutorial.Target = t_EnterStage;
             tutorial.Guide_TapEnterWorld = true;
         }
@@ -458,9 +464,43 @@ public class Select_Stage : MonoBehaviour
             tutorial.Target = null;
         }
 
-        //Explain Unlockable
-        if (tutorial.Guide_TapEnterWorld_Done && !tutorial.Guide_Unlockable)
+        //Explain AR
+        if (tutorial.Guide_TapEnterWorld_Done && !tutorial.Guide_AR)
         {
+            tutorial.Instruction.Reset();
+            
+            tutorial.Guide_AR = true;
+            OnTap = false;
+        }
+
+        if (tutorial.Guide_AR && !tutorial.Guide_AR_Done)
+        {
+            if (Input.touchCount == 1 && !OnTap)
+            {
+                OnTap = true;
+            }
+            else if (Input.touchCount == 0)
+            {
+                OnTap = false;
+            }
+
+            t_un += Time.deltaTime;
+        }
+
+        if (!tutorial.Guide_AR_Done && tutorial.Guide_AR && t_un > 1.0f && OnTap)
+        {
+            tutorial.Guide_AR_Done = true;
+            tutorial.Guide_AR = true;
+            tutorial.BoxTarget = null;
+        }
+
+        //Explain Unlockable
+        if (tutorial.Guide_AR_Done && !tutorial.Guide_Unlockable)
+        {
+            OnTap = false;
+            t_un = 0;
+            tutorial.Instruction.Reset();
+            
             tutorial.BoxTarget = t_Unlockable;
             tutorial.Guide_Unlockable = true;
             OnTap = false;
@@ -489,6 +529,8 @@ public class Select_Stage : MonoBehaviour
 
         if (tutorial.Guide_Unlockable_Done && !tutorial.Guide_StartGame)
         {
+            tutorial.Instruction.Reset();
+            
             tutorial.Target = t_Start;
             tutorial.Guide_StartGame = true;
         }
@@ -503,6 +545,8 @@ public class Select_Stage : MonoBehaviour
         //Guide start 
         if (tutorial.Guide_StartGame_Done && !tutorial.Tutorial_Start)
         {
+            tutorial.Instruction.Reset();
+            
             OnTap = false;
             t_un = 0;
             tutorial.Tutorial_Start = true;
@@ -526,6 +570,8 @@ public class Select_Stage : MonoBehaviour
         //Guide fuel
         if (!tutorial.Tutorial_Start_Done && tutorial.Tutorial_Start && t_un > 2.0f && OnTap)
         {
+            tutorial.Instruction.Reset();
+            
             tutorial.CircleTarget = null;
             tutorial.Target = null;
             OnTap = false;
@@ -552,6 +598,8 @@ public class Select_Stage : MonoBehaviour
         //Guide Move 1
         if (!tutorial.Tutorial_Fuel_Done && tutorial.Tutorial_Fuel && t_un > 2.0f && OnTap)
         {
+            tutorial.Instruction.Reset();
+            
             OnTap = false;
             t_un = 0;
             tutorial.Tutorial_Fuel_Done = true;
@@ -576,6 +624,8 @@ public class Select_Stage : MonoBehaviour
         //Guide Move 2
         if (!tutorial.Tutorial_Move_1_Done && tutorial.Tutorial_Move_1 && t_un > 2.0f && OnTap)
         {
+            tutorial.Instruction.Reset();
+            
             OnTap = false;
             t_un = 0;
             tutorial.Tutorial_Move_1_Done = true;
@@ -600,6 +650,8 @@ public class Select_Stage : MonoBehaviour
         //Guide Move 3
         if (!tutorial.Tutorial_Move_2_Done && tutorial.Tutorial_Move_2 && t_un > 2.0f && OnTap)
         {
+            tutorial.Instruction.Reset();
+            
             tutorial.CircleTarget = GameObject.Find("DirectionMarker");
             OnTap = false;
             t_un = 0;
@@ -625,6 +677,8 @@ public class Select_Stage : MonoBehaviour
         //Guide Move 4
         if (!tutorial.Tutorial_Move_3_Done && tutorial.Tutorial_Move_3 && t_un > 2.0f && OnTap)
         {
+            tutorial.Instruction.Reset();
+            
             tutorial.CircleTarget = GameObject.Find("Station (2)");
             OnTap = false;
             t_un = 0;
@@ -650,6 +704,8 @@ public class Select_Stage : MonoBehaviour
         //Guide Move 5
         if (!tutorial.Tutorial_Move_4_Done && tutorial.Tutorial_Move_4 && t_un > 2.0f && OnTap)
         {
+            tutorial.Instruction.Reset();
+            
             tutorial.CircleTarget = null;
             OnTap = false;
             t_un = 0;
@@ -694,6 +750,8 @@ public class Select_Stage : MonoBehaviour
         //Guide Move 6
         if (!tutorial.Tutorial_Move_5_Done && tutorial.Tutorial_Move_5 && t_un > 2.0f && OnTap)
         {
+            tutorial.Instruction.Reset();
+            
             tutorial.CircleTarget = null;
             OnTap = false;
             t_un = 0;
@@ -719,6 +777,8 @@ public class Select_Stage : MonoBehaviour
         //Guide Move 7
         if (!tutorial.Tutorial_Move_6_Done && tutorial.Tutorial_Move_6 && t_un > 2.0f && OnTap)
         {
+            tutorial.Instruction.Reset();
+            
             OnTap = false;
             t_un = 0;
             tutorial.Tutorial_Move_6_Done = true;
@@ -743,6 +803,8 @@ public class Select_Stage : MonoBehaviour
 
         if (!tutorial.Tutorial_Move_7_Done && tutorial.Tutorial_Move_7 && t_un > 2.0f && OnTap)
         {
+            tutorial.Instruction.Reset();
+            
             OnTap = false;
             t_un = 0;
             tutorial.Tutorial_Move_7_Done = true;
