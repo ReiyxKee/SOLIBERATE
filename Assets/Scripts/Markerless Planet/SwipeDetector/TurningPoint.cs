@@ -36,6 +36,8 @@ public class TurningPoint : MonoBehaviour
     public bool ifTutorial;
     public bool SpamLock;
 
+    public Step_Limit step_ref;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,6 +47,10 @@ public class TurningPoint : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (step_ref == null && GameObject.Find("PlayerAxis"))
+        {
+            step_ref = GameObject.Find("PlayerAxis").GetComponent<Step_Limit>();
+        }
 
         if (ui_Ref == null)
         {
@@ -355,6 +361,7 @@ public class TurningPoint : MonoBehaviour
         swipeData.Direction = SwipeDirection.None;
         TouchInput.Swiped = true;
         Rolling = false;
+        step_ref.Fuel--;
     }
 
     private void OnTriggerEnter(Collider other)

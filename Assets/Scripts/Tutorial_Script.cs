@@ -253,16 +253,17 @@ public class Tutorial_Script : MonoBehaviour
 
         if (!Tutorial_Move_5_Done && Tutorial_Move_5)
         {
-            //SWIPE
-            CircleGuide.GetComponent<RectTransform>().position = cam.WorldToScreenPoint(CircleTarget.gameObject.transform.position);
-            
+            if (CircleTarget != null)
+            {
+                CircleGuide.GetComponent<RectTransform>().position = cam.WorldToScreenPoint(CircleTarget.gameObject.transform.position);
+            }
+
             Instruction.text = "TURNING ALL SPACE STATION GREEN WILL ACTIVATE THE DYSON SCANNER";
             TapAndContinue.text = "-TAP AND CONTINUE-";
         }
 
         if (!Tutorial_Move_6_Done && Tutorial_Move_6)
         {
-            //SWIPE
             
             Instruction.text = "THIS WILL HELP US TO UNDERSTAND MORE ABOUT THE PLANET";
             TapAndContinue.text = "-TAP AND CONTINUE-";

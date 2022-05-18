@@ -22,6 +22,8 @@ public class Unlockables : MonoBehaviour
     public GameObject Desc_P;
     public GameObject Desc_IG;
 
+    public bool All_Unlocked;
+    public bool Past_All_Unlocked;
 
     public bool SaveTest;
     public bool LoadTest;
@@ -117,18 +119,52 @@ public class Unlockables : MonoBehaviour
             }
         }
 
-
-        for (int i = 0; i < Unlockables_Button_IG.Length; i++)
+        if (Unlockables_Button_P.Length != 0)
         {
-            if (Unlockables_Button_IG[i].GetComponentInChildren<Unlockable_Detials>().Detials.Unlocked)
+            for (int i = 0; i < Unlockables_Button_P.Length; i++)
             {
-                Unlockables_Button_IG[i].GetComponentInChildren<Text>().text = Unlockables_Button_IG[i].GetComponentInChildren<Unlockable_Detials>().Detials.Title;
-            }
-            else
-            {
-                Unlockables_Button_IG[i].GetComponentInChildren<Text>().text = "EXPLORE PLANET TO UNLOCK";
+                Unlockables_Button_P[i].GetComponentInChildren<Unlockable_Detials>().Detials.Unlocked = Unlockable_detial[i].Unlocked;
+                if (Unlockable_detial[i].Unlocked)
+                {
+                    Unlockables_Button_P[i].GetComponentInChildren<Text>().text = Unlockables_Button_P[i].GetComponentInChildren<Unlockable_Detials>().Detials.Title;
+                }
+                else
+                {
+                    Unlockables_Button_P[i].GetComponentInChildren<Text>().text = "EXPLORE PLANET TO UNLOCK";
+                }
             }
         }
+
+        if (Unlockables_Button_IG.Length != 0)
+        {
+            for (int i = 0; i < Unlockables_Button_IG.Length; i++)
+            {
+                Unlockables_Button_IG[i].GetComponentInChildren<Unlockable_Detials>().Detials.Unlocked = Unlockable_detial[i].Unlocked;
+
+                if (Unlockable_detial[i].Unlocked)
+                {
+                    Unlockables_Button_IG[i].GetComponentInChildren<Text>().text = Unlockables_Button_IG[i].GetComponentInChildren<Unlockable_Detials>().Detials.Title;
+                }
+                else
+                {
+                    Unlockables_Button_IG[i].GetComponentInChildren<Text>().text = "EXPLORE PLANET TO UNLOCK";
+                }
+            }
+        }
+
+        for (int i = 0; i < Unlockable_Counts; i++)
+        {
+            if (!Unlockable_detial[i].Unlocked)
+            {
+                All_Unlocked = false;
+                return;
+            }
+            else if(i == Unlockable_Counts - 1)
+            {
+                All_Unlocked = true;
+            }
+        }
+
 
         if (SaveTest)
         {
@@ -163,8 +199,15 @@ public class Unlockables : MonoBehaviour
         PlayerPrefs.SetInt("Planet_"+ PlanetNum.ToString() +"_"+ DiscoveryNum.ToString(), Value);
     }
 
+    public void SaveOverall(int PlanetNum, int Value)
+    {
+        PlayerPrefs.SetInt("Planet_" + PlanetNum.ToString() + "_" + "All_Unlocked", Value);
+    }
+
     public void Load(int PlanetNum)
     {
+        Past_All_Unlocked = PlayerPrefs.GetInt("Planet_" + PlanetNum.ToString() + "_" + "All_Unlocked") == 1 ? true:false;
+
         for (int i = 0; i < Unlockable_Counts; i++)
         {
             Unlockable_detial[i].Unlocked = PlayerPrefs.GetInt("Planet_" + PlanetNum.ToString() + "_" + i.ToString()) == 1 ? true : false;

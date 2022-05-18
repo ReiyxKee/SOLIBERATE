@@ -28,6 +28,8 @@ public class Collectible : MonoBehaviour
             Debug.Log("Unlocked " + Unlockable_ID);
             unlockable.Unlockable_detial[Unlockable_ID].Unlocked = true;
             unlockable.Save(unlockable.ThisPlanet, Unlockable_ID, unlockable.Unlockable_detial[Unlockable_ID].Unlocked ? 1 : 0);
+            //Animate Button
+            //Animate this Game Model
         }
     }
 }

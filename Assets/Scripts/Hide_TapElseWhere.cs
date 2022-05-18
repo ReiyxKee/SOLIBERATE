@@ -20,7 +20,7 @@ public class Hide_TapElseWhere : MonoBehaviour
         {
             if (!IsPointerOverUIObject() && Tapped == false)
             {
-                this.gameObject.SetActive(false);
+                HideThis();
             }
             else if (IsPointerOverUIObject())
             {
@@ -33,7 +33,11 @@ public class Hide_TapElseWhere : MonoBehaviour
 
     }
 
-  
+    public void HideThis()
+    {
+        this.gameObject.SetActive(false);
+    }
+    
     private bool IsPointerOverUIObject()
     {
         PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);

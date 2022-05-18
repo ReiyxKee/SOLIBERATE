@@ -47,6 +47,7 @@ public class Select_Stage : MonoBehaviour
     public TextMeshProUGUI Enter;
     public TextMeshProUGUI Enter_2;
 
+    public GameObject PlanetInfo;
     public Animator InfoExpand;
     public bool InfoExpanded;
     public TextMeshProUGUI Expand;
@@ -65,6 +66,9 @@ public class Select_Stage : MonoBehaviour
     public TurningPoint TP;
 
     public int target_x;
+
+    public GameObject Summary;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -416,6 +420,11 @@ public class Select_Stage : MonoBehaviour
         ResetAR.interactable = !ResetAR.interactable;
     }
 
+    public void ActivateSummary()
+    {
+        Summary.SetActive(true);
+    }
+
     public void Tutorial_Manage()
     {
         if (TP == null && GameObject.Find("Turning_Point_XNeg"))
@@ -554,6 +563,8 @@ public class Select_Stage : MonoBehaviour
             }
             else
             {
+                OnTap = false;
+                t_un = 0;
                 tutorial.Guide_Unlockable_Done = true;
                 tutorial.Guide_Unlockable = true;
                 tutorial.BoxTarget = null;

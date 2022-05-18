@@ -630,6 +630,8 @@ MonoBehaviour:
   PosDependant_Up: 0
   PosDependant_Down: 0
   ifTutorial: 0
+  SpamLock: 0
+  step_ref: {fileID: 4916089357726520820}
 --- !u!1 &4394904334454741567
 GameObject:
   m_ObjectHideFlags: 0
@@ -644,6 +646,7 @@ GameObject:
   - component: {fileID: 5904334343727851756}
   - component: {fileID: 6585755544102925883}
   - component: {fileID: 3752501267471925677}
+  - component: {fileID: 4916089357726520820}
   m_Layer: 0
   m_Name: PlayerAxis
   m_TagString: Untagged
@@ -760,7 +763,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Swiping: 0
   Swiped: 0
+  isReading: 0
   minDistanceForSwipe: 20
+--- !u!114 &4916089357726520820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4394904334454741567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99dbc82eecaeaf44a9b9b992bb6c3164, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxFuel: 10
+  Fuel: 10
+  Fuel_Display: {fileID: 0}
 --- !u!1 &4612466158858079194
 GameObject:
   m_ObjectHideFlags: 0
@@ -856,6 +875,8 @@ MonoBehaviour:
   PosDependant_Up: 0
   PosDependant_Down: 1
   ifTutorial: 0
+  SpamLock: 0
+  step_ref: {fileID: 4916089357726520820}
 --- !u!1 &4826259017374879713
 GameObject:
   m_ObjectHideFlags: 0
@@ -867,6 +888,7 @@ GameObject:
   - component: {fileID: 5310168019670373723}
   - component: {fileID: 1348468852954274524}
   - component: {fileID: 3613449609592766840}
+  - component: {fileID: 7130166272017253060}
   m_Layer: 0
   m_Name: EarthPrefab
   m_TagString: Untagged
@@ -938,9 +960,37 @@ MonoBehaviour:
     Title: Surfing
     Desc: "The high and low tides are actually caused by the moon\u2019s gravitational
       pulls."
-  Desc: {fileID: 0}
+  Desc_P: {fileID: 0}
+  Desc_IG: {fileID: 0}
+  All_Unlocked: 0
   SaveTest: 0
   LoadTest: 0
+--- !u!114 &7130166272017253060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4826259017374879713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bb5bf3a64479574c995b00d3d8c3df4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  step_ref: {fileID: 0}
+  unlockables_ref: {fileID: 0}
+  stations: {fileID: 0}
+  Grade: 0
+  GameEnd: 0
+  Summary: 0
+  Grade_Display: {fileID: 0}
+  Report_List: {fileID: 0}
+  TMPro_Prefab: {fileID: 376703014136627782, guid: 4040c449c38fe2a4f853b2dcb13ad0a7, type: 3}
+  _Grade: 
+  _Step: 
+  _FuelLeft: 
+  _StationUnlocked: 
+  _UnlockableUnlocked: 
 --- !u!1 &5577186307901331690
 GameObject:
   m_ObjectHideFlags: 0
@@ -1036,6 +1086,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8872041969826346876}
+  - component: {fileID: 8232294254442371551}
   m_Layer: 0
   m_Name: Stations
   m_TagString: Untagged
@@ -1061,6 +1112,23 @@ Transform:
   m_Father: {fileID: 8678281637749015790}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8232294254442371551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6129594174015613106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 004a2086836fcd84ca7b0bbed3b14123, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Stations:
+  - {fileID: 5268443887273647451}
+  - {fileID: 4899304710042995751}
+  - {fileID: 3748206346836284265}
+  All_Activated: 0
 --- !u!1 &6485828991596063553
 GameObject:
   m_ObjectHideFlags: 0
@@ -1156,6 +1224,8 @@ MonoBehaviour:
   PosDependant_Up: 1
   PosDependant_Down: 0
   ifTutorial: 0
+  SpamLock: 0
+  step_ref: {fileID: 4916089357726520820}
 --- !u!1 &6852219667221668342
 GameObject:
   m_ObjectHideFlags: 0
@@ -1251,6 +1321,8 @@ MonoBehaviour:
   PosDependant_Up: 0
   PosDependant_Down: 0
   ifTutorial: 0
+  SpamLock: 0
+  step_ref: {fileID: 4916089357726520820}
 --- !u!1 &6996402798528770076
 GameObject:
   m_ObjectHideFlags: 0
@@ -1469,6 +1541,8 @@ MonoBehaviour:
   PosDependant_Up: 0
   PosDependant_Down: 0
   ifTutorial: 0
+  SpamLock: 0
+  step_ref: {fileID: 4916089357726520820}
 --- !u!1 &7400499286197749589
 GameObject:
   m_ObjectHideFlags: 0
@@ -1564,6 +1638,8 @@ MonoBehaviour:
   PosDependant_Up: 0
   PosDependant_Down: 0
   ifTutorial: 0
+  SpamLock: 0
+  step_ref: {fileID: 4916089357726520820}
 --- !u!1 &8383599309921756011
 GameObject:
   m_ObjectHideFlags: 0
@@ -2301,14 +2377,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ac6c0b578ab76d46b6da2002d50c97d, type: 3}
---- !u!4 &3170173229748342597 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2040609042181100216, guid: 9ac6c0b578ab76d46b6da2002d50c97d, type: 3}
-  m_PrefabInstance: {fileID: 4012431141037268477}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &5040260881727344784 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8240916944184282477, guid: 9ac6c0b578ab76d46b6da2002d50c97d, type: 3}
+  m_PrefabInstance: {fileID: 4012431141037268477}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &3170173229748342597 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2040609042181100216, guid: 9ac6c0b578ab76d46b6da2002d50c97d, type: 3}
   m_PrefabInstance: {fileID: 4012431141037268477}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5407328523664528062

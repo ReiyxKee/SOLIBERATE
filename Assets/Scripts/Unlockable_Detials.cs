@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+[System.Serializable]
 public class Unlockable_Detials : MonoBehaviour
 {
     public Unlockable_Detial Detials;
@@ -34,14 +35,16 @@ public class Unlockable_Detials : MonoBehaviour
         if (PrevIG)
         {
             Desc.SetActive(true);
+            GameObject.Find("Preview_UI/Description/Scrollbar Vertical").GetComponent<Scrollbar>().value = 1;
             GameObject.Find("Preview_UI/Description/Discovery").GetComponent<TextMeshProUGUI>().text = Detials.Title;
-            GameObject.Find("Preview_UI/Description/Viewport/iNFO").GetComponent<TextMeshProUGUI>().text = Detials.Desc;
+            GameObject.Find("Preview_UI/Description/Viewport/Image/iNFO").GetComponent<TextMeshProUGUI>().text = Detials.Desc;
         }
         else
         {
             Desc.SetActive(true);
+            GameObject.Find("InGame_UI/Description/Scrollbar Vertical").GetComponent<Scrollbar>().value = 1;
             GameObject.Find("InGame_UI/Description/Discovery").GetComponent<TextMeshProUGUI>().text = Detials.Title;
-            GameObject.Find("InGame_UI/Description/Viewport/iNFO").GetComponent<TextMeshProUGUI>().text = Detials.Desc;
+            GameObject.Find("InGame_UI/Description/Viewport/Image/iNFO").GetComponent<TextMeshProUGUI>().text = Detials.Desc;
         }
     }
 }
