@@ -218,11 +218,13 @@ public class Grading : MonoBehaviour
 
             GameObject.Find("Summary/Step/Step_Input").GetComponent<TextMeshProUGUI>().text = _Step;
 
+            GameObject.Find("Summary/Grade/Grade_Input").GetComponent<TextMeshProUGUI>().text = _Grade;
+
             GameObject.Find("Summary/Fuel/Fuel_Input").GetComponent<TextMeshProUGUI>().text = _FuelLeft;
 
 
             Grade_Display.SetActive(true);
-
+            
 
             Summary = true;
         }

@@ -15,8 +15,6 @@ public class Unlockable_Detials : MonoBehaviour
     //Preview Desc =  true 
     public bool PrevIG;
 
-
-
     // Start is called before the first frame update
     void Start()
     {

@@ -9,22 +9,25 @@ public class Station_List : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        for (int i = 0; i < Stations.Length; i++)
+        if (Stations.Length > 0)
         {
-            if (!Stations[i].On)
+            for (int i = 0; i < Stations.Length; i++)
             {
-                All_Activated = false;
-                return;
-            }
-            else if(i == Stations.Length-1)
-            {
-                All_Activated = true;
+                if (!Stations[i].On)
+                {
+                    All_Activated = false;
+                    return;
+                }
+                else if (i == Stations.Length - 1)
+                {
+                    All_Activated = true;
+                }
             }
         }
     }

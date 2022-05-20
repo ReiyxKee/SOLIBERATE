@@ -706,6 +706,9 @@ MonoBehaviour:
   ui_Ref: {fileID: 0}
   PosDependant_Up: 0
   PosDependant_Down: 0
+  ifTutorial: 0
+  SpamLock: 0
+  step_ref: {fileID: 0}
 --- !u!1 &4394904334454741567
 GameObject:
   m_ObjectHideFlags: 0
@@ -720,6 +723,7 @@ GameObject:
   - component: {fileID: 5904334343727851756}
   - component: {fileID: 6585755544102925883}
   - component: {fileID: 3752501267471925677}
+  - component: {fileID: 6059866179868780822}
   m_Layer: 0
   m_Name: PlayerAxis
   m_TagString: Untagged
@@ -836,7 +840,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Swiping: 0
   Swiped: 0
+  isReading: 0
   minDistanceForSwipe: 20
+--- !u!114 &6059866179868780822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4394904334454741567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99dbc82eecaeaf44a9b9b992bb6c3164, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxFuel: 10
+  Fuel: 10
+  Fuel_Display: {fileID: 0}
 --- !u!1 &4574602145347354013
 GameObject:
   m_ObjectHideFlags: 0
@@ -1038,6 +1058,9 @@ MonoBehaviour:
   ui_Ref: {fileID: 0}
   PosDependant_Up: 0
   PosDependant_Down: 1
+  ifTutorial: 0
+  SpamLock: 0
+  step_ref: {fileID: 0}
 --- !u!1 &4753917569767013221
 GameObject:
   m_ObjectHideFlags: 0
@@ -1080,6 +1103,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5310168019670373723}
   - component: {fileID: 3606724587918875212}
+  - component: {fileID: 5512733239077758075}
+  - component: {fileID: 9223021148787816250}
   m_Layer: 0
   m_Name: UranusPrefab
   m_TagString: Untagged
@@ -1121,6 +1146,58 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zoomCapMin: 0.009
   zoomCapMax: 0.0125
+--- !u!114 &5512733239077758075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4826259017374879713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1323bfefd70693349b823fa2bb2f536a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ThisPlanet: 7
+  Unlockables_P: {fileID: 0}
+  Unlockables_IG: {fileID: 0}
+  Unlockable_Counts: 0
+  ButtonPrefab: {fileID: 1047599968244935513, guid: 7f9ec99a7f4100d4dbd8468f07620363, type: 3}
+  Unlockables_Button_P: []
+  Unlockables_Button_IG: []
+  Unlockable_detial: []
+  Desc_P: {fileID: 0}
+  Desc_IG: {fileID: 0}
+  All_Unlocked: 0
+  Past_All_Unlocked: 0
+  SaveTest: 0
+  LoadTest: 0
+--- !u!114 &9223021148787816250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4826259017374879713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bb5bf3a64479574c995b00d3d8c3df4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  step_ref: {fileID: 0}
+  unlockables_ref: {fileID: 0}
+  stations: {fileID: 0}
+  Grade: 0
+  GameEnd: 0
+  Summary: 0
+  Grade_Display: {fileID: 0}
+  Report_List: {fileID: 0}
+  TMPro_Prefab: {fileID: 376703014136627782, guid: 4040c449c38fe2a4f853b2dcb13ad0a7, type: 3}
+  _Grade: 
+  _Step: 
+  _FuelLeft: 
+  _StationUnlocked: 
+  _UnlockableUnlocked: 
 --- !u!1 &5577186307901331690
 GameObject:
   m_ObjectHideFlags: 0
@@ -1216,6 +1293,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8872041969826346876}
+  - component: {fileID: 8908284798315979608}
   m_Layer: 0
   m_Name: Stations
   m_TagString: Untagged
@@ -1239,6 +1317,20 @@ Transform:
   m_Father: {fileID: 8678281637749015790}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8908284798315979608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6129594174015613106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 004a2086836fcd84ca7b0bbed3b14123, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Stations: []
+  All_Activated: 0
 --- !u!1 &6485828991596063553
 GameObject:
   m_ObjectHideFlags: 0
@@ -1333,6 +1425,9 @@ MonoBehaviour:
   ui_Ref: {fileID: 0}
   PosDependant_Up: 1
   PosDependant_Down: 0
+  ifTutorial: 0
+  SpamLock: 0
+  step_ref: {fileID: 0}
 --- !u!1 &6852219667221668342
 GameObject:
   m_ObjectHideFlags: 0
@@ -1427,6 +1522,9 @@ MonoBehaviour:
   ui_Ref: {fileID: 0}
   PosDependant_Up: 0
   PosDependant_Down: 0
+  ifTutorial: 0
+  SpamLock: 0
+  step_ref: {fileID: 0}
 --- !u!1 &6996402798528770076
 GameObject:
   m_ObjectHideFlags: 0
@@ -1558,6 +1656,9 @@ MonoBehaviour:
   ui_Ref: {fileID: 0}
   PosDependant_Up: 0
   PosDependant_Down: 0
+  ifTutorial: 0
+  SpamLock: 0
+  step_ref: {fileID: 0}
 --- !u!1 &7400499286197749589
 GameObject:
   m_ObjectHideFlags: 0
@@ -1652,6 +1753,9 @@ MonoBehaviour:
   ui_Ref: {fileID: 0}
   PosDependant_Up: 0
   PosDependant_Down: 0
+  ifTutorial: 0
+  SpamLock: 0
+  step_ref: {fileID: 0}
 --- !u!1 &8383599309921756011
 GameObject:
   m_ObjectHideFlags: 0
@@ -1959,13 +2063,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ac6c0b578ab76d46b6da2002d50c97d, type: 3}
---- !u!1 &5040260881727344784 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8240916944184282477, guid: 9ac6c0b578ab76d46b6da2002d50c97d, type: 3}
-  m_PrefabInstance: {fileID: 4012431141037268477}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3170173229748342597 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2040609042181100216, guid: 9ac6c0b578ab76d46b6da2002d50c97d, type: 3}
+  m_PrefabInstance: {fileID: 4012431141037268477}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5040260881727344784 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8240916944184282477, guid: 9ac6c0b578ab76d46b6da2002d50c97d, type: 3}
   m_PrefabInstance: {fileID: 4012431141037268477}
   m_PrefabAsset: {fileID: 0}

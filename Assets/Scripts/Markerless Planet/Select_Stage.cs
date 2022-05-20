@@ -29,9 +29,9 @@ public class Select_Stage : MonoBehaviour
     public GameObject UI_Info;
     public GameObject UI_System;
     public GameObject UI_Calibration;
-    public GameObject UI_InStage;
-    public GameObject UI_PreviewStage;
-    public GameObject UI_DescPrev;
+    //public GameObject UI_InStage;
+    //public GameObject UI_PreviewStage;
+    //public GameObject UI_DescPrev;
 
     public GameObject Button_Pause;
     public GameObject Button_Setting;
@@ -75,12 +75,12 @@ public class Select_Stage : MonoBehaviour
         UI_StageSelection.SetActive(false);
         UI_Info.SetActive(false);
         UI_Calibration.SetActive(true);
-        UI_PreviewStage.SetActive(false);
+        //UI_PreviewStage.SetActive(false);
         Button_Pause.SetActive(false);
         Button_Setting.SetActive(true);
         Setting_Menu = false;
         Pause_Menu = false;
-        UI_DescPrev.SetActive(true);
+        //UI_DescPrev.SetActive(true);
         if (PlayerPrefs.HasKey("Tutorial"))
         {
             Debug.Log("First Tutorial Found");
@@ -166,10 +166,10 @@ public class Select_Stage : MonoBehaviour
 
         if (placement.Calibration_Complete)
         {
-            if (Tutorial_On)
-            {
-                Tutorial_Manage();
-            }
+            //if (Tutorial_On)
+            //{
+            //    New_Tutorial();
+            //}
 
             if (CurrentPlanet != null)
             {
@@ -220,6 +220,7 @@ public class Select_Stage : MonoBehaviour
                 else if (!IsPointerOverUIObject())
                 {
                     CurrentPlanet = null;
+                    ForceShrink();
                 }
             }
         }
@@ -319,15 +320,26 @@ public class Select_Stage : MonoBehaviour
     }
     public void EnterStage()
     {
-        UI_DescPrev.SetActive(true);
+        //UI_DescPrev.SetActive(true);
         GameParent = null;
         Instruction.text = "";
         placement.Spawn_Planet(PlanetsPrefabs[CurrentPlanet_Code]);
         UI_StageSelection.SetActive(false);
         UI_Info.SetActive(false);
         UI_Calibration.SetActive(false);
-        UI_PreviewStage.SetActive(true);
+        //////UI_PreviewStage.SetActive(true);
         InStage = true;
+
+        if (GameObject.Find("Preview_UI/Unlockables"))
+        {
+            if (GameObject.Find("Preview_UI/Unlockables").transform.childCount > 0)
+            {
+                foreach (Transform child in GameObject.Find("Preview_UI/Unlockables").transform)
+                {
+                    GameObject.Destroy(child.gameObject);
+                }
+            }
+        }
     }
 
     public void BackToPrevious()
@@ -343,7 +355,7 @@ public class Select_Stage : MonoBehaviour
         UI_StageSelection.SetActive(false);
         UI_Info.SetActive(true);
         UI_Calibration.SetActive(false);
-        UI_PreviewStage.SetActive(false);
+        ////UI_PreviewStage.SetActive(false);
     }
 
     public void Expand_Info()
@@ -360,12 +372,12 @@ public class Select_Stage : MonoBehaviour
 
     public void Reset_AR()
     {
-        UI_DescPrev.SetActive(true);
+        //UI_DescPrev.SetActive(true);
         UI_StageSelection.SetActive(false);
         UI_Info.SetActive(false);
         UI_Calibration.SetActive(true);
-        UI_PreviewStage.SetActive(false);
-        UI_InStage.SetActive(false);
+        //UI_PreviewStage.SetActive(false);
+        //UI_InStage.SetActive(false);
         InStage = false;
         GameParent = null;
     }
@@ -376,12 +388,12 @@ public class Select_Stage : MonoBehaviour
         UI_StageSelection.SetActive(true);
         UI_Info.SetActive(false);
         UI_Calibration.SetActive(false);
-        UI_PreviewStage.SetActive(false);
+        ////UI_PreviewStage.SetActive(false);
     }
 
     public void Hide_UI()
     {
-        UI_DescPrev.SetActive(true);
+        //UI_DescPrev.SetActive(true);
         if (!InStage)
         {
             Instruction.text = "Tap on a Planet to view";
@@ -393,8 +405,8 @@ public class Select_Stage : MonoBehaviour
         UI_StageSelection.SetActive(false);
         UI_Info.SetActive(false);
         UI_Calibration.SetActive(false);
-        UI_PreviewStage.SetActive(false);
-        UI_InStage.SetActive(false);
+        //UI_PreviewStage.SetActive(false);
+        //UI_InStage.SetActive(false);
     }
 
 
@@ -410,8 +422,8 @@ public class Select_Stage : MonoBehaviour
     public void StartLevel()
     {
         GameObject.Find("PlayerAxis").gameObject.GetComponent<Movement>().MovementRef.SetActive(true);
-        UI_InStage.SetActive(true);
-        UI_PreviewStage.SetActive(false);
+        //UI_InStage.SetActive(true);
+        //UI_PreviewStage.SetActive(false);
         //GameObject.Find("PlanetGame").gameObject.GetComponent<Animator>().SetBool("Arrive", true);
     }
 
@@ -425,6 +437,11 @@ public class Select_Stage : MonoBehaviour
         Summary.SetActive(true);
     }
 
+    public void New_Tutorial()
+    {
+        tutorial.Instruction.text = "";
+    }
+    /*
     public void Tutorial_Manage()
     {
         if (TP == null && GameObject.Find("Turning_Point_XNeg"))
@@ -511,13 +528,13 @@ public class Select_Stage : MonoBehaviour
             t_un += Time.deltaTime;
         }
 
-        if (!tutorial.Guide_AR_Done && tutorial.Guide_AR && t_un > 1.0f && OnTap)
+        if (!tutorial.Guide_AR_Done && tutorial.Guide_AR && t_un > 3.0f && OnTap)
         {
             if (!tutorial.Instruction.Complete)
             {
                 tutorial.Instruction.Skip();
                 OnTap = false;
-                t_un = 0;
+                t_un = 2;
             }
             else
             {
@@ -553,13 +570,13 @@ public class Select_Stage : MonoBehaviour
             t_un += Time.deltaTime;
         }
 
-        if (!tutorial.Guide_Unlockable_Done && tutorial.Guide_Unlockable && t_un > 1.0f && OnTap)
+        if (!tutorial.Guide_Unlockable_Done && tutorial.Guide_Unlockable && t_un > 3.0f && OnTap)
         {
             if (!tutorial.Instruction.Complete)
             {
                 tutorial.Instruction.Skip();
                 OnTap = false;
-                t_un = 0;
+                t_un = 2;
             }
             else
             {
@@ -585,7 +602,7 @@ public class Select_Stage : MonoBehaviour
             {
                 tutorial.Instruction.Skip();
                 OnTap = false;
-                t_un = 0;
+                t_un = 2;
             }
             else if(!t_Start.gameObject.activeInHierarchy)
             {
@@ -621,7 +638,7 @@ public class Select_Stage : MonoBehaviour
         }
 
         //Guide fuel
-        if (!tutorial.Tutorial_Start_Done && tutorial.Tutorial_Start && t_un > 2.0f && OnTap)
+        if (!tutorial.Tutorial_Start_Done && tutorial.Tutorial_Start && t_un > 3.0f && OnTap)
         {
             if (!tutorial.Instruction.Complete)
             {
@@ -658,13 +675,13 @@ public class Select_Stage : MonoBehaviour
         }
 
         //Guide Move 1
-        if (!tutorial.Tutorial_Fuel_Done && tutorial.Tutorial_Fuel && t_un > 2.0f && OnTap)
+        if (!tutorial.Tutorial_Fuel_Done && tutorial.Tutorial_Fuel && t_un > 3.0f && OnTap)
         {
             if (!tutorial.Instruction.Complete)
             {
                 tutorial.Instruction.Skip();
                 OnTap = false;
-                t_un = 0;
+                t_un = 2;
             }
             else
             {
@@ -693,15 +710,9 @@ public class Select_Stage : MonoBehaviour
         }
 
         //Guide Move 2
-        if (!tutorial.Tutorial_Move_1_Done && tutorial.Tutorial_Move_1 && t_un > 2.0f)
+        if (!tutorial.Tutorial_Move_1_Done && tutorial.Tutorial_Move_1 && t_un > 3.0f)
         {
-            if (!tutorial.Instruction.Complete && OnTap)
-            {
-                tutorial.Instruction.Skip();
-                OnTap = false;
-                t_un = 0;
-            }
-            else if(TP.swipeData.Direction == SwipeDirection.Up)
+            if (TP.swipeData.Direction == SwipeDirection.Up)
             {
                 tutorial.Instruction.Reset();
                 TP.swipeData.Direction = SwipeDirection.None;
@@ -711,6 +722,13 @@ public class Select_Stage : MonoBehaviour
                 tutorial.Tutorial_Move_2 = true;
                 TP.ifTutorial = false;
             }
+            else if (OnTap && !tutorial.Instruction.Complete)
+            {
+                tutorial.Instruction.Skip();
+                OnTap = false;
+                t_un = 2;
+            }
+
         }
 
 
@@ -729,13 +747,13 @@ public class Select_Stage : MonoBehaviour
         }
 
         //Guide Move 3
-        if (!tutorial.Tutorial_Move_2_Done && tutorial.Tutorial_Move_2 && t_un > 2.0f && OnTap)
+        if (!tutorial.Tutorial_Move_2_Done && tutorial.Tutorial_Move_2 && t_un > 3.0f && OnTap)
         {
             if (!tutorial.Instruction.Complete)
             {
                 tutorial.Instruction.Skip();
                 OnTap = false;
-                t_un = 0;
+                t_un = 2;
             }
             else
             {
@@ -765,13 +783,13 @@ public class Select_Stage : MonoBehaviour
         }
 
         //Guide Move 4
-        if (!tutorial.Tutorial_Move_3_Done && tutorial.Tutorial_Move_3 && t_un > 2.0f && OnTap)
+        if (!tutorial.Tutorial_Move_3_Done && tutorial.Tutorial_Move_3 && t_un > 3.0f && OnTap)
         {
             if (!tutorial.Instruction.Complete)
             {
                 tutorial.Instruction.Skip();
                 OnTap = false;
-                t_un = 0;
+                t_un = 2;
             }
             else
             {
@@ -801,13 +819,13 @@ public class Select_Stage : MonoBehaviour
         }
 
         //Guide Move 5
-        if (!tutorial.Tutorial_Move_4_Done && tutorial.Tutorial_Move_4 && t_un > 2.0f && OnTap)
+        if (!tutorial.Tutorial_Move_4_Done && tutorial.Tutorial_Move_4 && t_un > 3.0f && OnTap)
         {
             if (!tutorial.Instruction.Complete)
             {
                 tutorial.Instruction.Skip();
                 OnTap = false;
-                t_un = 0;
+                t_un = 2;
             }
             else
             {
@@ -855,13 +873,13 @@ public class Select_Stage : MonoBehaviour
         }
 
         //Guide Move 6
-        if (!tutorial.Tutorial_Move_5_Done && tutorial.Tutorial_Move_5 && t_un > 2.0f && OnTap)
+        if (!tutorial.Tutorial_Move_5_Done && tutorial.Tutorial_Move_5 && t_un > 3.0f && OnTap)
         {
             if (!tutorial.Instruction.Complete)
             {
                 tutorial.Instruction.Skip();
                 OnTap = false;
-                t_un = 0;
+                t_un = 2;
             }
             else
             {
@@ -890,13 +908,13 @@ public class Select_Stage : MonoBehaviour
         }
 
         //Guide Move 7
-        if (!tutorial.Tutorial_Move_6_Done && tutorial.Tutorial_Move_6 && t_un > 2.0f && OnTap)
+        if (!tutorial.Tutorial_Move_6_Done && tutorial.Tutorial_Move_6 && t_un > 3.0f && OnTap)
         {
             if (!tutorial.Instruction.Complete)
             {
                 tutorial.Instruction.Skip();
                 OnTap = false;
-                t_un = 0;
+                t_un = 2;
             }
             else
             {
@@ -924,13 +942,13 @@ public class Select_Stage : MonoBehaviour
         }
 
 
-        if (!tutorial.Tutorial_Move_7_Done && tutorial.Tutorial_Move_7 && t_un > 2.0f && OnTap)
+        if (!tutorial.Tutorial_Move_7_Done && tutorial.Tutorial_Move_7 && t_un > 3.0f && OnTap)
         {
             if (!tutorial.Instruction.Complete)
             {
                 tutorial.Instruction.Skip();
                 OnTap = false;
-                t_un = 0;
+                t_un = 2;
             }
             else
             {
@@ -943,4 +961,5 @@ public class Select_Stage : MonoBehaviour
             }
         }
     }
+*/
 }

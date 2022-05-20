@@ -20,29 +20,24 @@ public class Animate_2DSprite : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Loop)
-        {
-            if (frame >= Frames.Length)
-            {
-                frame = 0;
-            }
-        }
-
         SecReset += Time.deltaTime;
 
         if (frame < Frames.Length && SecReset >= Delay)
         {
             SecReset = 0;
-            if (frame + 1 >= Frames.Length)
+
+            if (frame < Frames.Length-1)
+            {
+                frame++;
+                Renderer.sprite = Frames[frame];
+            }
+            else if (frame + 1 >= Frames.Length && Loop)
             {
                 frame = 0;
+                Renderer.sprite = Frames[frame];
             }
-            else
-            {
-                frame += 1;
-            }
+
         }
 
-        Renderer.sprite = Frames[frame];
     }
 }
