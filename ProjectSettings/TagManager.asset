@@ -8,6 +8,8 @@ TagManager:
   - Platform
   - Reset
   - Planet
+  - Dyson_Plate
+  - Venus_Pieces
   layers:
   - Default
   - TransparentFX

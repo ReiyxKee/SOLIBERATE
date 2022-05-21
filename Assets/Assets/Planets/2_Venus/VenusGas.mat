@@ -96,7 +96,7 @@ Material:
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _IntensityMask: 1
-    - _IntensityTransparentMap: 0.133
+    - _IntensityTransparentMap: 1
     - _InvertABaseColor: 0
     - _InvertMask: 0
     - _InvertTransparent: 0

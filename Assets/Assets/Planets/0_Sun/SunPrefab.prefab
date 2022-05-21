@@ -200,7 +200,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 0.94729495, a: 0.392}
+  m_Color: {r: 0, g: 1, b: 0.94729495, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1199,13 +1199,6 @@ MonoBehaviour:
   - {fileID: 151322313642309978}
   - {fileID: 2063829337868183013}
   - {fileID: 1750709699880135772}
-  Head_0: -1
-  Head_1: -1
-  Head_2: -1
-  Tail_0: -1
-  Tail_1: -1
-  Tail_2: -1
-  Explosion: {fileID: 1655245129381086732, guid: d8b31642a1c5c8946b2d79ea0d102481, type: 3}
   ARCam: {fileID: 0}
   OnTap: 0
   Started: 0
@@ -1219,6 +1212,7 @@ MonoBehaviour:
   Highscore: {fileID: 1293807445322855141}
   NewHighscore: {fileID: 6114023083179090888}
   Result: {fileID: 3599958881880634974}
+  Explosion: {fileID: 1655245129381086732, guid: d8b31642a1c5c8946b2d79ea0d102481, type: 3}
   ClearTime: 0
   DisplayCurrentTime: {fileID: 6257229495979309013}
 --- !u!1 &3533863213896517191
@@ -1329,7 +1323,7 @@ GameObject:
   - component: {fileID: 6608720430940653763}
   - component: {fileID: 5069206273979817322}
   m_Layer: 0
-  m_Name: Frames_2
+  m_Name: Frames_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1453,7 +1447,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: CONGRATS
+  m_text: MISSION COMPLETE
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b764f61f87ed8f14087bb9cf1c5d70a2, type: 2}
   m_sharedMaterial: {fileID: 7469114798926675254, guid: b764f61f87ed8f14087bb9cf1c5d70a2, type: 2}
@@ -1480,8 +1474,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 51.1
-  m_fontSizeBase: 51.1
+  m_fontSize: 45
+  m_fontSizeBase: 45
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2707,7 +2701,7 @@ GameObject:
   - component: {fileID: 2889299588271720834}
   - component: {fileID: 5630122304610229143}
   m_Layer: 0
-  m_Name: Frames_3
+  m_Name: Frames_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2800,7 +2794,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 40}
+  m_AnchoredPosition: {x: 0, y: 57}
   m_SizeDelta: {x: 619.9747, y: 76.2079}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5931893292326457216
@@ -2833,8 +2827,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: YOU HAVE FREED THE SUN FROM DYSON SPHERE
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: b764f61f87ed8f14087bb9cf1c5d70a2, type: 2}
-  m_sharedMaterial: {fileID: 7469114798926675254, guid: b764f61f87ed8f14087bb9cf1c5d70a2, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2858,13 +2852,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 27.25
-  m_fontSizeBase: 27.25
+  m_fontSize: 33.9
+  m_fontSizeBase: 33.9
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 17
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -2911,7 +2905,7 @@ GameObject:
   - component: {fileID: 8780762406067113749}
   - component: {fileID: 4484652064612305904}
   m_Layer: 0
-  m_Name: Frames_1
+  m_Name: Frames_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

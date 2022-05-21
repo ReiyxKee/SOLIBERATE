@@ -16,13 +16,13 @@ public class Plate_Manager : MonoBehaviour
     public GameObject[] plates_1;
     public GameObject[] plates_2;
 
-    public int Head_0 = -1;
-    public int Head_1 = -1;
-    public int Head_2 = -1;
+    //public int Head_0 = -1;
+    //public int Head_1 = -1;
+    //public int Head_2 = -1;
     
-    public int Tail_0 = -1;
-    public int Tail_1 = -1;
-    public int Tail_2 = -1;
+    //public int Tail_0 = -1;
+    //public int Tail_1 = -1;
+    //public int Tail_2 = -1;
 
 
     public Camera ARCam;
@@ -127,8 +127,8 @@ public class Plate_Manager : MonoBehaviour
                         {
                             if (hit.transform.gameObject.GetComponentInChildren<Tap_On_Plate>().CanTap)
                             {
-                                hit.transform.gameObject.GetComponentInChildren<Tap_On_Plate>().Tapped = true;
                                 int num = hit.transform.gameObject.GetComponentInChildren<Tap_On_Plate>().Num;
+
                                 switch (hit.transform.gameObject.GetComponentInChildren<Tap_On_Plate>().Group)
                                 {
                                     case 0:
@@ -138,12 +138,14 @@ public class Plate_Manager : MonoBehaviour
                                             {
                                                 GameObject.Destroy(plates_0[plates_0.Length - 1].gameObject);
                                                 plates_0[plates_0.Length - 1] = null;
+                                                Debug.Log("Destroyed 0 " + (plates_0.Length - 1));
                                             }
 
                                             if(plates_0[1] != null)
                                             {
                                                 GameObject.Destroy(plates_0[1].gameObject);
                                                 plates_0[1] = null;
+                                                Debug.Log("Destroyed 0 " + 1);
                                             }
                                         }
                                         else if(num == plates_0.Length - 1)
@@ -152,12 +154,14 @@ public class Plate_Manager : MonoBehaviour
                                             {
                                                 GameObject.Destroy(plates_0[plates_0.Length - 2].gameObject);
                                                 plates_0[plates_0.Length - 2] = null;
+                                                Debug.Log("Destroyed 0 " + (plates_0.Length - 2));
                                             }
 
-                                            if (plates_0[1] != null)
+                                            if (plates_0[0] != null)
                                             {
                                                 GameObject.Destroy(plates_0[0].gameObject);
-                                                plates_0[1] = null;
+                                                plates_0[0] = null;
+                                                Debug.Log("Destroyed 0 " + (0));
                                             }
                                         }
                                         else
@@ -166,45 +170,56 @@ public class Plate_Manager : MonoBehaviour
                                             {
                                                 GameObject.Destroy(plates_0[num - 1].gameObject);
                                                 plates_0[num - 1] = null;
+                                                Debug.Log("Destroyed 0 " + (num - 1));
                                             }
 
                                             if (plates_0[num + 1] != null)
                                             {
                                                 GameObject.Destroy(plates_0[num + 1].gameObject);
                                                 plates_0[num + 1] = null;
+                                                Debug.Log("Destroyed 0 " + (num + 1));
                                             }
                                         }
+
                                         Instantiate(Explosion, hit.transform.position, hit.transform.rotation);
-                                        GameObject.Destroy(hit.transform.gameObject);
-                                        plates_0[num] = null;
-                                        break;
-                                    case 1:
-                                        if (num == 0)
+                                        if (plates_0[num] != null)
                                         {
-                                            if (plates_1[plates_1.Length - 1] != null)
+                                            GameObject.Destroy(plates_0[num].gameObject);
+                                            plates_0[num] = null;
+                                        }
+                                        break;
+                                    
+                                    case 1:
+                                        if(num == 0)
+                                        {
+                                            if(plates_1[plates_1.Length - 1] != null)
                                             {
                                                 GameObject.Destroy(plates_1[plates_1.Length - 1].gameObject);
                                                 plates_1[plates_1.Length - 1] = null;
+                                                Debug.Log("Destroyed 1 " + (plates_1.Length - 1));
                                             }
 
-                                            if (plates_1[1] != null)
+                                            if(plates_1[1] != null)
                                             {
                                                 GameObject.Destroy(plates_1[1].gameObject);
                                                 plates_1[1] = null;
+                                                Debug.Log("Destroyed 1 " + 1);
                                             }
                                         }
-                                        else if (num == plates_1.Length - 1)
+                                        else if(num == plates_1.Length - 1)
                                         {
                                             if (plates_1[plates_1.Length - 2] != null)
                                             {
                                                 GameObject.Destroy(plates_1[plates_1.Length - 2].gameObject);
                                                 plates_1[plates_1.Length - 2] = null;
+                                                Debug.Log("Destroyed 1 " + (plates_1.Length - 2));
                                             }
 
-                                            if (plates_1[1] != null)
+                                            if (plates_1[0] != null)
                                             {
                                                 GameObject.Destroy(plates_1[0].gameObject);
-                                                plates_1[1] = null;
+                                                plates_1[0] = null;
+                                                Debug.Log("Destroyed 1 " + (0));
                                             }
                                         }
                                         else
@@ -213,17 +228,23 @@ public class Plate_Manager : MonoBehaviour
                                             {
                                                 GameObject.Destroy(plates_1[num - 1].gameObject);
                                                 plates_1[num - 1] = null;
+                                                Debug.Log("Destroyed 1 " + (num - 1));
                                             }
 
                                             if (plates_1[num + 1] != null)
                                             {
                                                 GameObject.Destroy(plates_1[num + 1].gameObject);
                                                 plates_1[num + 1] = null;
+                                                Debug.Log("Destroyed 1 " + (num + 1));
                                             }
                                         }
+
                                         Instantiate(Explosion, hit.transform.position, hit.transform.rotation);
-                                        GameObject.Destroy(hit.transform.gameObject);
-                                        plates_1[num] = null;
+                                        if (plates_1[num] != null)
+                                        {
+                                            GameObject.Destroy(plates_1[num].gameObject);
+                                            plates_1[num] = null;
+                                        }
                                         break;
                                     case 2:
                                         if (num == 0)
@@ -232,12 +253,14 @@ public class Plate_Manager : MonoBehaviour
                                             {
                                                 GameObject.Destroy(plates_2[plates_2.Length - 1].gameObject);
                                                 plates_2[plates_2.Length - 1] = null;
+                                                Debug.Log("Destroyed 2 " + (plates_2.Length - 1));
                                             }
 
                                             if (plates_2[1] != null)
                                             {
                                                 GameObject.Destroy(plates_2[1].gameObject);
                                                 plates_2[1] = null;
+                                                Debug.Log("Destroyed 2 " + 1);
                                             }
                                         }
                                         else if (num == plates_2.Length - 1)
@@ -246,12 +269,14 @@ public class Plate_Manager : MonoBehaviour
                                             {
                                                 GameObject.Destroy(plates_2[plates_2.Length - 2].gameObject);
                                                 plates_2[plates_2.Length - 2] = null;
+                                                Debug.Log("Destroyed 2 " + (plates_2.Length - 2));
                                             }
 
-                                            if (plates_2[1] != null)
+                                            if (plates_2[0] != null)
                                             {
                                                 GameObject.Destroy(plates_2[0].gameObject);
-                                                plates_2[1] = null;
+                                                plates_2[0] = null;
+                                                Debug.Log("Destroyed 2 " + (0));
                                             }
                                         }
                                         else
@@ -260,18 +285,26 @@ public class Plate_Manager : MonoBehaviour
                                             {
                                                 GameObject.Destroy(plates_2[num - 1].gameObject);
                                                 plates_2[num - 1] = null;
+                                                Debug.Log("Destroyed 2 " + (num - 1));
                                             }
 
                                             if (plates_2[num + 1] != null)
                                             {
                                                 GameObject.Destroy(plates_2[num + 1].gameObject);
                                                 plates_2[num + 1] = null;
+                                                Debug.Log("Destroyed 2 " + (num + 1));
                                             }
                                         }
+
                                         Instantiate(Explosion, hit.transform.position, hit.transform.rotation);
-                                        GameObject.Destroy(hit.transform.gameObject);
-                                        plates_2[num] = null;
-                                        break;                                        
+                                        if (plates_2[num] != null)
+                                        {
+                                            GameObject.Destroy(plates_2[num].gameObject);
+                                            plates_2[num] = null;
+                                        }
+                                        break;
+
+
                                 }
 
                             }

@@ -34,7 +34,7 @@ public class Planet_Desc : MonoBehaviour
         {
             for (int i = 0; i < planets.Length; i++)
             {
-                PlayerPrefs.SetInt("Planet_" + i.ToString() + "_Desc", 0);
+                PlayerPrefs.SetInt("Planet_" + i.ToString() + "_Desc", 1);
             }
         }
     }
