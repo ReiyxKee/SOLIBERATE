@@ -10,6 +10,7 @@ TagManager:
   - Planet
   - Dyson_Plate
   - Venus_Pieces
+  - Meteor
   layers:
   - Default
   - TransparentFX
