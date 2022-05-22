@@ -24,6 +24,10 @@ public class Score : MonoBehaviour
     public TextMeshProUGUI PrevHighscore;
     public TextMeshProUGUI currentscore;
 
+
+    public int CurrentMeteorite;
+    public TextMeshProUGUI textCurrentMeteorite;
+
     public GameObject UIPreGame;
     public GameObject UIInGame;
     public GameObject UIEndGame;
@@ -43,6 +47,7 @@ public class Score : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        CurrentMeteorite = spawn.maxSpawn;
         UIPreGame.SetActive(true);
         UIInGame.SetActive(true);
         UIEndGame.SetActive(false);
@@ -67,6 +72,8 @@ public class Score : MonoBehaviour
         {
             OuterCanvas = GameObject.Find("/Canvas");
         }
+
+        textCurrentMeteorite.text = "Meteorite: " + CurrentMeteorite.ToString() + " / " + spawn.maxSpawn;
 
         score = shoot.Hits * 100;
         EarthHP.value = HP;

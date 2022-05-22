@@ -753,6 +753,141 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &712014202525820428
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8443336806164402139}
+  - component: {fileID: 3397120456992266528}
+  - component: {fileID: 113659860123782452}
+  m_Layer: 5
+  m_Name: Meteorite
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &8443336806164402139
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 712014202525820428}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7099103046201648724}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 433}
+  m_SizeDelta: {x: 806.699, y: 60.1116}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &3397120456992266528
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 712014202525820428}
+  m_CullTransparentMesh: 1
+--- !u!114 &113659860123782452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 712014202525820428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 0
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: b764f61f87ed8f14087bb9cf1c5d70a2, type: 2}
+  m_sharedMaterial: {fileID: 7469114798926675254, guid: b764f61f87ed8f14087bb9cf1c5d70a2, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 36
+  m_fontSizeBase: 36
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 16
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &729945774993489052
 GameObject:
   m_ObjectHideFlags: 0
@@ -975,9 +1110,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 6564800986672166197}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 500
+  m_MaxValue: 300
   m_WholeNumbers: 0
-  m_Value: 500
+  m_Value: 300
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2216,7 +2351,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3907926676226569171
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3325,6 +3460,8 @@ MonoBehaviour:
   CurrentScore: {fileID: 6028331462909045819}
   PrevHighscore: {fileID: 3852543941725047796}
   currentscore: {fileID: 969582428374622611}
+  CurrentMeteorite: 0
+  textCurrentMeteorite: {fileID: 113659860123782452}
   UIPreGame: {fileID: 3173564081071514158}
   UIInGame: {fileID: 6215868288062396496}
   UIEndGame: {fileID: 8969548995026671895}
@@ -4063,6 +4200,7 @@ RectTransform:
   - {fileID: 5044964153175056926}
   - {fileID: 1261796494138245232}
   - {fileID: 5337877947697300383}
+  - {fileID: 8443336806164402139}
   m_Father: {fileID: 4343811135105593191}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4084,8 +4222,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 25
-  Catridge: 500
-  Catridge_Max: 500
+  Catridge: 300
+  Catridge_Max: 300
   _Reloading: 0
   Catridge_Visual: {fileID: 5643117629770639549}
   Catridge_Number: {fileID: 5536129869747934392}
@@ -4117,15 +4255,16 @@ MonoBehaviour:
   - {fileID: 4078307192386115264, guid: 61d0abab05c49474eb462b0b1996086a, type: 3}
   - {fileID: 4078307192386115264, guid: 08fc2b42f147bd4439601e5f9fcc008f, type: 3}
   scoreRef: {fileID: 4739477558361197186}
-  Range_Min: 0.05
-  Range_Max: 1
-  MinMeteorSpeed: 0.00005
-  MaxMeteorSpeed: 0.0001
+  Range_Min: 0.5
+  Range_Max: 0.75
+  MinMeteorSpeed: 0.00025
+  MaxMeteorSpeed: 0.0005
   spawn_timer: 0.660188
   spawn_timer_default: 0.25
   Started: 0
   Parent: {fileID: 2322314849176496628}
-  Spawn_Limit: 25
+  Spawn_Limit: 30
+  maxSpawn: 30
 --- !u!1 &6217697102981130522
 GameObject:
   m_ObjectHideFlags: 0
@@ -5578,7 +5717,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2239483384946620700
 RectTransform:
   m_ObjectHideFlags: 0

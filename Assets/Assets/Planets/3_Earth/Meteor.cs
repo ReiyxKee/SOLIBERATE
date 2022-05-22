@@ -23,6 +23,7 @@ public class Meteor : MonoBehaviour
         {
             Instantiate(Explosion, this.transform.position, this.transform.rotation);
             GameObject.Destroy(Parent.gameObject);
+            score.CurrentMeteorite -= 1;
         }
         else
         {
@@ -34,7 +35,8 @@ public class Meteor : MonoBehaviour
     {
         if (other.tag == "Planet")
         {
-            score.HP -= 5;
+            score.HP -= 10;
+            score.CurrentMeteorite -= 1;
             Instantiate(Explosion, this.transform.position, this.transform.rotation);
             GameObject.Destroy(Parent.gameObject);
         }

@@ -138,7 +138,7 @@ public class ShootLaser : MonoBehaviour
     {
         if (Catridge < Catridge_Max)
         {
-            Catridge += 300 * Time.deltaTime;
+            Catridge += 150 * Time.deltaTime;
         }
 
     }

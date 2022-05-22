@@ -23,11 +23,12 @@ public class Spawn : MonoBehaviour
     public GameObject Parent;
 
     public int Spawn_Limit = 50;
+    public int maxSpawn = 50;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        maxSpawn = Spawn_Limit;
     }
 
     // Update is called once per frame
