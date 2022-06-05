@@ -80,7 +80,7 @@ Material:
     - _BumpScale: 1
     - _ContrastDetailMap: 0
     - _ContrastTransparentMap: 0
-    - _Cull: 0
+    - _Cull: 2
     - _Cutoff: 0.5
     - _DetailBrightness: 1
     - _DetailGlossiness: 0.5
@@ -96,7 +96,7 @@ Material:
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _IntensityMask: 1
-    - _IntensityTransparentMap: 0.3
+    - _IntensityTransparentMap: 0.21
     - _InvertABaseColor: 0
     - _InvertMask: 0
     - _InvertTransparent: 0

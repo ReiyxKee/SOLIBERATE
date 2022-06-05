@@ -40,16 +40,16 @@ Shader "Ultimate 10+ Shaders/Force Field"
 {
     Properties
     {
+
         _MainTex ("Texture", 2D) = "white" {}
         [HDR] _Color ("Color", Color) = (1,1,1,1)
-
-        _FresnelPower("Fresnel Power", Range(0, 10)) = 3
+        _FresnelPower("Fresnel Power", Range(0, 1000000)) = 3
         _ScrollDirection ("Scroll Direction", float) = (0, 0, 0, 0)
     }
     SubShader
     {
         Tags { "RenderType"="Transparent" "IgnoreProjector"="True" "Queue"="Transparent" }
-        Blend SrcAlpha OneMinusSrcAlpha
+        //.Blend SrcAlpha OneMinusSrcAlpha
         LOD 100
         Cull Back
         Lighting Off
@@ -109,7 +109,7 @@ Shader "Ultimate 10+ Shaders/Force Field"
                 viewDir = normalize(ObjSpaceViewDir(vert.vertex));
                 output.rim = 1.0 - saturate(dot(viewDir, vert.normal));
 
-                output.uv += _ScrollDirection * _Time.y;
+                output.uv += _ScrollDirection * _Time.y ;
 
                 return output;
             }

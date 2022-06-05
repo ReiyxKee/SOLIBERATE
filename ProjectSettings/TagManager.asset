@@ -11,6 +11,9 @@ TagManager:
   - Dyson_Plate
   - Venus_Pieces
   - Meteor
+  - Meteorite
+  - Spawner
+  - Ring
   layers:
   - Default
   - TransparentFX
