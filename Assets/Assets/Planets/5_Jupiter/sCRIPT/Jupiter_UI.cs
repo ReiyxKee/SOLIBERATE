@@ -92,7 +92,7 @@ public class Jupiter_UI : MonoBehaviour
         }
 
 
-        time_left.text = "TIME LEFT: " + ((int)timeLeft / 60).ToString("0") + ":" + (timeLeft % 60).ToString("00") + "." + ((timeLeft % 1) * 100).ToString("0");
+        time_left.text = "TIME LEFT: " + ((int)timeLeft / 60).ToString("00") + ":" + ((int)timeLeft % 60).ToString("00") + "." + ((timeLeft % 1) * 100).ToString("0");
     }
 
     public void StartGame()

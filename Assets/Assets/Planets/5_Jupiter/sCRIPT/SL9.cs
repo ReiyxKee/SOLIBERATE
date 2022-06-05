@@ -121,6 +121,10 @@ public class SL9 : MonoBehaviour
             TimeCount += Time.deltaTime;
         }
 
+        if (TimeCount >= 120)
+        {
+            TimeCount = 120;
+        }
 
 
         if (Hit)

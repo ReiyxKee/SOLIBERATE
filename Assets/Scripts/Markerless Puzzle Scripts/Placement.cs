@@ -28,7 +28,9 @@ public class Placement : MonoBehaviour
     public float Forward_Distance;
     public float Floor_Distance;
     public GameObject Cal_Button;
+    public GameObject Cal_Img;
     public GameObject Spawn_Button;
+    public GameObject Spawn_Img;
 
     public TextMeshProUGUI Instruction;
     public bool Calibration_Complete;
@@ -37,7 +39,9 @@ public class Placement : MonoBehaviour
         Instruction.text = "Please Hold Your Phone Upright at your Comfortable Height";
         Calibration_Complete = false;
         Cal_Button.SetActive(true);
+        Cal_Img.SetActive(true);
         Spawn_Button.SetActive(false);
+        Spawn_Img.SetActive(false);
     }
     public void Update()
     {
@@ -47,7 +51,9 @@ public class Placement : MonoBehaviour
     {
         ArSession.Reset();
         Cal_Button.SetActive(false);
+        Cal_Img.SetActive(false);
         Spawn_Button.SetActive(true);
+        Spawn_Img.SetActive(true);
         Instruction.text = "Stay in a well lit environment for best AR Experience";
     }
 
@@ -56,7 +62,9 @@ public class Placement : MonoBehaviour
     {
         Calibration_Complete = true;
         Cal_Button.SetActive(false);
+        Cal_Img.SetActive(false);
         Spawn_Button.SetActive(false);
+        Spawn_Img.SetActive(false);
         Instruction.text = "";
         Vector3 Position = new Vector3(Virtual_Cam.transform.position.x, Virtual_Cam.transform.position.y - Floor_Distance, Virtual_Cam.transform.position.z) + Virtual_Cam.transform.forward * Forward_Distance;
         if (spawnedObject == null)
@@ -77,7 +85,9 @@ public class Placement : MonoBehaviour
     public void Spawn_StageTest()
     {
         Cal_Button.SetActive(false);
+        Cal_Img.SetActive(false);
         Spawn_Button.SetActive(false);
+        Spawn_Img.SetActive(false);
         Instruction.text = "";
         Vector3 Position = new Vector3(Virtual_Cam.transform.position.x, Virtual_Cam.transform.position.y, Virtual_Cam.transform.position.z) + Virtual_Cam.transform.forward*0.5f;
         if (spawnedObject == null)
@@ -99,7 +109,9 @@ public class Placement : MonoBehaviour
     public void Spawn_Planet(GameObject Planet)
     {
         Cal_Button.SetActive(false);
+        Cal_Img.SetActive(false);
         Spawn_Button.SetActive(false);
+        Spawn_Img.SetActive(false);
         Instruction.text = "";
         Vector3 Position = new Vector3(Virtual_Cam.transform.position.x, Virtual_Cam.transform.position.y, Virtual_Cam.transform.position.z) + Virtual_Cam.transform.forward*0.5f;
         if (spawnedObject == null)
@@ -127,7 +139,9 @@ public class Placement : MonoBehaviour
         Destroy(spawnedObject.gameObject);
         spawnedObject = null;
         Cal_Button.SetActive(true);
+        Cal_Img.SetActive(true);
         Spawn_Button.SetActive(false);
+        Spawn_Img.SetActive(false);
         Instruction.text = "Please Hold Your Phone Upright at your Comfortable Height";
     }
 
