@@ -123,11 +123,11 @@ public class Neptune_Parts_Manager : MonoBehaviour
 
             if (OnTap && CurrentTarget != null)
             {
-                if (Input.GetTouch(0).deltaPosition.x < -2.5)
+                if (Input.GetTouch(0).deltaPosition.x < -5)
                 {
                     CurrentTarget.transform.localEulerAngles = new Vector3(CurrentTarget.transform.localEulerAngles.x, CurrentTarget.transform.localEulerAngles.y + 5, CurrentTarget.transform.localEulerAngles.z);
                 }
-                else if (Input.GetTouch(0).deltaPosition.x > 2.5)
+                else if (Input.GetTouch(0).deltaPosition.x > 5)
                 {
                     CurrentTarget.transform.localEulerAngles = new Vector3(CurrentTarget.transform.localEulerAngles.x, CurrentTarget.transform.localEulerAngles.y - 5, CurrentTarget.transform.localEulerAngles.z);
                 }

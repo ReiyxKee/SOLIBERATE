@@ -21,7 +21,16 @@ public class StripeReset : MonoBehaviour
         if (other.tag == "Spawner")
         {
             Debug.Log("Reset");
-            other.GetComponent<RingGenerator>().isReset = false;
+            if (other.GetComponent<RingGenerator>())
+            {
+                other.GetComponent<RingGenerator>().isReset = false;
+            }
+
+            if (other.GetComponent<MeteorBlock>())
+            {
+                other.GetComponent<MeteorBlock>().Reset();
+            }
         }
+
     }
 }

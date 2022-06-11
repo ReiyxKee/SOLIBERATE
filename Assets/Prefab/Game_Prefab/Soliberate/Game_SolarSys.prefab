@@ -165,9 +165,10 @@ MonoBehaviour:
   Self_Rotate_Axis_Z: 0
   Rotate_Around: 0
   Rotate_Around_Speed: 0
-  rotate_Around_Speed: 0
   Rotate_Around_Parent: {fileID: 0}
   Clockwise: 0
+  Unaffected: 0
+  Timedelta: 0
 --- !u!1 &231954456220665424
 GameObject:
   m_ObjectHideFlags: 0
@@ -287,9 +288,10 @@ MonoBehaviour:
   Self_Rotate_Axis_Z: 0
   Rotate_Around: 0
   Rotate_Around_Speed: 0
-  rotate_Around_Speed: 0
   Rotate_Around_Parent: {fileID: 0}
   Clockwise: 0
+  Unaffected: 0
+  Timedelta: 0
 --- !u!1 &309912727966758410
 GameObject:
   m_ObjectHideFlags: 0
@@ -443,9 +445,10 @@ MonoBehaviour:
   Self_Rotate_Axis_Z: 1
   Rotate_Around: 1
   Rotate_Around_Speed: 0.00543
-  rotate_Around_Speed: 0
   Rotate_Around_Parent: {fileID: 4946801536978870155}
   Clockwise: 0
+  Unaffected: 0
+  Timedelta: 0
 --- !u!1 &1030499033462957736
 GameObject:
   m_ObjectHideFlags: 0
@@ -565,9 +568,10 @@ MonoBehaviour:
   Self_Rotate_Axis_Z: 0
   Rotate_Around: 0
   Rotate_Around_Speed: 0
-  rotate_Around_Speed: 0
   Rotate_Around_Parent: {fileID: 0}
   Clockwise: 0
+  Unaffected: 0
+  Timedelta: 0
 --- !u!1 &1137684925874527768
 GameObject:
   m_ObjectHideFlags: 0
@@ -673,9 +677,10 @@ MonoBehaviour:
   Self_Rotate_Axis_Z: 1
   Rotate_Around: 1
   Rotate_Around_Speed: 0.02408
-  rotate_Around_Speed: 0
   Rotate_Around_Parent: {fileID: 4946801536978870155}
   Clockwise: 0
+  Unaffected: 0
+  Timedelta: 0
 --- !u!1 &1459623232293067680
 GameObject:
   m_ObjectHideFlags: 0
@@ -1044,9 +1049,10 @@ MonoBehaviour:
   Self_Rotate_Axis_Z: 1
   Rotate_Around: 1
   Rotate_Around_Speed: 0.00681
-  rotate_Around_Speed: 0
   Rotate_Around_Parent: {fileID: 4946801536978870155}
   Clockwise: 1
+  Unaffected: 0
+  Timedelta: 0
 --- !u!1 &2298802352919130620
 GameObject:
   m_ObjectHideFlags: 0
@@ -1264,9 +1270,10 @@ MonoBehaviour:
   Self_Rotate_Axis_Z: 0
   Rotate_Around: 0
   Rotate_Around_Speed: 0
-  rotate_Around_Speed: 0
   Rotate_Around_Parent: {fileID: 0}
   Clockwise: 0
+  Unaffected: 0
+  Timedelta: 0
 --- !u!1 &2399700366139613887
 GameObject:
   m_ObjectHideFlags: 0
@@ -1404,9 +1411,10 @@ MonoBehaviour:
   Self_Rotate_Axis_Z: 1
   Rotate_Around: 1
   Rotate_Around_Speed: 0.02978
-  rotate_Around_Speed: 0
   Rotate_Around_Parent: {fileID: 4946801536978870155}
   Clockwise: 0
+  Unaffected: 0
+  Timedelta: 0
 --- !u!1 &2706475992933412230
 GameObject:
   m_ObjectHideFlags: 0
@@ -1512,9 +1520,10 @@ MonoBehaviour:
   Self_Rotate_Axis_Z: 1
   Rotate_Around: 1
   Rotate_Around_Speed: 0.03502
-  rotate_Around_Speed: 0
   Rotate_Around_Parent: {fileID: 4946801536978870155}
   Clockwise: 1
+  Unaffected: 0
+  Timedelta: 0
 --- !u!1 &3252173566226635619
 GameObject:
   m_ObjectHideFlags: 0
@@ -1620,9 +1629,10 @@ MonoBehaviour:
   Self_Rotate_Axis_Z: 1
   Rotate_Around: 1
   Rotate_Around_Speed: 0.01307
-  rotate_Around_Speed: 0
   Rotate_Around_Parent: {fileID: 4946801536978870155}
   Clockwise: 0
+  Unaffected: 0
+  Timedelta: 0
 --- !u!1 &3742024228160197879
 GameObject:
   m_ObjectHideFlags: 0
@@ -1742,9 +1752,10 @@ MonoBehaviour:
   Self_Rotate_Axis_Z: 0
   Rotate_Around: 0
   Rotate_Around_Speed: 0
-  rotate_Around_Speed: 0
   Rotate_Around_Parent: {fileID: 0}
   Clockwise: 0
+  Unaffected: 0
+  Timedelta: 0
 --- !u!1 &3961924760691184248
 GameObject:
   m_ObjectHideFlags: 0
@@ -1864,9 +1875,10 @@ MonoBehaviour:
   Self_Rotate_Axis_Z: 0
   Rotate_Around: 0
   Rotate_Around_Speed: 0
-  rotate_Around_Speed: 0
   Rotate_Around_Parent: {fileID: 0}
   Clockwise: 0
+  Unaffected: 0
+  Timedelta: 0
 --- !u!1 &3973094681100930676
 GameObject:
   m_ObjectHideFlags: 0
@@ -1972,9 +1984,10 @@ MonoBehaviour:
   Self_Rotate_Axis_Z: 1
   Rotate_Around: 1
   Rotate_Around_Speed: 0.04787
-  rotate_Around_Speed: 0
   Rotate_Around_Parent: {fileID: 4946801536978870155}
   Clockwise: 0
+  Unaffected: 0
+  Timedelta: 0
 --- !u!1 &4019348114789644476
 GameObject:
   m_ObjectHideFlags: 0
@@ -2140,7 +2153,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4946801536978870155}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.25, z: 0}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -2295,9 +2308,10 @@ MonoBehaviour:
   Self_Rotate_Axis_Z: 0
   Rotate_Around: 0
   Rotate_Around_Speed: 0
-  rotate_Around_Speed: 0
   Rotate_Around_Parent: {fileID: 0}
   Clockwise: 0
+  Unaffected: 0
+  Timedelta: 0
 --- !u!1 &5281114901161294511
 GameObject:
   m_ObjectHideFlags: 0
@@ -2525,9 +2539,10 @@ MonoBehaviour:
   Self_Rotate_Axis_Z: 1
   Rotate_Around: 1
   Rotate_Around_Speed: 0.00969
-  rotate_Around_Speed: 0
   Rotate_Around_Parent: {fileID: 4946801536978870155}
   Clockwise: 0
+  Unaffected: 0
+  Timedelta: 0
 --- !u!1 &5644057784693449507
 GameObject:
   m_ObjectHideFlags: 0
@@ -2632,9 +2647,10 @@ MonoBehaviour:
   Self_Rotate_Axis_Z: 1
   Rotate_Around: 1
   Rotate_Around_Speed: 0.00681
-  rotate_Around_Speed: 0
   Rotate_Around_Parent: {fileID: 4946801536978870155}
   Clockwise: 1
+  Unaffected: 0
+  Timedelta: 0
 --- !u!1 &5813325642808219629
 GameObject:
   m_ObjectHideFlags: 0
@@ -3066,9 +3082,10 @@ MonoBehaviour:
   Self_Rotate_Axis_Z: 1
   Rotate_Around: 1
   Rotate_Around_Speed: 0.00681
-  rotate_Around_Speed: 0
   Rotate_Around_Parent: {fileID: 4946801536978870155}
   Clockwise: 1
+  Unaffected: 0
+  Timedelta: 0
 --- !u!1 &7925270238928789425
 GameObject:
   m_ObjectHideFlags: 0
@@ -3363,9 +3380,10 @@ MonoBehaviour:
   Self_Rotate_Axis_Z: 0
   Rotate_Around: 0
   Rotate_Around_Speed: 0
-  rotate_Around_Speed: 0
   Rotate_Around_Parent: {fileID: 0}
   Clockwise: 0
+  Unaffected: 0
+  Timedelta: 0
 --- !u!1 &8295959635451523727
 GameObject:
   m_ObjectHideFlags: 0
@@ -3582,9 +3600,10 @@ MonoBehaviour:
   Self_Rotate_Axis_Z: 0
   Rotate_Around: 0
   Rotate_Around_Speed: 0
-  rotate_Around_Speed: 0
   Rotate_Around_Parent: {fileID: 0}
   Clockwise: 0
+  Unaffected: 0
+  Timedelta: 0
 --- !u!1 &8554514169853814529
 GameObject:
   m_ObjectHideFlags: 0

@@ -34,6 +34,8 @@ public class UI : MonoBehaviour
     void Update()
     {
 
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
+
         if (placement_ref.spawnedObject != null)
         {
             if (ObjectPos == null)

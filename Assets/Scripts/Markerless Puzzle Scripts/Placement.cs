@@ -33,10 +33,12 @@ public class Placement : MonoBehaviour
     public GameObject Spawn_Img;
 
     public TextMeshProUGUI Instruction;
+    public GameObject InstructionPanel;
     public bool Calibration_Complete;
     public void Start()
     {
-        Instruction.text = "Please Hold Your Phone Upright at your Comfortable Height";
+        InstructionPanel.SetActive(true);
+        Instruction.text = "Please Hold Your Phone Up";
         Calibration_Complete = false;
         Cal_Button.SetActive(true);
         Cal_Img.SetActive(true);
@@ -45,21 +47,31 @@ public class Placement : MonoBehaviour
     }
     public void Update()
     {
+        if (Instruction.text == "")
+        {
+            InstructionPanel.SetActive(false);
+        }
+        else
+        {
+            InstructionPanel.SetActive(true);
+        }
     }
 
     public void Calibration_2()
     {
+        InstructionPanel.SetActive(true);
         ArSession.Reset();
         Cal_Button.SetActive(false);
         Cal_Img.SetActive(false);
         Spawn_Button.SetActive(true);
         Spawn_Img.SetActive(true);
-        Instruction.text = "Stay in a well lit environment for best AR Experience";
+        Instruction.text = "Stay in a well lit room\nfor best AR Experience";
     }
 
 
     public void Spawn_Solar()
     {
+        InstructionPanel.SetActive(true);
         Calibration_Complete = true;
         Cal_Button.SetActive(false);
         Cal_Img.SetActive(false);
@@ -69,9 +81,15 @@ public class Placement : MonoBehaviour
         Vector3 Position = new Vector3(Virtual_Cam.transform.position.x, Virtual_Cam.transform.position.y - Floor_Distance, Virtual_Cam.transform.position.z) + Virtual_Cam.transform.forward * Forward_Distance;
         if (spawnedObject == null)
         {
+            
             spawnedObject = Instantiate(m_Game_Prefab, Position, new Quaternion(0, 0, 0, 0));
             spawnedObject.name = "Game_SolarSys";
             spawnedObject.transform.parent = GameObject.Find("Trackables").transform;
+            Pose parentPos = new Pose(spawnedObject.transform.parent.position, Quaternion.identity);
+            if (spawnedObject.GetComponent<ARAnchor>() == null)
+            {
+                spawnedObject.AddComponent<ARAnchor>();
+            }
         }
         else
         {
@@ -79,6 +97,10 @@ public class Placement : MonoBehaviour
             spawnedObject = Instantiate(m_Game_Prefab, Position, new Quaternion(0, 0, 0, 0));
             spawnedObject.transform.position = Position;
             spawnedObject.transform.parent = GameObject.Find("Trackables").transform;
+            if (spawnedObject.GetComponent<ARAnchor>() == null)
+            {
+                spawnedObject.AddComponent<ARAnchor>();
+            }
         }
     }
     
@@ -119,6 +141,10 @@ public class Placement : MonoBehaviour
             spawnedObject = Instantiate(Planet, Position, new Quaternion(0, 0, 0, 0));
             spawnedObject.name = "PlanetGame";
             spawnedObject.transform.parent = GameObject.Find("Trackables").transform;
+            if (spawnedObject.GetComponent<ARAnchor>() == null)
+            {
+                spawnedObject.AddComponent<ARAnchor>();
+            }
         }
         else
         {
@@ -128,6 +154,10 @@ public class Placement : MonoBehaviour
             spawnedObject.name = "PlanetGame";
             spawnedObject.transform.position = Position;
             spawnedObject.transform.parent = GameObject.Find("Trackables").transform;
+            if (spawnedObject.GetComponent<ARAnchor>() == null)
+            {
+                spawnedObject.AddComponent<ARAnchor>();
+            }
         }
     }
 

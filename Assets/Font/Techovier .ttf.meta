@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: 0cbc6df85ac6a57409b354be1c2f33e1
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Technovier
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: a2884f12c8cf17b44bc61fccd378c3b4, type: 3}
+  - {fileID: 12800000, guid: 11ee9dfd43c1ce44daf3ecdc32955fb9, type: 3}
+  - {fileID: 12800000, guid: 8a22b629bc5a269408bdd45361def3d2, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

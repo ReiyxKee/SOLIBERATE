@@ -30,4 +30,20 @@ public class MeteorBlock : MonoBehaviour
         }
     }
 
+    public void Reset()
+    {
+
+        foreach (Transform child in this.transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
+        if (GameObject.Find("Meteorite_Pos"))
+        {
+            if (Random.Range(0, 100) > 80)
+            {
+                GameObject rock = Instantiate(Prefab[Random.Range(0, Prefab.Length)], this.transform.position, Quaternion.identity, this.transform);
+                spawned = true;
+            }
+        }
+    }
 }

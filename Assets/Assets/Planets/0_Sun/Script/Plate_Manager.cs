@@ -36,6 +36,7 @@ public class Plate_Manager : MonoBehaviour
     public GameObject InGameUI;
     public GameObject EndGameUI;
     public GameObject PrevHighscore;
+    public GameObject PrevHighscorePanel;
     public GameObject Tutorial;
 
     public TextMeshProUGUI Highscore;
@@ -61,10 +62,12 @@ public class Plate_Manager : MonoBehaviour
         {
             Debug.Log(PlayerPrefs.HasKey("Sun_Record"));
             PrevHighscore.SetActive(false);
+            PrevHighscorePanel.SetActive(false);
         }
         else
         {
             Debug.Log(PlayerPrefs.GetFloat("Sun_Record"));
+            PrevHighscorePanel.SetActive(true);
             PrevHighscore.SetActive(true);
             PrevHighscore.GetComponent<TextMeshProUGUI>().text = "best record:\n" + PlayerPrefs.GetFloat("Sun_Record").ToString("0.00");
         }

@@ -69,6 +69,8 @@ public class Select_Stage : MonoBehaviour
 
     public GameObject Summary;
 
+    //public GameObject InstructionPanel;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -135,7 +137,7 @@ public class Select_Stage : MonoBehaviour
         }
 
         if (GameParent == null)
-        {            
+        {
             if (GameObject.Find("Game_SolarSys"))
             {
                 GameParent = GameObject.Find("Game_SolarSys/Sun/Childrens").gameObject;

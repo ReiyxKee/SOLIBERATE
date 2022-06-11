@@ -46,6 +46,7 @@ public class Spacecraft_Saturn : MonoBehaviour
     public float Original_RotSpeed;
     public float Speedrate;
 
+    public Initial_Adjust init;
     // Start is called before the first frame update
     void Start()
     {
@@ -106,9 +107,7 @@ public class Spacecraft_Saturn : MonoBehaviour
 
         Camera_Center.transform.position = new Vector3(ShutterModel.transform.position.x, Camera.transform.position.y, ShutterModel.transform.position.z);
 
-        Angle_Cam_Planet = Vector3.SignedAngle(Calibrator.transform.position - Planet.transform.position, Camera_Center.transform.position - Planet.transform.position, Vector3.up) * ((Camera_Center.transform.position.y - Calibrator.transform.position.y) < 0 ? 1 : -1);
-
-        Angle_Cam_Planet = Mathf.Clamp(Angle_Cam_Planet, -20, 20);
+       
 
         AngleH_Cam_Shutter = Vector3.SignedAngle(Calibrator.transform.position - Planet.transform.position, PlanetParent.transform.forward, Vector3.up);
 
@@ -117,11 +116,16 @@ public class Spacecraft_Saturn : MonoBehaviour
 
         if (Started)
         {
+            Angle_Cam_Planet = Vector3.SignedAngle(Calibrator.transform.position - Planet.transform.position, Camera_Center.transform.position - Planet.transform.position, Vector3.zero) * (Camera_Center.transform.position.y > Planet.transform.position.y ? 1 : -1);
+
+            Angle_Cam_Planet = Mathf.Clamp(Angle_Cam_Planet, -20, 20);
+
             planetRot.Self_Rotate_Speed += Time.deltaTime * Speedrate;
         }
     }
     public void StartGame()
     {
+        init.ON = false;
         Started = true;
         planetRot.Self_Rotate = true;
         UI.SetActive(false);
@@ -196,6 +200,17 @@ public class Spacecraft_Saturn : MonoBehaviour
                 this.GetComponent<MeshRenderer>().enabled = false;
                 Instantiate(Explosion, this.transform.position, this.transform.rotation);
                 Ended = true;
+            }
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (!Started)
+        {
+            if (other.tag == "Meteorite")
+            {
+                GameObject.Destroy(other.gameObject);
             }
         }
     }
