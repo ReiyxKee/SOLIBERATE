@@ -8,10 +8,12 @@ public class Bullet : MonoBehaviour
     public float LifeTime = 2.5f;
     public float bulletSpeed = 5;
     public ShootLaser sl;
+    public AudioSource sfx;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        sfx.Play();
     }
 
     // Update is called once per frame
@@ -23,10 +25,24 @@ public class Bullet : MonoBehaviour
         {
             GameObject.Destroy(this.gameObject);
         }
-        this.GetComponent<Rigidbody>().AddForce(this.transform.forward * bulletSpeed) ;
+    }
+
+    private void FixedUpdate()
+    {
+        this.GetComponent<Rigidbody>().AddForce(this.transform.forward * bulletSpeed);
     }
 
     public void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Meteor")
+        {
+            other.GetComponent<Meteor>().HP -= 10;
+            Instantiate(Explosion, other.transform.position, other.transform.rotation);
+            sl.Hits++;
+            GameObject.Destroy(this.gameObject);
+        }
+    }
+    public void OnTriggerStay(Collider other)
     {
         if (other.tag == "Meteor")
         {

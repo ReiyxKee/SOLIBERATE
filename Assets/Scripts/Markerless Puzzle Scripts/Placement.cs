@@ -175,4 +175,8 @@ public class Placement : MonoBehaviour
         Instruction.text = "Please Hold Your Phone Upright at your Comfortable Height";
     }
 
+    public void Timescale(float TimeScale)
+    {
+        Time.timeScale = TimeScale;
+    }
 }

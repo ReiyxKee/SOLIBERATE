@@ -77,7 +77,7 @@ GameObject:
   - component: {fileID: 4078307193738589030}
   - component: {fileID: 8371271554326037427}
   - component: {fileID: 6639944780070974623}
-  - component: {fileID: 2653335781722601228}
+  - component: {fileID: 1883971767726349461}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Meteor
@@ -184,7 +184,7 @@ MonoBehaviour:
   Earth: {fileID: 0}
   MoveSpeed: 0
   HP: 0
---- !u!64 &2653335781722601228
+--- !u!64 &1883971767726349461
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

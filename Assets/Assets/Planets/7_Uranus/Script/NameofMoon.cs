@@ -31,7 +31,7 @@ public class NameofMoon : MonoBehaviour
             cam = GameObject.Find("AR Camera").GetComponent<Camera>();
         }
 
-        HideButton.text = HideName ? "Show UI" : "Hide UI";
+        HideButton.text = HideName ? "Show Name" : "Hide Name";
 
         for (int i = 0; i < Moons.Length; i++)
         {

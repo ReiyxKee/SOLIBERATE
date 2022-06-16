@@ -55,7 +55,7 @@ public class Spawn : MonoBehaviour
 
             Meteor.GetComponentInChildren<Meteor>().MoveSpeed = Random.Range(MinMeteorSpeed, MaxMeteorSpeed);
             Meteor.GetComponentInChildren<Meteor>().Earth = Earth;
-            Meteor.GetComponentInChildren<Meteor>().HP = 50;
+            Meteor.GetComponentInChildren<Meteor>().HP = 30;
             Meteor.GetComponentInChildren<Meteor>().score = scoreRef;
             Spawn_Limit--;
         }

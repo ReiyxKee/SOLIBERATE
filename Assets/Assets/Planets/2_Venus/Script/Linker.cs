@@ -38,9 +38,11 @@ public class Linker : MonoBehaviour
     public float wrongtimer;
 
     public TextMeshProUGUI _TimeSpend;
+    public GameObject _TimeSpendPanel;
     public float TimeSpend;
 
     public TextMeshProUGUI _BestRecord;
+    public GameObject _BestRecordPanel;
     public float BestRecord;
 
     public TextMeshProUGUI Result_Time;
@@ -56,16 +58,19 @@ public class Linker : MonoBehaviour
             OuterCanvas = GameObject.Find("/Canvas");
         }
 
+        _TimeSpendPanel.SetActive(false);
         Tutorial.SetActive(false);
         InGame.SetActive(false);
 
         if (PlayerPrefs.HasKey("Venus_Record"))
         {
-            BestRecord = PlayerPrefs.GetFloat("Venus_Record");
+            _BestRecordPanel.SetActive(true);
+               BestRecord = PlayerPrefs.GetFloat("Venus_Record");
             _BestRecord.text = "BEST RECORD:\n" + BestRecord.ToString("0.00") + " s";
         }
         else
         {
+            _BestRecordPanel.SetActive(false);
             _BestRecord.text = "";
         }
 
@@ -81,6 +86,7 @@ public class Linker : MonoBehaviour
 
         if (started)
         {
+            _TimeSpendPanel.SetActive(true);
             _TimeSpend.text = "Time: " + TimeSpend.ToString("0.00") + " s"; ;
 
             if (!Clear)

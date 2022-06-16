@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR;
+using UnityEngine.XR.ARFoundation;
 
 public class Initial_Adjust : MonoBehaviour
 {
@@ -23,7 +25,14 @@ public class Initial_Adjust : MonoBehaviour
 
         if (ON)
         {
-            this.transform.position = Cam.transform.position + Cam.transform.forward * forward;
+            this.transform.position = new Vector3(this.transform.position.x, Cam.transform.position.y, this.transform.position.z);
+        }
+        else
+        {
+            if (!this.gameObject.GetComponent<ARAnchor>())
+            {
+                this.gameObject.AddComponent<ARAnchor>();
+            }
         }
     }
 }

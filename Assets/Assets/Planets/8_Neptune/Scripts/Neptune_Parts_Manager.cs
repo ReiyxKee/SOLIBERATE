@@ -33,6 +33,7 @@ public class Neptune_Parts_Manager : MonoBehaviour
     public bool Started;
 
     public TextMeshProUGUI currentTime;
+    public GameObject panelHighScore;
     public TextMeshProUGUI Highest_Record;
 
     public float TimeSpend;
@@ -64,10 +65,12 @@ public class Neptune_Parts_Manager : MonoBehaviour
 
         if (PlayerPrefs.HasKey("Neptune_Record"))
         {
+            panelHighScore.SetActive(true);
             Highest_Record.text = "best record:\n" + PlayerPrefs.GetFloat("Neptune_Record").ToString(".00");
         }
         else
         {
+            panelHighScore.SetActive(false);
             Highest_Record.text = "";
         }
 
@@ -78,7 +81,7 @@ public class Neptune_Parts_Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        currentTime.text = TimeSpend.ToString(".00");
+        currentTime.text = TimeSpend.ToString("00.00");
 
         if (ARCam == null && GameObject.Find("AR Camera"))
         {

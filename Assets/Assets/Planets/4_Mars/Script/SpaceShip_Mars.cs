@@ -11,6 +11,7 @@ public class SpaceShip_Mars : MonoBehaviour
     public TextMeshProUGUI time;
 
     public TextMeshProUGUI timeCleared;
+    public GameObject timeHighscore_UI_panel;
     public TextMeshProUGUI timeHighscore_UI;
     public TextMeshProUGUI timeHighscore;
     public GameObject newHighscore;
@@ -56,10 +57,12 @@ public class SpaceShip_Mars : MonoBehaviour
 
         if (PlayerPrefs.HasKey("Mars_Record"))
         {
+            timeHighscore_UI_panel.SetActive(true);
             timeHighscore_UI.text = "BEST RECORD:\n" + (string)(PlayerPrefs.GetFloat("Mars_Record") < 3600 ? (((int)PlayerPrefs.GetFloat("Mars_Record")) / 60).ToString("00") + ":" + (((int)PlayerPrefs.GetFloat("Mars_Record")) % 60).ToString("00") + "." + (PlayerPrefs.GetFloat("Mars_Record") % 1 * 100).ToString("00.") : (((int)PlayerPrefs.GetFloat("Mars_Record")) / 3600).ToString("00") + ":" + ((((int)PlayerPrefs.GetFloat("Mars_Record")) / 60) % 60).ToString("00") + ":" + (((int)PlayerPrefs.GetFloat("Mars_Record")) % 60).ToString("00") + "." + (PlayerPrefs.GetFloat("Mars_Record") % 1 * 100).ToString("00."));
         }
         else
         {
+            timeHighscore_UI_panel.SetActive(false);
             timeHighscore_UI.text = "";
         }
         newHighscore.SetActive(false);
@@ -74,7 +77,7 @@ public class SpaceShip_Mars : MonoBehaviour
 
         if (!manager.lose && manager.start)
         {
-            survivedDuration += 0.25f * Time.deltaTime;
+            survivedDuration += Time.deltaTime;
         }
 
         if (manager.lose && !Summarized)
@@ -84,11 +87,11 @@ public class SpaceShip_Mars : MonoBehaviour
 
         if (survivedDuration < 3600)
         {
-            time.text = "Time survived\n" + (((int)survivedDuration) / 60).ToString("00") + ":" + (((int)survivedDuration) % 60).ToString("00") + "." + (survivedDuration % 1 * 100).ToString("00.");
+            time.text = (((int)survivedDuration) / 60).ToString("00") + ":" + (((int)survivedDuration) % 60).ToString("00") + "." + (survivedDuration % 1 * 100).ToString("00.");
         }
         else
         {
-            time.text = "Time survived\n" + (((int)survivedDuration) / 3600).ToString("00") + ":"+ ((((int)survivedDuration) /60) % 60).ToString("00") + ":" + (((int)survivedDuration) % 60).ToString("00") + "." + (survivedDuration % 1 * 100).ToString("00.");
+            time.text = (((int)survivedDuration) / 3600).ToString("00") + ":"+ ((((int)survivedDuration) /60) % 60).ToString("00") + ":" + (((int)survivedDuration) % 60).ToString("00") + "." + (survivedDuration % 1 * 100).ToString("00.");
         }
 
         if (Camera == null)
@@ -112,6 +115,10 @@ public class SpaceShip_Mars : MonoBehaviour
 
         AngleH_Cam_Shutter = Vector3.SignedAngle(Calibrator.transform.position - Planet.transform.position, PlanetParent.transform.forward, Vector3.up);
 
+        Angle_Cam_Planet = Vector3.SignedAngle(Calibrator.transform.position - Planet.transform.position, Camera_Center.transform.position - Planet.transform.position, Vector3.zero) * (Camera_Center.transform.position.y > Planet.transform.position.y ? 1 : -1);
+
+        Angle_Cam_Planet = Mathf.Clamp(Angle_Cam_Planet, -20, 20);
+
         //ShutterModel.transform.localEulerAngles = new Vector3(0, 0, AngleH_Cam_Shutter < 0 ? 90 : -90);
         Shutter.transform.localEulerAngles = new Vector3(-Angle_Cam_Planet, -AngleH_Cam_Shutter, 0);
 
@@ -122,10 +129,6 @@ public class SpaceShip_Mars : MonoBehaviour
 
         if (manager.start)
         {
-            Angle_Cam_Planet = Vector3.SignedAngle(Calibrator.transform.position - Planet.transform.position, Camera_Center.transform.position - Planet.transform.position, Vector3.zero) * (Camera_Center.transform.position.y > Planet.transform.position.y ? 1 : -1);
-
-            Angle_Cam_Planet = Mathf.Clamp(Angle_Cam_Planet, -20, 20);
-
             planetRot.Self_Rotate_Speed += Time.deltaTime * Speedrate;
         }
     }
@@ -134,6 +137,7 @@ public class SpaceShip_Mars : MonoBehaviour
         init.ON = false;
         manager.start = true;
         planetRot.Self_Rotate = true;
+        Original_RotSpeed = planetRot.Self_Rotate_Speed;
         UI.SetActive(false);
         InGame.SetActive(true);
         EndGame.SetActive(false);
@@ -181,6 +185,7 @@ public class SpaceShip_Mars : MonoBehaviour
 
         timeHighscore.text = PlayerPrefs.GetFloat("Mars_Record") < 3600 ? (((int)PlayerPrefs.GetFloat("Mars_Record")) / 60).ToString("00") + ":" + (((int)PlayerPrefs.GetFloat("Mars_Record")) % 60).ToString("00") + "." + (PlayerPrefs.GetFloat("Mars_Record") % 1 * 100).ToString("00.") : (((int)PlayerPrefs.GetFloat("Mars_Record")) / 3600).ToString("00") + ":" + ((((int)PlayerPrefs.GetFloat("Mars_Record")) / 60) % 60).ToString("00") + ":" + (((int)PlayerPrefs.GetFloat("Mars_Record")) % 60).ToString("00") + "." + (PlayerPrefs.GetFloat("Mars_Record") % 1 * 100).ToString("00.");
 
+        planetRot.Self_Rotate_Speed = Original_RotSpeed;
         UI.SetActive(false);
         InGame.SetActive(false);
         EndGame.SetActive(true);

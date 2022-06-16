@@ -57,7 +57,7 @@ public class Mercury_UI : MonoBehaviour
 
             if (temp.win)
             {
-                favourText.text = "MERCURY HAD CALMED DOWN\nAND BACK TO ITS USUAL STATE";
+                favourText.text = "YAY, WE MANAGED TO STABILIZE MERCURY'S TEMPERATURE";
             }
             else
             {

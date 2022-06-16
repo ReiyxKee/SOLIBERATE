@@ -27,9 +27,13 @@ public class ShootLaser : MonoBehaviour
     public Camera Cam;
     public GameObject BulletPrefab;
 
+    public AudioSource sfxReload;
+
     public float Accuracy;
     public int Shots;
     public int Hits;
+
+    public bool Started;
     // Start is called before the first frame update
     void Start()
     {
@@ -61,6 +65,7 @@ public class ShootLaser : MonoBehaviour
         if (_Reloading && Catridge >= Catridge_Max)
         {
             Catridge = Catridge_Max;
+            sfxReload.Stop();
             _Reloading = false;
         }
 
@@ -122,16 +127,30 @@ public class ShootLaser : MonoBehaviour
             bullet.GetComponent<Bullet>().sl = this;
             bullet.GetComponent<Bullet>().LifeTime = 2.5f;
             bullet.GetComponent<Bullet>().bulletSpeed = bulletSpeed;
+            bullet.GetComponent<Bullet>().sfx.Play();
             ShootRefresh = 0.05f;
             Shootok = false;
             Catridge--;
-            Shots++;
+
+            if (Started)
+            {
+                Shots++;
+            }
         }
     }
 
     public void Reload()
     {
         _Reloading = true;
+        if (sfxReload == null && GameObject.Find("Audio/SFX/Recharge"))
+        {
+            sfxReload = GameObject.Find("Audio/SFX/Recharge").GetComponent<AudioSource>();
+
+        }
+        if (!sfxReload.isPlaying)
+        {
+            sfxReload.Play();
+        }
     }
 
     public void Reloading()

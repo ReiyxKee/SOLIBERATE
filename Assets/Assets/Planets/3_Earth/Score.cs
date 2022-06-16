@@ -19,6 +19,7 @@ public class Score : MonoBehaviour
 
     public GameObject tutorial;
     public GameObject PrevHighScore;
+    public GameObject PrevHighScore_Panel;
     public GameObject CurrentScore;
 
     public TextMeshProUGUI PrevHighscore;
@@ -54,11 +55,13 @@ public class Score : MonoBehaviour
         if (PlayerPrefs.HasKey("Earth_Record"))
         {
             PrevHighScore.SetActive(true);
+            PrevHighScore_Panel.SetActive(true);
             PrevHighscore.text = "best record:\n" + PlayerPrefs.GetFloat("Earth_Record").ToString();
         }
         else
         {
             PrevHighScore.SetActive(false);
+            PrevHighScore_Panel.SetActive(false);
             PrevHighscore.text = "";
         }
         HP = 100;
@@ -103,13 +106,15 @@ public class Score : MonoBehaviour
         UIEndGame.SetActive(false);
         PrevHighScore.SetActive(false);
         CurrentScore.SetActive(true);
+        shoot.Started = true;
         spawn.Started = true;
     }
     public void LoseGame()
     {
         if (!Summary)
         {
-            foreach(Transform Child in Parent.transform)
+            shoot.Started = false;
+            foreach (Transform Child in Parent.transform)
             {
                 GameObject.Destroy(Child.gameObject);
             }
@@ -132,10 +137,11 @@ public class Score : MonoBehaviour
     {
         if (!Summary)
         {
+            shoot.Started = false;
             UIPreGame.SetActive(false);
             UIInGame.SetActive(false);
             UIEndGame.SetActive(true);
-            EndGame_Text.text = "WE SUCCESS PROTECTED OUR EARTH";
+            EndGame_Text.text = "YOU HAVE PROTECTED THE EARTH!";
             spawn.Started = false;
             CalcScore();
             CheckHighscore();

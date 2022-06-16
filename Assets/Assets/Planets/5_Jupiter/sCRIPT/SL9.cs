@@ -52,6 +52,20 @@ public class SL9 : MonoBehaviour
     public Slider HPBar;
     public TextMeshProUGUI HPText;
 
+    public int Combo;
+    public float ComboReset_Timer;
+
+    public GameObject ComboParent;
+    public TextMeshProUGUI ComboText;
+
+    public Color32 Combo0;
+    public Color32 Combo50;
+    public Color32 Combo100;
+    public Color32 Combo250;
+    public Color32 Combo500;
+    public Color32 Combo1000;
+
+    public float CurrentMinDMG;
     // Start is called before the first frame update
     void Start()
     {
@@ -63,6 +77,9 @@ public class SL9 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        ComboParent.GetComponent<TextMeshProUGUI>().color = ComboText.color;
+
+        CurrentMinDMG = (TapDamage_Min + (TapDamage_Max - TapDamage_Min) * Mathf.Clamp(Combo, 0, 999) / 999);
 
         if (Started)
         {
@@ -97,25 +114,64 @@ public class SL9 : MonoBehaviour
 
                 // Create a particle if hit
                 if (Physics.Raycast(ray, out hit))
-                {   
+                {
                     if (hit.transform.gameObject.tag == "Meteor")
                     {
-                        float HitDamage = Random.Range(TapDamage_Min, TapDamage_Max);
-                        GameObject Bomb = Instantiate(KaboomPrefab, hit.transform.gameObject.transform.position,Quaternion.identity);
-                        GameObject HitNumber = Instantiate(TapDamage_Prefab, ARCam.WorldToScreenPoint(hit.transform.position) + new Vector3(Random.Range(-50,50),0,0),Quaternion.identity);
+                        float HitDamage = Random.Range((TapDamage_Min + (TapDamage_Max - TapDamage_Min) * Mathf.Clamp(Combo, 0, 999) / 999), TapDamage_Max);
+                        GameObject Bomb = Instantiate(KaboomPrefab, hit.point, Quaternion.identity);
+                        GameObject HitNumber = Instantiate(TapDamage_Prefab, Input.touches[0].position + new Vector2(Random.Range(-50, 50), 0), Quaternion.identity);
 
                         HitNumber.transform.SetParent(Canvas);
                         HitNumber.GetComponent<Tap_SL9>().ScaleRatio = HitDamage / TapDamage_Min;
                         HitNumber.GetComponent<TextMeshProUGUI>().text = HitDamage.ToString("00");
-                        HitNumber.GetComponent<TextMeshProUGUI>().color = new Color32(255, (byte)(255 - 255 * (HitDamage - TapDamage_Min)/ (TapDamage_Max- TapDamage_Min)), 0, 255);
+                        HitNumber.GetComponent<TextMeshProUGUI>().color = new Color32(255, (byte)(255 - 255 * (HitDamage - TapDamage_Min) / (TapDamage_Max - TapDamage_Min)), 0, 255);
 
                         HP -= HitDamage;
+
+                        Combo++;
+                        ComboReset_Timer = 1.5f;
                     }
                 }
             }
         }
 
 
+        if (Combo > 0)
+        {
+            ComboReset_Timer -= Time.deltaTime;
+        }
+
+        if (ComboReset_Timer <= 0)
+        {
+            Combo = 0;
+        }
+
+
+        switch (Combo)
+        {
+            case 0:
+                ComboText.color = Combo0;
+                break;
+            case 25:
+                ComboText.color = Combo50;
+                break;
+            case 50:
+                ComboText.color = Combo100;
+                break;
+            case 100:
+                ComboText.color = Combo250;
+                break;
+            case 250:
+                ComboText.color = Combo500;
+                break;
+            case 500:
+                ComboText.color = Combo1000;
+                break;
+        }
+
+
+        ComboParent.SetActive(Combo > 0 ? true : false);
+        ComboText.text = Combo.ToString();
         if (CD && HP > 0)
         {
             TimeCount += Time.deltaTime;

@@ -15,6 +15,7 @@ public class Spacecraft_Saturn : MonoBehaviour
     public TextMeshProUGUI score;
 
     //public TextMeshProUGUI timeCleared;
+    public GameObject Highscore_UI_Panel;
     public TextMeshProUGUI Highscore_UI;
     public TextMeshProUGUI Highscore;
     public TextMeshProUGUI EndGameScore;
@@ -61,10 +62,12 @@ public class Spacecraft_Saturn : MonoBehaviour
 
         if (PlayerPrefs.HasKey("Saturn_Record"))
         {
+            Highscore_UI_Panel.SetActive(true);
             Highscore_UI.text = "HIGHSCORE:\n"+PlayerPrefs.GetFloat("Saturn_Record").ToString("0");
         }
         else
         {
+            Highscore_UI_Panel.SetActive(false);
             Highscore_UI.text = "";
         }
         newHighscore.SetActive(false);
@@ -108,6 +111,9 @@ public class Spacecraft_Saturn : MonoBehaviour
         Camera_Center.transform.position = new Vector3(ShutterModel.transform.position.x, Camera.transform.position.y, ShutterModel.transform.position.z);
 
        
+            Angle_Cam_Planet = Vector3.SignedAngle(Calibrator.transform.position - Planet.transform.position, Camera_Center.transform.position - Planet.transform.position, Vector3.zero) * (Camera_Center.transform.position.y > Planet.transform.position.y ? 1 : -1);
+
+            Angle_Cam_Planet = Mathf.Clamp(Angle_Cam_Planet, -20, 20);
 
         AngleH_Cam_Shutter = Vector3.SignedAngle(Calibrator.transform.position - Planet.transform.position, PlanetParent.transform.forward, Vector3.up);
 
@@ -116,10 +122,6 @@ public class Spacecraft_Saturn : MonoBehaviour
 
         if (Started)
         {
-            Angle_Cam_Planet = Vector3.SignedAngle(Calibrator.transform.position - Planet.transform.position, Camera_Center.transform.position - Planet.transform.position, Vector3.zero) * (Camera_Center.transform.position.y > Planet.transform.position.y ? 1 : -1);
-
-            Angle_Cam_Planet = Mathf.Clamp(Angle_Cam_Planet, -20, 20);
-
             planetRot.Self_Rotate_Speed += Time.deltaTime * Speedrate;
         }
     }
