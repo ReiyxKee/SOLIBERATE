@@ -484,6 +484,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e4b8f8341fdf4f144a3890d0121e512f, type: 3}
   - {fileID: 21300000, guid: 25d4300543ce80c40b7320f81fa6c23c, type: 3}
   Delay: 0.0125
+  Destroy_AfterPlay: 0
 --- !u!1 &783045970096990931
 GameObject:
   m_ObjectHideFlags: 0
@@ -863,10 +864,10 @@ MonoBehaviour:
   wrongpair: 0
   wrongtimer: 0
   _TimeSpend: {fileID: 6895362356654339839}
-  _TimeSpendPanel: {fileID: 8709271766049836256}
+  _TimeSpendPanel: {fileID: 2445767261255306959}
   TimeSpend: 0
   _BestRecord: {fileID: 4129255173309572012}
-  _BestRecordPanel: {fileID: 1461360709561530206}
+  _BestRecordPanel: {fileID: 8709271766049836256}
   BestRecord: 0
   Result_Time: {fileID: 4376401046085020418}
   Result_Best: {fileID: 4220735133236820753}
@@ -1077,8 +1078,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 10.00 S
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8a49bd3891a110a449726d3b0b15cbe8, type: 2}
-  m_sharedMaterial: {fileID: -2846762432933986905, guid: 8a49bd3891a110a449726d3b0b15cbe8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1384,8 +1385,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'best record:'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8a49bd3891a110a449726d3b0b15cbe8, type: 2}
-  m_sharedMaterial: {fileID: -2846762432933986905, guid: 8a49bd3891a110a449726d3b0b15cbe8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1928,8 +1929,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'CLEAR TIME: '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8a49bd3891a110a449726d3b0b15cbe8, type: 2}
-  m_sharedMaterial: {fileID: -2846762432933986905, guid: 8a49bd3891a110a449726d3b0b15cbe8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2377,8 +2378,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 10.00 S
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8a49bd3891a110a449726d3b0b15cbe8, type: 2}
-  m_sharedMaterial: {fileID: -2846762432933986905, guid: 8a49bd3891a110a449726d3b0b15cbe8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3324,17 +3325,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'THE VENUS HAS CRACKED INTO PIECES
-
-
-    COMBINE the shattered VENUS
-
-
-    TAP
-    TWO MATCHING PIECE TO COMBINE'
+  m_text: "The Venus Has Cracked Into Pieces\r\n\r\nCombine The Shattered Venus\r\n\r\nTap
+    Two Matching Piece To Combine\r"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8a49bd3891a110a449726d3b0b15cbe8, type: 2}
-  m_sharedMaterial: {fileID: -2846762432933986905, guid: 8a49bd3891a110a449726d3b0b15cbe8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3364,7 +3359,7 @@ MonoBehaviour:
   m_enableAutoSizing: 1
   m_fontSizeMin: 0
   m_fontSizeMax: 26
-  m_fontStyle: 17
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -4339,7 +4334,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -100, y: -1463.9508}
+  m_SizeDelta: {x: -100, y: -1529.4874}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3756371091581748902
 CanvasRenderer:
@@ -4881,7 +4876,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 3d16ad50e9b2b4748b3a2504d6a14a2e, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4890,7 +4885,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 10
 --- !u!1 &8794842722115470926
 GameObject:
   m_ObjectHideFlags: 0
@@ -5097,8 +5092,8 @@ MonoBehaviour:
     Most of Venus'' brittle upper
     crust is broken into small fragments that move and jostle.'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 83aeea4a8e8caa544aa96236789811b8, type: 2}
-  m_sharedMaterial: {fileID: -2846762432933986905, guid: 83aeea4a8e8caa544aa96236789811b8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5128,7 +5123,7 @@ MonoBehaviour:
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 22.6
-  m_fontStyle: 33
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -5235,8 +5230,8 @@ MonoBehaviour:
 
     AND IT''S ATMOSPHERE HAS RECOVERED!'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8a49bd3891a110a449726d3b0b15cbe8, type: 2}
-  m_sharedMaterial: {fileID: -2846762432933986905, guid: 8a49bd3891a110a449726d3b0b15cbe8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5697,6 +5692,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e4b8f8341fdf4f144a3890d0121e512f, type: 3}
   - {fileID: 21300000, guid: 25d4300543ce80c40b7320f81fa6c23c, type: 3}
   Delay: 0.0125
+  Destroy_AfterPlay: 0
 --- !u!1 &9187174604098126314
 GameObject:
   m_ObjectHideFlags: 0

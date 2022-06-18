@@ -14,6 +14,7 @@ public class Bullet : MonoBehaviour
     void Start()
     {
         sfx.Play();
+        this.GetComponent<Rigidbody>().AddForce(this.transform.forward * bulletSpeed);
     }
 
     // Update is called once per frame
@@ -29,7 +30,6 @@ public class Bullet : MonoBehaviour
 
     private void FixedUpdate()
     {
-        this.GetComponent<Rigidbody>().AddForce(this.transform.forward * bulletSpeed);
     }
 
     public void OnTriggerEnter(Collider other)

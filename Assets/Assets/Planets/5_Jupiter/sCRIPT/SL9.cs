@@ -108,28 +108,31 @@ public class SL9 : MonoBehaviour
             OnTap = true;
             //if (!IsPointerOverUIObject())
             {
-                Touch screenTouch = Input.GetTouch(0);
-                Ray ray = ARCam.ScreenPointToRay(screenTouch.position);
-                RaycastHit hit;
-
-                // Create a particle if hit
-                if (Physics.Raycast(ray, out hit))
+                for (int i = 0; i < Input.touchCount; i++)
                 {
-                    if (hit.transform.gameObject.tag == "Meteor")
+                    Touch screenTouch = Input.GetTouch(i);
+                    Ray ray = ARCam.ScreenPointToRay(screenTouch.position);
+                    RaycastHit hit;
+
+                    // Create a particle if hit
+                    if (Physics.Raycast(ray, out hit))
                     {
-                        float HitDamage = Random.Range((TapDamage_Min + (TapDamage_Max - TapDamage_Min) * Mathf.Clamp(Combo, 0, 999) / 999), TapDamage_Max);
-                        GameObject Bomb = Instantiate(KaboomPrefab, hit.point, Quaternion.identity);
-                        GameObject HitNumber = Instantiate(TapDamage_Prefab, Input.touches[0].position + new Vector2(Random.Range(-50, 50), 0), Quaternion.identity);
+                        if (hit.transform.gameObject.tag == "Meteor")
+                        {
+                            float HitDamage = Random.Range((TapDamage_Min + (TapDamage_Max - TapDamage_Min) * Mathf.Clamp(Combo, 0, 999) / 999), TapDamage_Max);
+                            GameObject Bomb = Instantiate(KaboomPrefab, hit.point, Quaternion.identity);
+                            GameObject HitNumber = Instantiate(TapDamage_Prefab, Input.touches[0].position + new Vector2(Random.Range(-50, 50), 0), Quaternion.identity);
 
-                        HitNumber.transform.SetParent(Canvas);
-                        HitNumber.GetComponent<Tap_SL9>().ScaleRatio = HitDamage / TapDamage_Min;
-                        HitNumber.GetComponent<TextMeshProUGUI>().text = HitDamage.ToString("00");
-                        HitNumber.GetComponent<TextMeshProUGUI>().color = new Color32(255, (byte)(255 - 255 * (HitDamage - TapDamage_Min) / (TapDamage_Max - TapDamage_Min)), 0, 255);
+                            HitNumber.transform.SetParent(Canvas);
+                            HitNumber.GetComponent<Tap_SL9>().ScaleRatio = HitDamage / TapDamage_Min;
+                            HitNumber.GetComponent<TextMeshProUGUI>().text = HitDamage.ToString("00");
+                            HitNumber.GetComponent<TextMeshProUGUI>().color = new Color32(255, (byte)(255 - 255 * (HitDamage - TapDamage_Min) / (TapDamage_Max - TapDamage_Min)), 0, 255);
 
-                        HP -= HitDamage;
+                            HP -= HitDamage;
 
-                        Combo++;
-                        ComboReset_Timer = 1.5f;
+                            Combo++;
+                            ComboReset_Timer = 1.5f;
+                        }
                     }
                 }
             }

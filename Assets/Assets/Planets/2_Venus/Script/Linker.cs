@@ -141,6 +141,7 @@ public class Linker : MonoBehaviour
                             if (Target_1 == null)
                             {
                                 //FirstTarget
+                                SFX_Normal();
                                 wrongpair = false;
                                 Target_1 = hit.transform.gameObject;
                             }
@@ -194,10 +195,13 @@ public class Linker : MonoBehaviour
                                             }
 
                                         }
+
+                                        SFX_Correct();
                                     }
                                     else if(!Paired && i >= hit.transform.gameObject.GetComponent<Pieces_Infomation>().thisPieces.Neighbour.Length - 1)
                                     {
                                         //Wrong pair
+                                        SFX_False();
                                         wrongpair = true;
                                     }
                                 }
@@ -329,6 +333,23 @@ public class Linker : MonoBehaviour
     public void ShowTutorial()
     {
         Tutorial.SetActive(true);
+    }
+
+    public void SFX_Normal()
+    {
+        GameObject.Find("Audio/SFX/Tap").GetComponent<AudioSource>().Play();
+    }
+
+    public void SFX_Correct()
+    {
+        GameObject.Find("Audio/SFX/TapCorrect").GetComponent<AudioSource>().Play();
+
+    }
+
+    public void SFX_False()
+    {
+        GameObject.Find("Audio/SFX/TapWrong").GetComponent<AudioSource>().Play();
+
     }
 }
 

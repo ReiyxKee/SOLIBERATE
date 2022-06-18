@@ -59,6 +59,11 @@ public class Jupiter_UI : MonoBehaviour
 
             if (sl9.Hit)
             {
+                GameObject.Find("Audio/SFX/MeteorBurning").GetComponent<AudioSource>().Stop();
+                if (!GameObject.Find("Audio/SFX/MeteorExplosion").GetComponent<AudioSource>().isPlaying)
+                {
+                    GameObject.Find("Audio/SFX/MeteorExplosion").GetComponent<AudioSource>().Play();
+                }
                 timeLeft = 0;
                 GameEnd();
             }
@@ -67,9 +72,11 @@ public class Jupiter_UI : MonoBehaviour
                 timeLeft = maxTime - sl9.TimeCount;
             }
 
-            if (timeLeft <= 15 && !sl9.inAtmosphere.isPlaying)
+            if (timeLeft <= 15 && !sl9.inAtmosphere.isPlaying &&!sl9.Hit)
             {
                 sl9.inAtmosphere.Play();
+
+                GameObject.Find("Audio/SFX/MeteorBurning").GetComponent<AudioSource>().Play();
             }
 
             if (timeLeft < 30)
@@ -121,6 +128,8 @@ public class Jupiter_UI : MonoBehaviour
 
             Ended = true;
         }
+
+        GameObject.Find("Audio/SFX/MeteorBurning").GetComponent<AudioSource>().Stop();
     }
 
     public void _Tutorial()

@@ -19,17 +19,21 @@ public class Meteor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (HP <= 0)
+        if (Time.timeScale != 0)
         {
-            Instantiate(Explosion, this.transform.position, this.transform.rotation);
-            GameObject.Destroy(Parent.gameObject);
-            score.CurrentMeteorite -= 1;
-        }
-        else
-        {
-            this.transform.position = Vector3.MoveTowards(this.transform.position, Earth.transform.position, MoveSpeed);
+            if (HP <= 0)
+            {
+                Instantiate(Explosion, this.transform.position, this.transform.rotation);
+                GameObject.Destroy(Parent.gameObject);
+                score.CurrentMeteorite -= 1;
+            }
+            else
+            {
+                this.transform.position = Vector3.MoveTowards(this.transform.position, Earth.transform.position, MoveSpeed);
+            }
         }
     }
+
 
     public void OnTriggerEnter(Collider other)
     {

@@ -38,7 +38,7 @@ public class Placement : MonoBehaviour
     public void Start()
     {
         InstructionPanel.SetActive(true);
-        Instruction.text = "Please Hold Your Phone Up";
+        Instruction.text = "Please Face your Camera\nto Front";
         Calibration_Complete = false;
         Cal_Button.SetActive(true);
         Cal_Img.SetActive(true);
@@ -65,7 +65,7 @@ public class Placement : MonoBehaviour
         Cal_Img.SetActive(false);
         Spawn_Button.SetActive(true);
         Spawn_Img.SetActive(true);
-        Instruction.text = "Stay in a well lit room\nfor best AR Experience";
+        Instruction.text = "Stay in a well lit room\nwhen playing";
     }
 
 
@@ -172,7 +172,7 @@ public class Placement : MonoBehaviour
         Cal_Img.SetActive(true);
         Spawn_Button.SetActive(false);
         Spawn_Img.SetActive(false);
-        Instruction.text = "Please Hold Your Phone Upright at your Comfortable Height";
+        Instruction.text = "Please Face your Camera\nto Front";
     }
 
     public void Timescale(float TimeScale)

@@ -128,10 +128,13 @@ public class Neptune_Parts_Manager : MonoBehaviour
             {
                 if (Input.GetTouch(0).deltaPosition.x < -5)
                 {
+
+                    GameObject.Find("Audio/SFX/ClickTick").GetComponent<AudioSource>().Play();
                     CurrentTarget.transform.localEulerAngles = new Vector3(CurrentTarget.transform.localEulerAngles.x, CurrentTarget.transform.localEulerAngles.y + 5, CurrentTarget.transform.localEulerAngles.z);
                 }
                 else if (Input.GetTouch(0).deltaPosition.x > 5)
                 {
+                    GameObject.Find("Audio/SFX/ClickTick").GetComponent<AudioSource>().Play();
                     CurrentTarget.transform.localEulerAngles = new Vector3(CurrentTarget.transform.localEulerAngles.x, CurrentTarget.transform.localEulerAngles.y - 5, CurrentTarget.transform.localEulerAngles.z);
                 }
             }
@@ -215,6 +218,7 @@ public class Neptune_Parts_Manager : MonoBehaviour
         {
             if (!LinkedDown[i] || !LinkedUp[i])
             {
+                GameObject.Find("Audio/SFX/TapWrong").GetComponent<AudioSource>().Play();
                 anim.SetTrigger("Complete_failed");
                 return;
             }
@@ -223,8 +227,9 @@ public class Neptune_Parts_Manager : MonoBehaviour
             {
                 Unlocked = true;
                 anim.SetTrigger("Complete_success");
+                GameObject.Find("Audio/SFX/CompleteNeptune").GetComponent<AudioSource>().Play();
 
-                if(PlayerPrefs.HasKey("Neptune_Record"))
+                if (PlayerPrefs.HasKey("Neptune_Record"))
                 {
                     if (PlayerPrefs.GetFloat("Neptune_Record") > TimeSpend)
                     {

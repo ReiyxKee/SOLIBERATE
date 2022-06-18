@@ -10,7 +10,7 @@ public class Tap_SL9 : MonoBehaviour
 
     public void Start()
     {
-        this.GetComponent<RectTransform>().localScale = new Vector3(0.5f, 0.5f, 0.5f);
+        this.GetComponent<RectTransform>().localScale = new Vector3(0.75f, 0.75f, 0.75f);
 
         this.GetComponent<RectTransform>().localScale = new Vector3(this.GetComponent<RectTransform>().localScale.x * ScaleRatio, this.GetComponent<RectTransform>().localScale.y * ScaleRatio, this.GetComponent<RectTransform>().localScale.z * ScaleRatio);
     }

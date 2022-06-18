@@ -29,10 +29,12 @@ public class Initial_Adjust : MonoBehaviour
         }
         else
         {
-            if (!this.gameObject.GetComponent<ARAnchor>())
+            if (this.gameObject.GetComponent<ARAnchor>())
             {
-                this.gameObject.AddComponent<ARAnchor>();
+                Destroy(this.gameObject.GetComponent<ARAnchor>());
             }
+
+            this.gameObject.AddComponent<ARAnchor>();
         }
     }
 }

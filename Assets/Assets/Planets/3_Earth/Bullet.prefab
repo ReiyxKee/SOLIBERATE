@@ -65,7 +65,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Explosion: {fileID: 1655245129381086732, guid: d8b31642a1c5c8946b2d79ea0d102481, type: 3}
-  LifeTime: 10
+  LifeTime: 15
   bulletSpeed: 5
   sl: {fileID: 0}
   sfx: {fileID: 2678001112517380518}
@@ -77,9 +77,9 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2015175710163763575}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.001
+  m_Radius: 0.002
   m_Height: 0.01
   m_Direction: 2
   m_Center: {x: 0, y: 0, z: 0}
@@ -125,10 +125,10 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 3538874590724646821, guid: 9c7bcff3b0782024cac4a404e3d4f5b5, type: 2}
-  m_audioClip: {fileID: 8300000, guid: fe095798dbf8a124c862e455a81825f6, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 89262a72c3f34cf4db8492a7fd11fe57, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
-  m_Pitch: 1
+  m_Pitch: 2.13
   Loop: 0
   Mute: 0
   Spatialize: 0

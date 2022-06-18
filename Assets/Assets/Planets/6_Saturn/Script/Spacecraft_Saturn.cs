@@ -190,6 +190,7 @@ public class Spacecraft_Saturn : MonoBehaviour
             if (other.tag == "Ring")
             {
                 GameObject.Destroy(other.gameObject);
+                GameObject.Find("Audio/SFX/PickUp").GetComponent<AudioSource>().Play();
                 Score += 100;
             }
 

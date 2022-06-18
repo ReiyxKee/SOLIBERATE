@@ -141,16 +141,16 @@ public class ShootLaser : MonoBehaviour
 
     public void Reload()
     {
-        _Reloading = true;
         if (sfxReload == null && GameObject.Find("Audio/SFX/Recharge"))
         {
             sfxReload = GameObject.Find("Audio/SFX/Recharge").GetComponent<AudioSource>();
 
         }
-        if (!sfxReload.isPlaying)
+        if (!_Reloading && !sfxReload.isPlaying)
         {
             sfxReload.Play();
         }
+        _Reloading = true;
     }
 
     public void Reloading()

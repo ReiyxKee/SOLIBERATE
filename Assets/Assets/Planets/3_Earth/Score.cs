@@ -17,6 +17,7 @@ public class Score : MonoBehaviour
 
     public Slider EarthHP;
 
+    public GameObject CrosshairParent;
     public GameObject tutorial;
     public GameObject PrevHighScore;
     public GameObject PrevHighScore_Panel;
@@ -113,6 +114,7 @@ public class Score : MonoBehaviour
     {
         if (!Summary)
         {
+            CrosshairParent.SetActive(false);
             shoot.Started = false;
             foreach (Transform Child in Parent.transform)
             {
@@ -137,6 +139,7 @@ public class Score : MonoBehaviour
     {
         if (!Summary)
         {
+            CrosshairParent.SetActive(false);
             shoot.Started = false;
             UIPreGame.SetActive(false);
             UIInGame.SetActive(false);

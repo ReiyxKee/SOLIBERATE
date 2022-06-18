@@ -210,8 +210,8 @@ public class Select_Stage : MonoBehaviour
                 {   //print("Found an object - distance: " + hit.distance);
                     if (hit.transform.gameObject.tag == "Planet")
                     {
-                        CurrentPlanet = hit.transform.gameObject;
 
+                        CurrentPlanet = hit.transform.gameObject;
                         Show_StageUI();
                     }
                     else
@@ -273,7 +273,6 @@ public class Select_Stage : MonoBehaviour
     {
 
     }
-
 
     static List<ARRaycastHit> s_Hits = new List<ARRaycastHit>();
     private bool IsPointerOverUIObject()

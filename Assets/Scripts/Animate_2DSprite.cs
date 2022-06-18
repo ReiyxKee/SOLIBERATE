@@ -11,6 +11,9 @@ public class Animate_2DSprite : MonoBehaviour
     public Image Renderer;
     public Sprite[] Frames;
     public float Delay;
+
+    public bool Destroy_AfterPlay;
+    public bool Unscaled_Time;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +23,14 @@ public class Animate_2DSprite : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        SecReset += Time.deltaTime;
+        if (Unscaled_Time)
+        {
+            SecReset += Time.unscaledDeltaTime;
+        }
+        else
+        {
+            SecReset += Time.deltaTime;
+        }
 
         if (frame < Frames.Length && SecReset >= Delay)
         {
@@ -30,6 +40,10 @@ public class Animate_2DSprite : MonoBehaviour
             {
                 frame++;
                 Renderer.sprite = Frames[frame];
+            }
+            else if (frame + 1 >= Frames.Length && Destroy_AfterPlay)
+            {
+                GameObject.Destroy(this.gameObject);
             }
             else if (frame + 1 >= Frames.Length && Loop)
             {

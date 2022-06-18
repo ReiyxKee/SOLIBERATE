@@ -25,6 +25,10 @@ public class Temperature_Manager : MonoBehaviour
     public bool hot;
     public bool Started;
     public bool progressed;
+
+
+    public AudioSource Hot;
+    public AudioSource Cold;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +43,25 @@ public class Temperature_Manager : MonoBehaviour
         {
             Progress.value = progress;
             current_Total = slider_L.value + slider_R.value;
+
+            if (Cold.volume >= 1)
+            {
+                Cold.volume = 1;
+            }
+            if (Cold.volume <= 0)
+            {
+                Cold.volume = 0;
+            }
+
+            if (Hot.volume >= 1)
+            {
+                Hot.volume = 1;
+            }
+            if (Hot.volume <= 0)
+            {
+                Hot.volume = 0;
+            }
+
 
             if (progress <= 0)
             { 
@@ -111,18 +134,47 @@ public class Temperature_Manager : MonoBehaviour
 
             if (current_Total < 100 - (_slider_L.slide_range.value + _slider_R.slide_range.value) - 5)
             {
+                if (Hot.volume > 0)
+                {
+                    Hot.volume -= Time.deltaTime;
+                }
+
+                if (Cold.volume < 1)
+                {
+                    Cold.volume += 2*Time.deltaTime;
+                }
+
                 float ratio = (255 * current_Total / (200 - _slider_L.slide_range.value - _slider_R.slide_range.value));
                 material.color = new Color32((byte)ratio, 255, 255, 255);
                 hot = false;
             }
-
-            if (current_Total < 100 - (_slider_L.slide_range.value + _slider_R.slide_range.value) + 5 && current_Total > 100 - (_slider_L.slide_range.value + _slider_R.slide_range.value) - 5)
+            else if (current_Total < 100 - (_slider_L.slide_range.value + _slider_R.slide_range.value) + 5 && current_Total > 100 - (_slider_L.slide_range.value + _slider_R.slide_range.value) - 5)
             {
+                if (Hot.volume > 0)
+                {
+                    Hot.volume -= Time.deltaTime;
+                }
+
+                if (Cold.volume > 0)
+                {
+                    Cold.volume -= Time.deltaTime;
+                }
+
                 material.color = new Color32(255, 255, 255, 255);
             }
-
-            if (current_Total > 100 - (_slider_L.slide_range.value + _slider_R.slide_range.value) + 5)
+            else if (current_Total > 100 - (_slider_L.slide_range.value + _slider_R.slide_range.value) + 5)
             {
+                if (Hot.volume < 1)
+                {
+                    Hot.volume += Time.deltaTime;
+                }
+
+                if (Cold.volume > 0)
+                {
+                    Cold.volume -= Time.deltaTime;
+                }
+
+
                 float ratio = 255 - (255 * current_Total / (_slider_L.slide_range.value + _slider_R.slide_range.value));
                 material.color = new Color32(255, (byte)ratio, (byte)ratio, 255);
                 hot = true;
