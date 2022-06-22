@@ -798,8 +798,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'CLEAR TIME: '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 83aeea4a8e8caa544aa96236789811b8, type: 2}
+  m_sharedMaterial: {fileID: -2846762432933986905, guid: 83aeea4a8e8caa544aa96236789811b8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1722,11 +1722,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Dyson Sphere is an idea of \ncovering the sun with a lot of solar panel
-    \nto get as many energy as possible"
+  m_text: "Dyson Sphere is an idea of covering \nthe sun with a lot of solar panel\n\nso
+    we can get as many energy as possible"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 83aeea4a8e8caa544aa96236789811b8, type: 2}
+  m_sharedMaterial: {fileID: -2846762432933986905, guid: 83aeea4a8e8caa544aa96236789811b8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1750,12 +1750,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
+  m_fontSize: 18
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 18
-  m_fontSizeMax: 24
+  m_fontSizeMin: 0
+  m_fontSizeMax: 18
   m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -1926,8 +1926,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 10.00 S
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 83aeea4a8e8caa544aa96236789811b8, type: 2}
+  m_sharedMaterial: {fileID: -2846762432933986905, guid: 83aeea4a8e8caa544aa96236789811b8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2310,8 +2310,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'BEST RECORD:'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 83aeea4a8e8caa544aa96236789811b8, type: 2}
+  m_sharedMaterial: {fileID: -2846762432933986905, guid: 83aeea4a8e8caa544aa96236789811b8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2574,8 +2574,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: NEW
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 83aeea4a8e8caa544aa96236789811b8, type: 2}
+  m_sharedMaterial: {fileID: -2846762432933986905, guid: 83aeea4a8e8caa544aa96236789811b8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2599,7 +2599,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 12
+  m_fontSize: 11.8
   m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2929,7 +2929,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5204106862248162058
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3140,8 +3140,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: WE HAVE SAVED OUR SUN FROM THE ALIEN!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 83aeea4a8e8caa544aa96236789811b8, type: 2}
+  m_sharedMaterial: {fileID: -2846762432933986905, guid: 83aeea4a8e8caa544aa96236789811b8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3557,8 +3557,8 @@ MonoBehaviour:
   m_text: "The Sun Is Trapped In Alien's Dyson Sphere\r\r\n\r\nTap to Destroy it
     when Green Light appears\r\n\r\nDestroy all as fast as possible\r"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 83aeea4a8e8caa544aa96236789811b8, type: 2}
+  m_sharedMaterial: {fileID: -2846762432933986905, guid: 83aeea4a8e8caa544aa96236789811b8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3582,13 +3582,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 28.35
+  m_fontSize: 23.85
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 18
-  m_fontSizeMax: 30
-  m_fontStyle: 1
+  m_fontSizeMin: 0.2
+  m_fontSizeMax: 25
+  m_fontStyle: 33
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -4133,8 +4133,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 10.00 S
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 83aeea4a8e8caa544aa96236789811b8, type: 2}
+  m_sharedMaterial: {fileID: -2846762432933986905, guid: 83aeea4a8e8caa544aa96236789811b8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

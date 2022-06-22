@@ -1702,7 +1702,7 @@ RectTransform:
   - {fileID: 8059100115384997599}
   - {fileID: 4113462320536261406}
   - {fileID: 7742733118708986001}
-  m_Father: {fileID: 4235732668956828748}
+  m_Father: {fileID: 460591640526065222}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1836,9 +1836,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 6286785165626870051}
+  - {fileID: 8900166615454086957}
+  - {fileID: 4111656460242273776}
   m_Father: {fileID: 4235732668956828748}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2827,7 +2830,7 @@ RectTransform:
   - {fileID: 3509399619691142051}
   - {fileID: 5469990060190895783}
   - {fileID: 4529265452731746807}
-  m_Father: {fileID: 4235732668956828748}
+  m_Father: {fileID: 460591640526065222}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
@@ -3454,7 +3457,7 @@ RectTransform:
   - {fileID: 1642265342623447120}
   - {fileID: 5835553574256275176}
   m_Father: {fileID: 4235732668956828748}
-  m_RootOrder: 5
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -3744,12 +3747,9 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6286785165626870051}
-  - {fileID: 8900166615454086957}
-  - {fileID: 4111656460242273776}
   - {fileID: 460591640526065222}
-  - {fileID: 5963941061285360909}
   - {fileID: 8413665758472761832}
+  - {fileID: 5963941061285360909}
   m_Father: {fileID: 5310168019670373723}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3838,8 +3838,6 @@ MonoBehaviour:
   endGame: {fileID: 6559549001874608772}
   favourText: {fileID: 6915715525438053229}
   LookAt: {fileID: 1208874348383320552}
-  Hot: {fileID: 0}
-  Cold: {fileID: 0}
   temp: {fileID: 4785331781966229288}
 --- !u!1 &5605696620079240757
 GameObject:
@@ -4528,7 +4526,7 @@ RectTransform:
   - {fileID: 1849781277709932585}
   - {fileID: 2613575475710422650}
   m_Father: {fileID: 4235732668956828748}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -4762,7 +4760,7 @@ MonoBehaviour:
   m_enableAutoSizing: 1
   m_fontSizeMin: 0
   m_fontSizeMax: 32
-  m_fontStyle: 1
+  m_fontStyle: 33
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -4831,7 +4829,7 @@ RectTransform:
   - {fileID: 8549144386157691347}
   - {fileID: 2215028757564265660}
   - {fileID: 3969615047106200174}
-  m_Father: {fileID: 4235732668956828748}
+  m_Father: {fileID: 460591640526065222}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
@@ -6193,8 +6191,8 @@ MonoBehaviour:
   m_text: "The Temperature Of Mercury Is Getting Unstable\r\n\nLet's Help To Balance
     It\r"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 83aeea4a8e8caa544aa96236789811b8, type: 2}
+  m_sharedMaterial: {fileID: -2846762432933986905, guid: 83aeea4a8e8caa544aa96236789811b8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6218,13 +6216,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 29
+  m_fontSize: 25.35
   m_fontSizeBase: 31.2
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 0
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 33
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535

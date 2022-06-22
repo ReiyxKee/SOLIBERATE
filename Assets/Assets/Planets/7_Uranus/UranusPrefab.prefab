@@ -1760,11 +1760,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "CURRENTLY, THERE ARE 27 MOONS THAT WE DISCOVERED ORBITING AROUND URANUS.\n\n25
-    OF THE MOONS ARE NAMED AFTER THE CHARACTERS FROM SHAKESPEARE\n\nSUCH AS THE KING
-    AND QUEEN OF FAIRIES FROM \"A Midsummer Night's Dream\"\n\nOBERON AND TITANIA\n\n\nAND
-    THERE IS ANOTHER 2 MOON\n\nUMBRIEL AND ARIEL\n\nWERE NAMED BY THE POEM \n\"The
-    Rape of the Lock\" \nBY Alexander Pope"
+  m_text: "Currently, There Are 27 Moons That We Discovered Orbiting Around Uranus.\r\n\r\n25
+    Of The Moons Are Named After The Characters From Shakespeare\r\n\r\nSuch As The
+    King And Queen Of Fairies From \"A Midsummer Night's Dream\"\r\n\r\nOberon And
+    Titania\r\n\r\n\r\nAnd There Is Another 2 Moon\r\n\r\nUmbriel And Ariel\r\n\r\nWere
+    Named By The Poem \r\n\"The Rape Of The Lock\" \r\nBy Alexander Pope\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8a49bd3891a110a449726d3b0b15cbe8, type: 2}
   m_sharedMaterial: {fileID: -2846762432933986905, guid: 8a49bd3891a110a449726d3b0b15cbe8, type: 2}
@@ -1797,7 +1797,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 32
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -3164,8 +3164,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7528762445519098787}
   m_HandleRect: {fileID: 6924206268252498138}
   m_Direction: 2
-  m_Value: 0.94416994
-  m_Size: 0.60826194
+  m_Value: 0.9999997
+  m_Size: 0.608262
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -10427,8 +10427,8 @@ RectTransform:
   m_Father: {fileID: 7162578276373932234}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.3698673}
-  m_AnchorMax: {x: 1, y: 0.97812927}
+  m_AnchorMin: {x: 0, y: 0.391738}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -12718,7 +12718,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -275.1204}
+  m_AnchoredPosition: {x: 0, y: -287.70496}
   m_SizeDelta: {x: 0, y: 575.41}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2263014226761750319
@@ -14202,7 +14202,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 238.2, y: -141}
+  m_AnchoredPosition: {x: 97, y: -141}
   m_SizeDelta: {x: 110, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2218839536654471586
